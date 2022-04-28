@@ -5,13 +5,85 @@ using UnityEngine.XR; // das ist die wichtige using Directive
 
 public class BorderSounds : MonoBehaviour
 {
-    //Plan: wir machen drei collider, die eine Abstufung an Sounddistortion sind. Das wird dann alles von einem Script gemanaged -> vielleicht dumm
+    // neuer Plan: wir messen vom Mittelpunkt aus den Abstand
+
+    public FieldSizeManager fieldSizeManagerScr;
+
+    public GameObject fieldFloor;
+
+    float playerHeight;
+
+    public float distanceToMiddle;
+
+    float fieldRadius;
+    float lastFieldRadius;
+
+    public AudioSource borderSound;
+    public GameObject playerHead;
+
+    public float hardBorderMargin;
+    public float softBorderMargin;
+
+    float hardBorder;
+    float softBorder;
+
+    private void Update()
+    {
+        playerHeight = fieldSizeManagerScr.height;
+        fieldRadius = fieldSizeManagerScr.radius;
+
+        ManageResettingRadius();
+
+        MeasureDistance();
+
+        ManageVolume();
+    }
+
+    void ManageVolume()
+    {
+        if (distanceToMiddle >= hardBorder)
+        {
+            borderSound.volume = 1;
+        }
+        else if (distanceToMiddle >= softBorder)
+        {
+            borderSound.volume = 0.3f;
+        }
+        else
+        {
+            borderSound.volume = 0f;
+        }
+    }
+
+    void MeasureDistance()
+    {
+        distanceToMiddle = Vector3.Distance(playerHead.transform.position, new Vector3(fieldFloor.transform.position.x, playerHeight, fieldFloor.transform.position.z));
+        Debug.DrawLine(playerHead.transform.position, new Vector3(fieldFloor.transform.position.x, playerHeight, fieldFloor.transform.position.z));
+    }
+
+    void ManageResettingRadius()
+    {
+        if(lastFieldRadius != fieldRadius)
+        {
+            DetermineSoundBorder();
+        }
+        lastFieldRadius = fieldRadius;
+    }
+
+    void DetermineSoundBorder()
+    {
+        hardBorder = fieldRadius - hardBorderMargin;
+        softBorder = fieldRadius - softBorderMargin;
+    }
+
+
+    /*//Plan: wir machen drei collider, die eine Abstufung an Sounddistortion sind. Das wird dann alles von einem Script gemanaged -> vielleicht dumm
     /*public Collider[] bordersSoft;
     public Collider[] bordersMiddle;
     public Collider[] bordersHard;*/
 
     //float bordertier;
-
+    /*
     public InputDevice headSet;
 
     public GameObject head;
@@ -61,5 +133,5 @@ public class BorderSounds : MonoBehaviour
         {
             borderSound.volume = 0f;
         }
-    }
+    }*/
 }

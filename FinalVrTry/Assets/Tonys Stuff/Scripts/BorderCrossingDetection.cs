@@ -6,7 +6,7 @@ public class BorderCrossingDetection : MonoBehaviour
 {
     // plan: ein bool wird bei collision auf true gesetzt und bei exit auf false gesetzt. dieser bool wird auf einen generellen manager übertragen, der dann entscheidet welche der collisions am wichtigsten für den Audio Mixer grade ist
     // Start is called before the first frame update
-
+    /*
     BorderSounds borderSoundsScr;
 
     float borderTier;
@@ -69,6 +69,6 @@ public class BorderCrossingDetection : MonoBehaviour
         {
             borderSoundsScr.inSoftBorders = false;
         }
-    }
+    }*/
 
 }
