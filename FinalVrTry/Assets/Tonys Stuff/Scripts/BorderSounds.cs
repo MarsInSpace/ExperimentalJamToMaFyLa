@@ -43,7 +43,7 @@ public class BorderSounds : MonoBehaviour
     {
         if (distanceToMiddle >= hardBorder)
         {
-            borderSound.volume = 1;
+            borderSound.volume = 0.8f;
         }
         else if (distanceToMiddle >= softBorder)
         {
