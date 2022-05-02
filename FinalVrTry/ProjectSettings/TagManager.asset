@@ -9,6 +9,7 @@ TagManager:
   - Head
   - Wall
   - Ceiling
+  - Sound
   layers:
   - Default
   - TransparentFX

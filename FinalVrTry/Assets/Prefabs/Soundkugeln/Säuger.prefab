@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -4029859521379789554}
   m_Layer: 0
   m_Name: "S\xE4uger"
-  m_TagString: Untagged
+  m_TagString: Sound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

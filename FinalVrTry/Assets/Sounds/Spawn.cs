@@ -9,27 +9,24 @@ public class Spawn : MonoBehaviour
     public List<GameObject> currentSounds = new List<GameObject>();
     public GameObject currentSound;
 
-    public List<Vector3> spawnpoints = new List<Vector3>();
+    public List<GameObject> spawnpoints = new List<GameObject>();
     float soundDistance;
-    Vector3 front;
-    Vector3 back;
-    Vector3 left;
-    Vector3 right;
+    public GameObject front;
+    public GameObject back;
+    public GameObject left;
+    public GameObject right;
 
     Quaternion rot = new Quaternion(0, 0, 0, 0);
 
-    private void Start()
+    private void Awake()
     {
         soundDistance = field.radius / 2;
-        front = field.middle + new Vector3(soundDistance, field.height, 0);
-        back = field.middle - new Vector3(soundDistance, -field.height, 0);
-        left = field.middle - new Vector3(0, -field.height, soundDistance);
-        right = field.middle + new Vector3(0, field.height, soundDistance);
+        front.transform.position = field.middle + new Vector3(soundDistance, field.height, 0);
+        back.transform.position = field.middle - new Vector3(soundDistance, -field.height, 0);
+        left.transform.position = field.middle - new Vector3(0, -field.height, soundDistance);
+        right.transform.position = field.middle + new Vector3(0, field.height, soundDistance);
         spawnpoints.Add(front); spawnpoints.Add(back); spawnpoints.Add(left); spawnpoints.Add(right);
 
-        SoundSources.Add(Instantiate(SoundSources[Random.Range(0, SoundSources.Count)], spawnpoints[Random.Range(0, spawnpoints.Count)], rot));
-
-        
     }
 
     private void Update()
@@ -42,7 +39,7 @@ public class Spawn : MonoBehaviour
 
         if (currentSounds.Count == 0)
         {
-            currentSound = Instantiate(SoundSources[Random.Range(0, SoundSources.Count)], spawnpoints[Random.Range(0, spawnpoints.Count)], rot);
+            currentSound = Instantiate(SoundSources[Random.Range(0, SoundSources.Count)], spawnpoints[Random.Range(0, spawnpoints.Count)].transform.position, rot);
             currentSounds.Add(currentSound); 
         }
     }
