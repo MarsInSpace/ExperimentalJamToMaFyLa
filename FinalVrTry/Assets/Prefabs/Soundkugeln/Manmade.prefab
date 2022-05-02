@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7164067952512119747}
   - component: {fileID: 6007707879057223755}
   - component: {fileID: 2436901163538776496}
+  - component: {fileID: -2024100070176700887}
   m_Layer: 0
   m_Name: Manmade
   m_TagString: Sound
@@ -245,3 +246,26 @@ MonoBehaviour:
   mDistanceRolloffMin: 10
   mDistanceRolloffMax: 50
   mDistanceRolloffModel: 0
+--- !u!164 &-2024100070176700887
+AudioReverbFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460424155182469743}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: 0
+  m_RoomHF: 0
+  m_DecayTime: 1
+  m_DecayHFRatio: 0.5
+  m_ReflectionsLevel: -10000
+  m_ReverbLevel: 0
+  m_ReverbDelay: 0.04
+  m_Diffusion: 100
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 27

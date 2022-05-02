@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3267076490734804420}
   - component: {fileID: 5829749508856930721}
   - component: {fileID: 2336786119087482717}
+  - component: {fileID: -3360231713153840381}
   m_Layer: 0
   m_Name: Rain
   m_TagString: Sound
@@ -257,3 +258,26 @@ MonoBehaviour:
   mDistanceRolloffMin: 10
   mDistanceRolloffMax: 50
   mDistanceRolloffModel: 0
+--- !u!164 &-3360231713153840381
+AudioReverbFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5225809878632010070}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: 0
+  m_RoomHF: 0
+  m_DecayTime: 1
+  m_DecayHFRatio: 0.5
+  m_ReflectionsLevel: -10000
+  m_ReverbLevel: 0
+  m_ReverbDelay: 0.04
+  m_Diffusion: 100
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 27

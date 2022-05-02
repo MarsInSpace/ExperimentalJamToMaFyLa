@@ -1907,6 +1907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 808913367}
   - component: {fileID: 808913366}
+  - component: {fileID: 808913368}
   m_Layer: 0
   m_Name: Soundmanager
   m_TagString: Untagged
@@ -1926,7 +1927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e325eb4a727d4c479303bb2fb9fae4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1221056714}
+  field: {fileID: 1174898854}
   SoundSources:
   - {fileID: 7404650356444337543, guid: bbb7a2d7fcee4f443b14f8aee2a487ca, type: 3}
   - {fileID: 2151964796433769995, guid: f2780ef011a106c4ea89448541b5ac69, type: 3}
@@ -1944,6 +1945,7 @@ MonoBehaviour:
   - {fileID: 3103891999777162545, guid: b2db48930f57d534991c70399abfb2cd, type: 3}
   currentSounds: []
   currentSound: {fileID: 0}
+  spawnpoints: []
 --- !u!4 &808913367
 Transform:
   m_ObjectHideFlags: 0
@@ -1959,6 +1961,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &808913368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808913365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0623dc3acbf501499270b45078c3391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnClass: {fileID: 808913366}
+  currentSounds: []
 --- !u!1 &927749390
 GameObject:
   m_ObjectHideFlags: 0
