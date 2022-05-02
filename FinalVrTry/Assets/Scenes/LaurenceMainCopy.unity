@@ -1946,6 +1946,10 @@ MonoBehaviour:
   currentSounds: []
   currentSound: {fileID: 0}
   spawnpoints: []
+  front: {fileID: 1174898852}
+  back: {fileID: 1174898852}
+  left: {fileID: 1174898852}
+  right: {fileID: 1174898852}
 --- !u!4 &808913367
 Transform:
   m_ObjectHideFlags: 0
