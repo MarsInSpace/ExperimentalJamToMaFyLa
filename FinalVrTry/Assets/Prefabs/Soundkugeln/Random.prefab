@@ -121,9 +121,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 5
+  MaxDistance: 4
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e4b5b287ddf9454bb6026454bbffc7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mAudioSource: {fileID: 0}
+  mAudioSource: {fileID: 4615841941992022146}
   mGain: 1
   mDistanceRolloffOverrideAudioSourcesRange: 0
   mDistanceRolloffMin: 10
