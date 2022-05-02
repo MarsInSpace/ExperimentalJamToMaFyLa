@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2673278116867522676}
   - component: {fileID: 7470223312488461904}
   - component: {fileID: 6388499630650059277}
+  - component: {fileID: 2553812636590249010}
   m_Layer: 0
   m_Name: Stimmen
   m_TagString: Untagged
@@ -233,3 +234,26 @@ MonoBehaviour:
   mDistanceRolloffMin: 10
   mDistanceRolloffMax: 50
   mDistanceRolloffModel: 0
+--- !u!164 &2553812636590249010
+AudioReverbFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2247053488332321367}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: 0
+  m_RoomHF: 0
+  m_DecayTime: 1
+  m_DecayHFRatio: 0.5
+  m_ReflectionsLevel: -10000
+  m_ReverbLevel: 0
+  m_ReverbDelay: 0.04
+  m_Diffusion: 100
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 27

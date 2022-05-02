@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6791061963378325487}
   - component: {fileID: 6086605062348309007}
   - component: {fileID: -1539173115012646314}
-  - component: {fileID: 5828563548224900529}
+  - component: {fileID: 4755125895704471909}
   m_Layer: 0
   m_Name: Beat
   m_TagString: Untagged
@@ -258,28 +258,26 @@ MonoBehaviour:
   mDistanceRolloffMin: 10
   mDistanceRolloffMax: 50
   mDistanceRolloffModel: 0
---- !u!169 &5828563548224900529
-AudioLowPassFilter:
+--- !u!164 &4755125895704471909
+AudioReverbFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7404650356444337543}
   m_Enabled: 1
-  serializedVersion: 3
-  m_LowpassResonanceQ: 1
-  lowpassLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.22727273
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  m_DryLevel: 0
+  m_Room: 0
+  m_RoomHF: 0
+  m_DecayTime: 1
+  m_DecayHFRatio: 0.5
+  m_ReflectionsLevel: -10000
+  m_ReverbLevel: 0
+  m_ReverbDelay: 0.04
+  m_Diffusion: 100
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 27

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2493162000725277574}
   - component: {fileID: 3736547999641842939}
   - component: {fileID: -8095757130783899832}
+  - component: {fileID: 3243602669414408469}
   m_Layer: 0
   m_Name: Wald
   m_TagString: Untagged
@@ -245,3 +246,26 @@ MonoBehaviour:
   mDistanceRolloffMin: 10
   mDistanceRolloffMax: 50
   mDistanceRolloffModel: 0
+--- !u!164 &3243602669414408469
+AudioReverbFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5210702442628669378}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: 0
+  m_RoomHF: 0
+  m_DecayTime: 1
+  m_DecayHFRatio: 0.5
+  m_ReflectionsLevel: -10000
+  m_ReverbLevel: 0
+  m_ReverbDelay: 0.04
+  m_Diffusion: 100
+  m_Density: 100
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 27
