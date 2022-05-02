@@ -6,8 +6,12 @@ public class SoundOverlays: MonoBehaviour
 {
     public Spawn spawnClass;
     AudioReverbFilter reverb;
+
     AudioLowPassFilter lowpass;
+
     public List<GameObject> currentSounds;
+
+    public AudioSource waterSound;
 
 
     // Start is called before the first frame update
@@ -42,6 +46,8 @@ public class SoundOverlays: MonoBehaviour
             lowpass = soundDing.GetComponent<AudioLowPassFilter>();
 
             lowpass.cutoffFrequency = Mathf.Lerp(5007.7f, 1160, 1);
+
+            waterSound.Play();
 
         }
     }
