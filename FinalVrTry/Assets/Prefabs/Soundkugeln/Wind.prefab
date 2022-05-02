@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3207205890383856237}
   - component: {fileID: 313346021955702007}
   - component: {fileID: 4938486347577653372}
+  - component: {fileID: -4879424787016338924}
   m_Layer: 0
   m_Name: Wind
   m_TagString: Untagged
@@ -274,3 +275,21 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     playOnAwake: 0
+--- !u!114 &-4879424787016338924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3103891999777162545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4b5b287ddf9454bb6026454bbffc7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mAudioSource: {fileID: 0}
+  mGain: 1
+  mDistanceRolloffOverrideAudioSourcesRange: 0
+  mDistanceRolloffMin: 10
+  mDistanceRolloffMax: 50
+  mDistanceRolloffModel: 0

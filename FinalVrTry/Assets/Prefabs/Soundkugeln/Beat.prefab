@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3458660929633094875}
   - component: {fileID: 6791061963378325487}
   - component: {fileID: 6086605062348309007}
+  - component: {fileID: -1539173115012646314}
   m_Layer: 0
   m_Name: Beat
   m_TagString: Untagged
@@ -238,3 +239,21 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     playOnAwake: 0
+--- !u!114 &-1539173115012646314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7404650356444337543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4b5b287ddf9454bb6026454bbffc7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mAudioSource: {fileID: 0}
+  mGain: 1
+  mDistanceRolloffOverrideAudioSourcesRange: 0
+  mDistanceRolloffMin: 10
+  mDistanceRolloffMax: 50
+  mDistanceRolloffModel: 0

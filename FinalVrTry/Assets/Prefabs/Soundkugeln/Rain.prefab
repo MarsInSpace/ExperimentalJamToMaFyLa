@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 580270796928260805}
   - component: {fileID: 3267076490734804420}
   - component: {fileID: 5829749508856930721}
+  - component: {fileID: 2336786119087482717}
   m_Layer: 0
   m_Name: Rain
   m_TagString: Untagged
@@ -238,3 +239,21 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     playOnAwake: 0
+--- !u!114 &2336786119087482717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5225809878632010070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4b5b287ddf9454bb6026454bbffc7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mAudioSource: {fileID: 0}
+  mGain: 1
+  mDistanceRolloffOverrideAudioSourcesRange: 0
+  mDistanceRolloffMin: 10
+  mDistanceRolloffMax: 50
+  mDistanceRolloffModel: 0
