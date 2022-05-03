@@ -61,6 +61,7 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
     void SetMiddle()
     {
         middle = new Vector3(playerHead.transform.position.x ,0, playerHead.transform.position.z);
+        gameFieldPrefab.transform.position = middle;
         setNewMiddle = false;
     }
 
