@@ -4,13 +4,43 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
+    [SerializeField] FieldSizeManager field;
     [SerializeField] List<GameObject> SoundSources = new List<GameObject>();
+    public List<GameObject> currentSounds = new List<GameObject>();
+    public GameObject currentSound;
 
-    Vector3 pos = new Vector3(0, 0, 0);
+    public List<GameObject> spawnpoints = new List<GameObject>();
+    float soundDistance;
+    public GameObject front;
+    public GameObject back;
+    public GameObject left;
+    public GameObject right;
+
     Quaternion rot = new Quaternion(0, 0, 0, 0);
 
-    private void Start()
+    private void Awake()
     {
-        Instantiate(SoundSources[Random.Range(0, SoundSources.Count)], pos, rot);
+        soundDistance = field.radius / 2;
+        front.transform.position = field.middle + new Vector3(soundDistance, field.height, 0);
+        back.transform.position = field.middle - new Vector3(soundDistance, -field.height, 0);
+        left.transform.position = field.middle - new Vector3(0, -field.height, soundDistance);
+        right.transform.position = field.middle + new Vector3(0, field.height, soundDistance);
+        spawnpoints.Add(front); spawnpoints.Add(back); spawnpoints.Add(left); spawnpoints.Add(right);
+
+    }
+
+    private void Update()
+    {
+        for (var i = currentSounds.Count - 1; i > -1; i--)
+        {
+            if (currentSounds[i] == null)
+                currentSounds.RemoveAt(i);
+        }
+
+        if (currentSounds.Count == 0)
+        {
+            currentSound = Instantiate(SoundSources[Random.Range(0, SoundSources.Count)], spawnpoints[Random.Range(0, spawnpoints.Count)].transform.position, rot);
+            currentSounds.Add(currentSound); 
+        }
     }
 }

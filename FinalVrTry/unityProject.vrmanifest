@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.finalvrtry.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\fmani\\OneDrive\\Dokumente\\GitHub\\ExperimentalJamToMaFyLa\\FinalVrTry\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\Laure\\Documents\\ExperimentalJamToMaFyLa\\FinalVrTry\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "FinalVrTry [Testing]"
