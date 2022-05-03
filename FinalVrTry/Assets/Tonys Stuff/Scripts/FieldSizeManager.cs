@@ -9,6 +9,11 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
 
     public GameObject gameFieldPrefab;
 
+    public AudioSource kalibrierAudio;
+    public GameObject leftController;
+    public GameObject rightController;
+    
+
     public float childArmLength;
     public float adultArmLength;
 
