@@ -5,13 +5,18 @@ using Valve.VR;
 
 public class PickUpSound : MonoBehaviour
 {
-    public float distToPickUp = 0.5f;
+    public bool handClosed;
+
+
+    //SteamVR attempt
+
+    /*public float distToPickUp = 0.5f;
     public SteamVR_Input_Sources HandSource = SteamVR_Input_Sources.LeftHand;
     public bool handClosed;
     public LayerMask pickUpLayer;
 
     Rigidbody holdingTarget;
-    GameObject grabbedSound;
+    Sound grabbedSound;
 
     private void FixedUpdate()
     {
@@ -26,7 +31,7 @@ public class PickUpSound : MonoBehaviour
             if (colliders.Length > 0)
             {
                 holdingTarget = colliders[0].transform.root.GetComponent<Rigidbody>();
-                grabbedSound = colliders[0].transform.root.GetComponent<GameObject>();
+                grabbedSound = colliders[0].transform.root.GetComponent<Sound>();
             }
             else
             {
@@ -42,6 +47,6 @@ public class PickUpSound : MonoBehaviour
                 holdingTarget.maxAngularVelocity = 20;
             }
         }
-    }
+    }*/
 
 }
