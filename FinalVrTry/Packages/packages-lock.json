@@ -1,5 +1,44 @@
 {
   "dependencies": {
+    "com.htc.upm.wave.essence": {
+      "version": "4.4.0-r.8",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.htc.upm.wave.xrsdk": "4.4.0-r.8",
+        "com.htc.upm.wave.native": "4.4.0-r.8"
+      },
+      "url": "https://npm-registry.vive.com"
+    },
+    "com.htc.upm.wave.native": {
+      "version": "4.4.0-r.8",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.htc.upm.wave.xrsdk": "4.4.0-r.8"
+      },
+      "url": "https://npm-registry.vive.com"
+    },
+    "com.htc.upm.wave.openxr": {
+      "version": "0.8.0-preview.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.inputsystem": "1.2.0",
+        "com.unity.xr.management": "4.0.7",
+        "com.unity.xr.openxr": "1.2.8"
+      },
+      "url": "https://npm-registry.vive.com"
+    },
+    "com.htc.upm.wave.xrsdk": {
+      "version": "4.4.0-r.8",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.xr.management": "3.0.6"
+      },
+      "url": "https://npm-registry.vive.com"
+    },
     "com.unity.burst": {
       "version": "1.6.5",
       "depth": 1,
