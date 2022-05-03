@@ -10,6 +10,8 @@ public class TestHeadMovement : MonoBehaviour
     public float rotationSpeed;
     Vector3 movement;
 
+    public bool useTestHeadMovement = false;
+
 
     private void Start()
     {
@@ -18,6 +20,8 @@ public class TestHeadMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!useTestHeadMovement) return;
+
         Vector3 forwardMovement;
 
         if (Input.GetKey(KeyCode.W))
