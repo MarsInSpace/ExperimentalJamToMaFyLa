@@ -7,19 +7,17 @@ public class CheckSpawnpoint : MonoBehaviour
     [SerializeField] Spawn spawn;
     public bool inUse = false;
     
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-            inUse = true;
-            spawn.spawnpoints.Remove(gameObject);
-        
+        inUse = true;
+        spawn.spawnpoints.Remove(gameObject);
+        Debug.Log("trigger entered");
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
         inUse = false;
         spawn.spawnpoints.Add(gameObject);
+        Debug.Log("trigger exit");
     }
-
-
-
 }
