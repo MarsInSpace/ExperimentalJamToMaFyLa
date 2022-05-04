@@ -909,7 +909,7 @@
                     "path": "<XRHMD>/centerEyePosition",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "XR Usage",
                     "action": "hmdPosition",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -920,7 +920,7 @@
                     "path": "<XRHMD>/centerEyeRotation",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "XR Usage",
                     "action": "hmdRotation",
                     "isComposite": false,
                     "isPartOfComposite": false
