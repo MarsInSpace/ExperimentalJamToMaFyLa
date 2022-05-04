@@ -50,7 +50,7 @@
       "type": "boolean"
     },
     {
-      "name": "/actions/default/in/pullTrigger",
+      "name": "/actions/default/in/MenuButton",
       "type": "boolean"
     },
     {
@@ -90,7 +90,7 @@
   "action_sets": [
     {
       "name": "/actions/default",
-      "usage": "single"
+      "usage": "leftright"
     },
     {
       "name": "/actions/platformer",

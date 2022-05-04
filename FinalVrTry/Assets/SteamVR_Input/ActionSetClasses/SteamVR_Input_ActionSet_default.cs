@@ -105,11 +105,11 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Boolean pullTrigger
+        public virtual SteamVR_Action_Boolean MenuButton
         {
             get
             {
-                return SteamVR_Actions.default_pullTrigger;
+                return SteamVR_Actions.default_MenuButton;
             }
         }
         

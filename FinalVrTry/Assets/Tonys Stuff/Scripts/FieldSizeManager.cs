@@ -54,7 +54,7 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
     {
         if (startSetup || inSetup)
         {
-            Setup();
+            SetupAudioManager();
         }
 
         if (setNewMiddle)
@@ -130,19 +130,20 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
     }
 
 
-    void Setup()
+    void SetupAudioManager()
     {
-        ButtonsPressedInSetup();
-
         if (startSetup)
         {
             inSetup = true;
             middleCalibrated = false;
             heightCalibrated = false;
+            heightAudioPlaying = false;
             startSetup = false;
 
-            StartCoroutine(PlayMiddleAudio());
+            PlayMiddleAudio();
         }
+
+        ButtonsPressedInSetup();
 
         if (!middleCalibrated) return;
 
@@ -161,10 +162,8 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
         inSetup = false;
     }
 
-    IEnumerator PlayMiddleAudio()
+    void PlayMiddleAudio()
     {
-        yield return new WaitForSeconds(1);
-
         middleAudio.Play();
         Debug.Log("started middle Audio");
     }
@@ -201,5 +200,17 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
             triggerPressed = true;
             Debug.Log("pressed Trigger");
         }
+    }
+
+    public void StartFieldSetup()
+    {
+        Debug.Log("reset Start Setup");
+
+        StopCoroutine(PlayHeightAudio());
+
+        middleAudio.Stop();
+        heightAudio.Stop();
+
+        startSetup = true;
     }
 }
