@@ -37,6 +37,8 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
 
     bool triggerPressed = false;
 
+    bool heightAudioPlaying = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,13 +52,10 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
     // Update is called once per frame
     void Update()
     {
-        if (startSetup)
+        if (startSetup || inSetup)
         {
-            StartCoroutine(SetUp());
-            startSetup = false;
+            Setup();
         }
-
-        if (inSetup) ButtonsPressedInSetup();
 
         if (setNewMiddle)
         {
@@ -131,32 +130,51 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
     }
 
 
-    IEnumerator SetUp()
+    void Setup()
     {
-        inSetup = true;
-        middleCalibrated = false;
-        heightCalibrated = false;
+        ButtonsPressedInSetup();
 
+        if (startSetup)
+        {
+            inSetup = true;
+            middleCalibrated = false;
+            heightCalibrated = false;
+            startSetup = false;
+
+            StartCoroutine(PlayMiddleAudio());
+        }
+
+        if (!middleCalibrated) return;
+
+        middleAudio.Stop(); // hier ist die Mitte kaalibriert worden, audio geht wieder aus
+
+        if(!heightAudioPlaying)
+        {
+            StartCoroutine(PlayHeightAudio());
+            heightAudioPlaying = true;
+        }
+
+        if (!heightCalibrated) return;
+        else heightAudioPlaying = false;
+
+        heightAudio.Stop();
+        inSetup = false;
+    }
+
+    IEnumerator PlayMiddleAudio()
+    {
         yield return new WaitForSeconds(1);
 
         middleAudio.Play();
         Debug.Log("started middle Audio");
+    }
 
-        if (!middleCalibrated) yield return new WaitForSeconds(.2f);
-        else
-        { 
-            middleAudio.Stop();
-            yield return new WaitForSeconds(1);
+    IEnumerator PlayHeightAudio()
+    {
+        yield return new WaitForSeconds(1);
 
-
-            heightAudio.Play();
-            if (!heightCalibrated) yield return new WaitForSeconds(.2f);
-            else
-            {
-                heightAudio.Stop();
-                inSetup = false;
-            }
-        }
+        heightAudio.Play();
+        Debug.Log("started height Audio");
     }
 
     void ButtonsPressedInSetup()
