@@ -84,6 +84,21 @@ MonoBehaviour:
   required: 0
   cacheSize: 1048576
   perThreadCacheSize: 51200
+--- !u!114 &-5041429633844748139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a1f07dc5afe854f9f12a4194aca3fb, type: 3}
+  m_Name: WebGL
+  m_EditorClassIdentifier: 
+  features: []
+  m_renderMode: 1
+  m_depthSubmissionMode: 0
 --- !u!114 &-3768468076112589635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,10 +216,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0ebc320a151d3408ea1e9fce54d40e, type: 3}
   m_Name: Open XR Package Settings
   m_EditorClassIdentifier: 
-  Keys: 0100000007000000
+  Keys: 01000000070000000d000000
   Values:
   - {fileID: -2354573340691446681}
   - {fileID: -6483221339584066085}
+  - {fileID: -5041429633844748139}
 --- !u!114 &777639909598428467
 MonoBehaviour:
   m_ObjectHideFlags: 0
