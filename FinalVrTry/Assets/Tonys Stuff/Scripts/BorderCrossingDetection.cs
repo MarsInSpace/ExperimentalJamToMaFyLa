@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BorderCrossingDetection : MonoBehaviour
 {
-    // plan: ein bool wird bei collision auf true gesetzt und bei exit auf false gesetzt. dieser bool wird auf einen generellen manager übertragen, der dann entscheidet welche der collisions am wichtigsten für den Audio Mixer grade ist
+    // plan: ein bool wird bei collision auf true gesetzt und bei exit auf false gesetzt. dieser bool wird auf einen generellen manager ï¿½bertragen, der dann entscheidet welche der collisions am wichtigsten fï¿½r den Audio Mixer grade ist
     // Start is called before the first frame update
     /*
     BorderSounds borderSoundsScr;
@@ -34,7 +34,7 @@ public class BorderCrossingDetection : MonoBehaviour
         
     }
 
-    // prinzip schwierig, wenn man über
+    // prinzip schwierig, wenn man ï¿½ber
     private void OnTriggerStay(Collider other)
     {
 
