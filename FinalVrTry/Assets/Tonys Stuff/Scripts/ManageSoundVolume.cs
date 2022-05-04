@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MuteSound : MonoBehaviour
+public class ManageSoundVolume : MonoBehaviour
 {
     [SerializeField] AudioSource thisAudio;
     FieldSizeManager fieldSizeManagerScr;
 
     bool wasPaused = false;
+
+    public bool inFocus;
 
     // Start is called before the first frame update
     void Start()
@@ -29,5 +31,15 @@ public class MuteSound : MonoBehaviour
             wasPaused = false;
             thisAudio.UnPause();
         }
+        else if(inFocus)
+        {
+            thisAudio.volume = 3f;
+        }
+        else
+        {
+            thisAudio.volume = 0.5f;
+        }
+
+        inFocus = false; // muss immer am Ende zurückgesetzt werden, damit die Sounds nicht in Focus bleiben wenn sie nicht mehr fokussiert sind
     }
 }
