@@ -41,7 +41,11 @@ public class BorderSounds : MonoBehaviour
 
     void ManageVolume()
     {
-        if (distanceToMiddle >= hardBorder)
+        if(fieldSizeManagerScr.inSetup)
+        {
+            borderSound.volume = 0;
+        }
+        else if (distanceToMiddle >= hardBorder)
         {
             borderSound.volume = 0.8f;
         }
