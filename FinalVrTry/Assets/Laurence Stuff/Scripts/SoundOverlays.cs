@@ -9,11 +9,15 @@ public class SoundOverlays: MonoBehaviour
 
     AudioLowPassFilter lowpass;
 
+    AudioSource volumeValue;
+
     public List<GameObject> currentSounds;
 
     public AudioSource WaterSound;
     public AudioSource FridgeOpenSound;
     public AudioSource IceStormSound;
+
+    public GameObject Playfield;
 
 
     // Start is called before the first frame update
@@ -38,6 +42,12 @@ public class SoundOverlays: MonoBehaviour
             Debug.Log("U gedrueckt");
             UnderWaterEffect();
         }
+
+        if (Input.GetKey(KeyCode.I))
+        {
+            Debug.Log("I gedrueckt");
+            IceStorm();
+        }
     }
 
     public void UnderWaterEffect()
@@ -51,8 +61,10 @@ public class SoundOverlays: MonoBehaviour
 
             reverb = soundDing.GetComponent<AudioReverbFilter>();
 
-            reverb.decayTime = Mathf.Lerp(1, 5, 1);
+            reverb.decayTime = Mathf.Lerp(1, 2, 1);
 
+           // WaterSound = Instantiate(WaterSound, Vector3.zero, Quaternion.identity);
+            //WaterSound.transform.parent = Playfield.transform;
             WaterSound.Play();
 
         }
@@ -65,10 +77,11 @@ public class SoundOverlays: MonoBehaviour
         {
             reverb = soundDing.GetComponent<AudioReverbFilter>();
 
-            reverb.decayTime = Mathf.Lerp(1, 10, 1);
+            reverb.decayTime = Mathf.Lerp(1, 7, 1);
 
         }
     }
+
 
     public void IceStorm()
     {
@@ -78,8 +91,25 @@ public class SoundOverlays: MonoBehaviour
 
     IEnumerator OpenDoorAndIce()
     {
+        foreach (GameObject soundDing in currentSounds)
+        {
+            volumeValue = soundDing.GetComponent<AudioSource>();
+            volumeValue.volume = 0.5f;
+
+        }
+
         FridgeOpenSound.Play();
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.5f);
+        //IceStormSound = Instantiate(IceStormSound, Vector3.zero, Quaternion.identity);
+        //IceStormSound.transform.parent = Playfield.transform;
+        foreach (GameObject soundDing in currentSounds)
+        {
+            lowpass = soundDing.GetComponent<AudioLowPassFilter>();
+            lowpass.cutoffFrequency = Mathf.Lerp(5007.7f, 2000, 1);
+
+            volumeValue = soundDing.GetComponent<AudioSource>();
+            volumeValue.volume = 1;
+        }
         IceStormSound.Play();
 
     } 
