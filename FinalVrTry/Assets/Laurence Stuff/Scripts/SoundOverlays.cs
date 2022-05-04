@@ -11,7 +11,9 @@ public class SoundOverlays: MonoBehaviour
 
     public List<GameObject> currentSounds;
 
-    public AudioSource waterSound;
+    public AudioSource WaterSound;
+    public AudioSource FridgeOpenSound;
+    public AudioSource IceStormSound;
 
 
     // Start is called before the first frame update
@@ -47,7 +49,11 @@ public class SoundOverlays: MonoBehaviour
 
             lowpass.cutoffFrequency = Mathf.Lerp(5007.7f, 1160, 1);
 
-            waterSound.Play();
+            reverb = soundDing.GetComponent<AudioReverbFilter>();
+
+            reverb.decayTime = Mathf.Lerp(1, 5, 1);
+
+            WaterSound.Play();
 
         }
     }
@@ -59,8 +65,23 @@ public class SoundOverlays: MonoBehaviour
         {
             reverb = soundDing.GetComponent<AudioReverbFilter>();
 
-            reverb.decayTime = Mathf.Lerp(1, 7, 1);
+            reverb.decayTime = Mathf.Lerp(1, 10, 1);
 
         }
     }
+
+    public void IceStorm()
+    {
+        StartCoroutine(OpenDoorAndIce());
+
+    }
+
+    IEnumerator OpenDoorAndIce()
+    {
+        FridgeOpenSound.Play();
+        yield return new WaitForSeconds(2);
+        IceStormSound.Play();
+
+    } 
+
 }
