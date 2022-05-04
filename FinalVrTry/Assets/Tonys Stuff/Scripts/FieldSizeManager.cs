@@ -9,9 +9,8 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
 
     public GameObject gameFieldPrefab;
 
-    public AudioSource kalibrierAudio;
-    public GameObject leftController;
-    public GameObject rightController;
+    public AudioSource middleAudio;
+    public AudioSource heightAudio;
     
 
     public float childArmLength;
@@ -30,6 +29,14 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
 
     float armLength; // damit kinder auch das spiel spielen können
 
+    public bool startSetup = true;
+    public bool inSetup = false;
+
+    public bool middleCalibrated = false;
+    public bool heightCalibrated = false;
+
+    bool triggerPressed = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +50,15 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
     // Update is called once per frame
     void Update()
     {
-        if(setNewMiddle)
+        if (startSetup)
+        {
+            StartCoroutine(SetUp());
+            startSetup = false;
+        }
+
+        if (inSetup) ButtonsPressedInSetup();
+
+        if (setNewMiddle)
         {
             setNewHeight = true;
         }
@@ -113,5 +128,60 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
         DetermieHeight();
 
         SetHeigth();
+    }
+
+
+    IEnumerator SetUp()
+    {
+        inSetup = true;
+        middleCalibrated = false;
+        heightCalibrated = false;
+
+        yield return new WaitForSeconds(1);
+
+        middleAudio.Play();
+        Debug.Log("started middle Audio");
+
+        if (!middleCalibrated) yield return new WaitForSeconds(.2f);
+        else
+        { 
+            middleAudio.Stop();
+            yield return new WaitForSeconds(1);
+
+
+            heightAudio.Play();
+            if (!heightCalibrated) yield return new WaitForSeconds(.2f);
+            else
+            {
+                heightAudio.Stop();
+                inSetup = false;
+            }
+        }
+    }
+
+    void ButtonsPressedInSetup()
+    {
+        if(triggerPressed && !middleCalibrated)
+        {
+            setNewMiddle = true;
+            middleCalibrated = true;
+            triggerPressed = false;
+        }
+        else if(triggerPressed && middleCalibrated && !heightCalibrated)
+        {
+            setNewHeight = true;
+            heightCalibrated = true;
+            triggerPressed = false;
+        }
+    }
+
+    public void TriggerPressed()
+    {
+        if (!inSetup) return;
+        else
+        {
+            triggerPressed = true;
+            Debug.Log("pressed Trigger");
+        }
     }
 }

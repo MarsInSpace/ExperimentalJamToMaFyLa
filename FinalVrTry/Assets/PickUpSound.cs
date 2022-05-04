@@ -8,11 +8,9 @@ public class PickUpSound : MonoBehaviour
     public bool handClosed;
 
 
-    //SteamVR attempt
-
-    /*public float distToPickUp = 0.5f;
+    public float distToPickUp = 0.5f;
     public SteamVR_Input_Sources HandSource = SteamVR_Input_Sources.LeftHand;
-    public bool handClosed;
+    //public bool handClosed;
     public LayerMask pickUpLayer;
 
     Rigidbody holdingTarget;
@@ -47,6 +45,6 @@ public class PickUpSound : MonoBehaviour
                 holdingTarget.maxAngularVelocity = 20;
             }
         }
-    }*/
+    }
 
 }

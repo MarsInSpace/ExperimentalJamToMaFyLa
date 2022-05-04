@@ -27,6 +27,8 @@ public class BorderSounds : MonoBehaviour
     float hardBorder;
     float softBorder;
 
+    public float borderTier = 0;
+
     private void Update()
     {
         playerHeight = fieldSizeManagerScr.height;
@@ -41,17 +43,24 @@ public class BorderSounds : MonoBehaviour
 
     void ManageVolume()
     {
-        if (distanceToMiddle >= hardBorder)
+        if(fieldSizeManagerScr.inSetup)
+        {
+            borderSound.volume = 0;
+        }
+        else if (distanceToMiddle >= hardBorder)
         {
             borderSound.volume = 0.8f;
+            borderTier = 2;
         }
         else if (distanceToMiddle >= softBorder)
         {
             borderSound.volume = 0.3f;
+            borderTier = 1;
         }
         else
         {
             borderSound.volume = 0f;
+            borderTier = 0;
         }
     }
 
@@ -110,7 +119,7 @@ public class BorderSounds : MonoBehaviour
         ManageVolume();
     }
 
-    void TrackHeadSet() // die main camera ist zufällig genau da
+    void TrackHeadSet() // die main camera ist zufï¿½llig genau da
     {
         head.transform.position = currentlyUsedCamera.transform.position;
     }
