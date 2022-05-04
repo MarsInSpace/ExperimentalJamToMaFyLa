@@ -1,44 +1,5 @@
 {
   "dependencies": {
-    "com.htc.upm.wave.essence": {
-      "version": "4.4.0-r.8",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.htc.upm.wave.xrsdk": "4.4.0-r.8",
-        "com.htc.upm.wave.native": "4.4.0-r.8"
-      },
-      "url": "https://npm-registry.vive.com"
-    },
-    "com.htc.upm.wave.native": {
-      "version": "4.4.0-r.8",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.htc.upm.wave.xrsdk": "4.4.0-r.8"
-      },
-      "url": "https://npm-registry.vive.com"
-    },
-    "com.htc.upm.wave.openxr": {
-      "version": "0.8.0-preview.1",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.inputsystem": "1.2.0",
-        "com.unity.xr.management": "4.0.7",
-        "com.unity.xr.openxr": "1.2.8"
-      },
-      "url": "https://npm-registry.vive.com"
-    },
-    "com.htc.upm.wave.xrsdk": {
-      "version": "4.4.0-r.8",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.xr.management": "3.0.6"
-      },
-      "url": "https://npm-registry.vive.com"
-    },
     "com.unity.burst": {
       "version": "1.6.5",
       "depth": 1,
@@ -153,7 +114,7 @@
     },
     "com.unity.subsystemregistration": {
       "version": "1.1.0",
-      "depth": 1,
+      "depth": 2,
       "source": "registry",
       "dependencies": {
         "com.unity.modules.subsystems": "1.0.0"
@@ -211,30 +172,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.xr.core-utils": {
-      "version": "2.0.0",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.modules.xr": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.xr.interaction.toolkit": {
-      "version": "2.0.1",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.inputsystem": "1.2.0",
-        "com.unity.ugui": "1.0.0",
-        "com.unity.xr.core-utils": "2.0.0",
-        "com.unity.xr.legacyinputhelpers": "2.1.8",
-        "com.unity.modules.audio": "1.0.0",
-        "com.unity.modules.imgui": "1.0.0",
-        "com.unity.modules.physics": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
-    },
     "com.unity.xr.legacyinputhelpers": {
       "version": "2.1.9",
       "depth": 1,
@@ -246,8 +183,8 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.management": {
-      "version": "4.2.1",
-      "depth": 0,
+      "version": "4.2.0",
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.modules.subsystems": "1.0.0",
