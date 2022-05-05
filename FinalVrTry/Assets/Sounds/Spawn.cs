@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawn : MonoBehaviour
 {
     [SerializeField] FieldSizeManager field;
-    [SerializeField] List<GameObject> SoundSources = new List<GameObject>();
+    [SerializeField] public List<GameObject> SoundSources = new List<GameObject>();
     public List<GameObject> currentSounds = new List<GameObject>();
     public GameObject currentSound;
 
