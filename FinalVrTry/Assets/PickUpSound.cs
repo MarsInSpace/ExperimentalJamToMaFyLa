@@ -14,6 +14,7 @@ public class PickUpSound : MonoBehaviour
     public SteamVR_Input_Sources HandSource = SteamVR_Input_Sources.LeftHand;
     //public bool handClosed;
     public LayerMask pickUpLayer;
+    public int handCounter;
 
     Rigidbody holdingTarget;
     GameObject grabbedSound;
@@ -41,9 +42,12 @@ public class PickUpSound : MonoBehaviour
                 holdingTarget = null;
                 grabbedSound = null;
             }
+            //handCounter = 0;
+            
         }
         else
         {
+            handCounter++;
             if (HandSource == SteamVR_Input_Sources.LeftHand)
             {
                 useingLeftHand = true;

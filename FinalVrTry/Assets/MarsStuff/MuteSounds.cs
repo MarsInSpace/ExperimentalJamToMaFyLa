@@ -9,6 +9,7 @@ public class MuteSounds : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        BorderScript = GameObject.Find("GeneralBorderAudio").GetComponent<BorderSounds>();
         Audio = GetComponent<AudioSource>();
     }
 
