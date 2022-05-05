@@ -6,6 +6,8 @@ using Valve.VR;
 public class PickUpSound : MonoBehaviour
 {
     public bool handClosed;
+    public bool useingLeftHand;
+    public bool useingRightHand;
 
 
     public float distToPickUp = 0.5f;
@@ -14,7 +16,7 @@ public class PickUpSound : MonoBehaviour
     public LayerMask pickUpLayer;
 
     Rigidbody holdingTarget;
-    Sound grabbedSound;
+    GameObject grabbedSound;
 
     private void FixedUpdate()
     {
@@ -25,11 +27,14 @@ public class PickUpSound : MonoBehaviour
 
         if(!handClosed)
         {
+            useingRightHand = false;
+            useingLeftHand = false;
+
             Collider[] colliders = Physics.OverlapSphere(transform.position, distToPickUp, pickUpLayer);
             if (colliders.Length > 0)
             {
                 holdingTarget = colliders[0].transform.root.GetComponent<Rigidbody>();
-                grabbedSound = colliders[0].transform.root.GetComponent<Sound>();
+                grabbedSound = colliders[0].transform.root.GetComponent<GameObject>();          
             }
             else
             {
@@ -39,7 +44,16 @@ public class PickUpSound : MonoBehaviour
         }
         else
         {
-            if(holdingTarget)
+            if (HandSource == SteamVR_Input_Sources.LeftHand)
+            {
+                useingLeftHand = true;
+            }
+            else
+            {
+                useingRightHand = true;
+            }
+
+            if (holdingTarget)
             {
                 holdingTarget.velocity = (transform.position - holdingTarget.transform.position) / Time.fixedDeltaTime;
                 holdingTarget.maxAngularVelocity = 20;
