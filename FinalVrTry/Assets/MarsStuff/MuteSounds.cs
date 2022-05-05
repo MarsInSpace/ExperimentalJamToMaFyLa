@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class MuteSounds : MonoBehaviour
 {
-    public BorderSounds BorderScript;
-    AudioSource Audio;
+    public BorderSounds BorderSoundsScr;
+    AudioSource thisAudio;
     // Start is called before the first frame update
     void Start()
     {
-        BorderScript = GameObject.Find("GeneralBorderAudio").GetComponent<BorderSounds>();
-        Audio = GetComponent<AudioSource>();
+        BorderSoundsScr = GameObject.Find("GeneralBorderAudio").GetComponent<BorderSounds>();
+        thisAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (BorderScript.borderSound.volume == 0.8f){
-            Audio.volume = 0.5f;
+        if (BorderSoundsScr.borderSound.volume == 0.8f){
+            thisAudio.volume = 0.5f;
         }
-        else if (BorderScript.borderSound.volume == 0 || BorderScript.borderSound.volume == 0.3f){
-            Audio.mute = true;
+        else if (BorderSoundsScr.borderSound.volume == 0 || BorderSoundsScr.borderSound.volume == 0.3f){
+            thisAudio.mute = true;
         }
         else{
-            Audio.mute = false;
-            Audio.volume = 1;
+            thisAudio.mute = false;
+            thisAudio.volume = 1;
         }
     }
 }
