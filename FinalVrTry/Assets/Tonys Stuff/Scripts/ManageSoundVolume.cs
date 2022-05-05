@@ -7,6 +7,8 @@ public class ManageSoundVolume : MonoBehaviour
     [SerializeField] AudioSource thisAudio;
     FieldSizeManager fieldSizeManagerScr;
 
+    Spawn spawnScr;
+
     BorderSounds BorderSoundsScr;
 
     bool wasPaused = false;
@@ -19,6 +21,7 @@ public class ManageSoundVolume : MonoBehaviour
         thisAudio = GetComponent<AudioSource >();
         fieldSizeManagerScr = GameObject.FindGameObjectWithTag("FieldSizeManager").GetComponent<FieldSizeManager>();
         BorderSoundsScr = GameObject.Find("GeneralBorderAudio").GetComponent<BorderSounds>();
+        spawnScr = GameObject.Find("SoundManager").GetComponent<Spawn>();
     }
 
     // Update is called once per frame
@@ -48,5 +51,17 @@ public class ManageSoundVolume : MonoBehaviour
         }
 
         inFocus = false; // muss immer am Ende zurückgesetzt werden, damit die Sounds nicht in Focus bleiben wenn sie nicht mehr fokussiert sind
+
+        foreach(var sound in spawnScr.currentSounds)
+        {
+            if (sound == thisAudio.gameObject) continue;
+
+            ManageSoundVolume soundVolumeScr = sound.GetComponent<ManageSoundVolume>();
+
+            if(soundVolumeScr.inFocus)
+            {
+                thisAudio.volume = 0.25f;
+            }
+        }
     }
 }

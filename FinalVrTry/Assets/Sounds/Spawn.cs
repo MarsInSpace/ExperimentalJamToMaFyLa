@@ -41,7 +41,6 @@ public class Spawn : MonoBehaviour
         {
             currentSound = Instantiate(SoundSources[Random.Range(0, SoundSources.Count)], spawnpoints[Random.Range(0, spawnpoints.Count)].transform.position, rot, field.gameObject.transform.parent);
             currentSounds.Add(currentSound); 
-
         }
     }
 }
