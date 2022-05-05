@@ -14,7 +14,9 @@ public class EventTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Audio.clip = TriggeredSoundClip;
-        Audio.Play();
+        if(other.tag != "Sound"){ //only when player collides
+            Audio.clip = TriggeredSoundClip;
+            Audio.Play();
+        }
     }
 }
