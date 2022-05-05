@@ -22,9 +22,7 @@ public class PickUpSound : MonoBehaviour
     Rigidbody holdingTarget;
     public void GrabbedLeft()
     {
-        holdingTarget.velocity = (leftContr.transform.position - holdingTarget.transform.position) / Time.fixedDeltaTime;
-        holdingTarget.maxAngularVelocity = 15;
-        useingLeftHand = true;
+        
 
         Collider[] colliders = Physics.OverlapSphere(leftContr.transform.position, distToPickUp, pickUpLayer);
         if (colliders.Length > 0)
@@ -32,12 +30,13 @@ public class PickUpSound : MonoBehaviour
             holdingTarget = colliders[0].transform.root.GetComponent<Rigidbody>();
             grabbedSound = colliders[0].transform.root.GetComponent<GameObject>();
         }
+        holdingTarget.velocity = (leftContr.transform.position - holdingTarget.transform.position) / Time.fixedDeltaTime;
+        holdingTarget.maxAngularVelocity = 15;
+        useingLeftHand = true;
     }
     public void GrabbedRight()
     {
-        holdingTarget.velocity = (rightContr.transform.position - holdingTarget.transform.position) / Time.fixedDeltaTime;
-        holdingTarget.maxAngularVelocity = 15;
-        useingRightHand = true;
+        
 
         Collider[] colliders = Physics.OverlapSphere(rightContr.transform.position, distToPickUp, pickUpLayer);
         if (colliders.Length > 0)
@@ -45,6 +44,9 @@ public class PickUpSound : MonoBehaviour
             holdingTarget = colliders[0].transform.root.GetComponent<Rigidbody>();
             grabbedSound = colliders[0].transform.root.GetComponent<GameObject>();
         }
+        holdingTarget.velocity = (rightContr.transform.position - holdingTarget.transform.position) / Time.fixedDeltaTime;
+        holdingTarget.maxAngularVelocity = 15;
+        useingRightHand = true;
     }
 
     public void UnGrabbedLeft()
