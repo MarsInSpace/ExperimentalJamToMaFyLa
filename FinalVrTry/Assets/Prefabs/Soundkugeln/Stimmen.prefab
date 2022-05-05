@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 3569431764871408168}
   - component: {fileID: 6031230657335411353}
   - component: {fileID: 7108643206862256942}
+  - component: {fileID: -4448349116050053043}
   m_Layer: 3
   m_Name: Stimmen
   m_TagString: Sound
@@ -314,3 +315,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisAudio: {fileID: 0}
+  inFocus: 0
+--- !u!114 &-4448349116050053043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2247053488332321367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebf98c619ed2734b9915c1c6ef00775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

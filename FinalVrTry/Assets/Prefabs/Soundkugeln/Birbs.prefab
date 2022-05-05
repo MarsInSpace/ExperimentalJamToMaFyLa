@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 3357187405002368658}
   - component: {fileID: 5742810072712753958}
   - component: {fileID: 8477563950749293895}
+  - component: {fileID: 4399942315784530204}
   m_Layer: 3
   m_Name: Birbs
   m_TagString: Sound
@@ -335,3 +336,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisAudio: {fileID: 0}
+  inFocus: 0
+--- !u!114 &4399942315784530204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151964796433769995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebf98c619ed2734b9915c1c6ef00775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: -8943394701472123672}
   - component: {fileID: 6088415648549164691}
   - component: {fileID: 6479422345344328598}
+  - component: {fileID: 5004409226395277083}
   m_Layer: 3
   m_Name: Wasser
   m_TagString: Sound
@@ -350,3 +351,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisAudio: {fileID: 0}
+  inFocus: 0
+--- !u!114 &5004409226395277083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3486835400199724359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebf98c619ed2734b9915c1c6ef00775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
