@@ -39,8 +39,9 @@ public class Spawn : MonoBehaviour
 
         if (currentSounds.Count == 0 && spawnpoints.Count != 0)
         {
-            currentSound = Instantiate(SoundSources[Random.Range(0, SoundSources.Count)], spawnpoints[Random.Range(0, spawnpoints.Count)].transform.position, rot);
+            currentSound = Instantiate(SoundSources[Random.Range(0, SoundSources.Count)], spawnpoints[Random.Range(0, spawnpoints.Count)].transform.position, rot, field.gameObject.transform.parent);
             currentSounds.Add(currentSound); 
+
         }
     }
 }

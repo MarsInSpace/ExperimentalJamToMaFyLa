@@ -11,7 +11,8 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
 
     public AudioSource middleAudio;
     public AudioSource heightAudio;
-    
+
+    public Spawn spawn;
 
     public float childArmLength;
     public float adultArmLength;
@@ -44,6 +45,7 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
     {
         walls = GameObject.FindGameObjectsWithTag("Wall");
         ceiling = GameObject.FindGameObjectWithTag("Ceiling");
+        spawn = FindObjectOfType<Spawn>();
 
         DetermieHeight();
         SetHeigth();
@@ -139,6 +141,7 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
             heightCalibrated = false;
             heightAudioPlaying = false;
             startSetup = false;
+            spawn.currentSound.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
 
             PlayMiddleAudio();
         }
