@@ -4,25 +4,21 @@ using UnityEngine;
 
 public class MuteSounds : MonoBehaviour
 {
-    BorderSounds BorderScript;
-    float BorderLevel;
+    public BorderSounds BorderScript;
     AudioSource Audio;
     // Start is called before the first frame update
     void Start()
     {
         Audio = GetComponent<AudioSource>();
-        BorderLevel = BorderScript.borderTier;
     }
 
     // Update is called once per frame
     void Update()
     {
-        BorderLevel = BorderScript.borderTier;
-
-        if (BorderLevel == 1){
+        if (BorderScript.borderSound.volume == 0.8f){
             Audio.volume = 0.5f;
         }
-        else if (BorderLevel == 2 || BorderLevel == 3){
+        else if (BorderScript.borderSound.volume == 0 || BorderScript.borderSound.volume == 0.3f){
             Audio.mute = true;
         }
         else{
