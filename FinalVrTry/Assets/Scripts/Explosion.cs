@@ -24,8 +24,11 @@ public class Explosion : MonoBehaviour
     {
         if (pickUpSound.useingRightHand && pickUpSound.useingLeftHand)
         {
+            Debug.Log("useing both hands");
             exploded = true;
             spawn.currentSounds.Add(Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], this.transform.position, new Quaternion(0, 0, 0, 0), field.gameObject.transform.parent));
+            //spawn.currentSounds.Remove(pickUpSound.grabbedSound);
+            //Destroy(pickUpSound.grabbedSound);
             
         }
         else
@@ -41,10 +44,12 @@ public class Explosion : MonoBehaviour
         contrDist = Vector3.Distance(pickUpSound.leftContr.transform.position, pickUpSound.rightContr.transform.position);
         if (contrDist >= maxDist)
         {
+            Debug.Log("Distanced");
             if(contrVelLeft.x >= maxVel || contrVelLeft.z >= maxVel || contrVelLeft.y >= maxVel)
             {
                 if (contrVelRight.x >= maxVel || contrVelRight.z >= maxVel || contrVelRight.y >= maxVel)
                 {
+                    Debug.Log("Velocetied");
                     procideExplosion();
                 }
             }           
