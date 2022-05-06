@@ -5,6 +5,8 @@ using UnityEngine;
 public class SoundOverlays: MonoBehaviour
 {
     public Spawn spawnClass;
+    public PickUpSound pickUpSound;
+
     AudioReverbFilter reverb;
 
     AudioLowPassFilter lowpass;
@@ -19,6 +21,8 @@ public class SoundOverlays: MonoBehaviour
     public AudioSource IceStormSound;
 
     public GameObject Playfield;
+
+    public GameObject grabbedSound;
 
 
     // Start is called before the first frame update
@@ -53,7 +57,10 @@ public class SoundOverlays: MonoBehaviour
 
     public void UnderWaterEffect()
     {
-        currentSounds = spawnClass.currentSounds;  // grab sound nicht currentsound
+        //currentSounds = spawnClass.currentSounds;  // grab sound nicht currentsound
+
+        grabbedSound = pickUpSound.grabbedSound;
+
 
         foreach (GameObject soundDing in currentSounds)
         {

@@ -16,7 +16,7 @@ public class PickUpSound : MonoBehaviour
     [SerializeField] SteamVR_Behaviour_Pose leftContr;
     [SerializeField] SteamVR_Behaviour_Pose rightContr;
 
-    GameObject grabbedSound;
+    public GameObject grabbedSound;
 
 
     Rigidbody holdingTarget;
