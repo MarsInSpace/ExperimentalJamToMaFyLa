@@ -13,8 +13,8 @@ public class PickUpSound : MonoBehaviour
    
     public LayerMask pickUpLayer;
 
-    [SerializeField] SteamVR_Behaviour_Pose leftContr;
-    [SerializeField] SteamVR_Behaviour_Pose rightContr;
+    [SerializeField] public SteamVR_Behaviour_Pose leftContr;
+    [SerializeField] public SteamVR_Behaviour_Pose rightContr;
 
     public GameObject grabbedSound;
 
