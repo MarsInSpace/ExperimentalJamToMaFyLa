@@ -25,6 +25,7 @@ public class SoundOverlays: MonoBehaviour
     public GameObject grabbedSound;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,10 +62,10 @@ public class SoundOverlays: MonoBehaviour
         foreach (GameObject soundDing in currentSounds)
         {
 
-            currentsound = GetComponent<Sound>();
+            //currentsound = GetComponent<Sound>();
             grabbedSound = pickUpSound.grabbedSound;
             grabbedSound = GetComponent<GameObject>();
-            
+
 
             if (grabbedSound.name == "Wasser")
 

@@ -11,13 +11,13 @@ public class CheckSpawnpoint : MonoBehaviour
     {
         inUse = true;
         spawn.spawnpoints.Remove(gameObject);
-        Debug.Log("trigger entered");
+       // Debug.Log("trigger entered");
     }
 
     private void OnTriggerExit(Collider other)
     {
         inUse = false;
         spawn.spawnpoints.Add(gameObject);
-        Debug.Log("trigger exit");
+       // Debug.Log("trigger exit");
     }
 }
