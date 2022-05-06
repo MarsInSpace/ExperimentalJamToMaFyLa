@@ -48,6 +48,8 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
         spawn = FindObjectOfType<Spawn>();
 
 
+        height = 1.75f;// einfach, um anfangs gespawnte sounds nicht zu trappen
+
         RadiusChanged();
         SetMiddle();
         DetermieHeight();
@@ -101,7 +103,7 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
             wall.transform.localScale = new Vector3(wall.transform.localScale.x, height + armLength, wall.transform.localScale.z);
         }
 
-        ceiling.transform.position = new Vector3(ceiling.transform.position.x, height + armLength - 0.1f, ceiling.transform.position.z);
+        ceiling.transform.position = new Vector3(ceiling.transform.position.x, height + armLength - 0.2f, ceiling.transform.position.z);
 
         setNewHeight = false;
     }

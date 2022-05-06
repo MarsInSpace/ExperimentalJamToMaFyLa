@@ -59,8 +59,14 @@ public class BorderSounds : MonoBehaviour
         }
     }
 
+    void UpdateHeight()
+    {
+        playerHeight = playerHead.transform.position.y;
+    }
+
     void MeasureDistance()
     {
+        UpdateHeight();
         distanceToMiddle = Vector3.Distance(playerHead.transform.position, new Vector3(fieldFloor.transform.position.x, playerHeight, fieldFloor.transform.position.z));
         Debug.DrawLine(playerHead.transform.position, new Vector3(fieldFloor.transform.position.x, playerHeight, fieldFloor.transform.position.z));
     }
