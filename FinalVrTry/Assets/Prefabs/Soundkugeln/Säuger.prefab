@@ -358,3 +358,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebf98c619ed2734b9915c1c6ef00775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BorderSoundsScr: {fileID: 0}
