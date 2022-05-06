@@ -47,6 +47,11 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
         ceiling = GameObject.FindGameObjectWithTag("Ceiling");
         spawn = FindObjectOfType<Spawn>();
 
+
+        height = 1.75f;// einfach, um anfangs gespawnte sounds nicht zu trappen
+
+        RadiusChanged();
+        SetMiddle();
         DetermieHeight();
         SetHeigth();
     }
@@ -64,8 +69,6 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
             setNewHeight = true;
         }
 
-        ManageHeight();
-
         if (radius != lastRadius)
         {
             RadiusChanged();
@@ -75,6 +78,8 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
         {
             SetMiddle();
         }
+
+        ManageHeight();
 
         lastRadius = radius;
     }
@@ -95,10 +100,10 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
     {
         foreach(GameObject wall in walls)
         {
-            wall.transform.localScale = new Vector3(wall.transform.localScale.x, height + armLength, wall.transform.localScale.x);
+            wall.transform.localScale = new Vector3(wall.transform.localScale.x, height + armLength, wall.transform.localScale.z);
         }
 
-        ceiling.transform.position = new Vector3(ceiling.transform.position.x, height + armLength - 0.1f, ceiling.transform.position.z);
+        ceiling.transform.position = new Vector3(ceiling.transform.position.x, height + armLength - 0.2f, ceiling.transform.position.z);
 
         setNewHeight = false;
     }

@@ -47,11 +47,11 @@ public class BorderSounds : MonoBehaviour
         }
         else if (distanceToMiddle >= hardBorder)
         {
-            borderSound.volume = 0.8f;
+            borderSound.volume = 0.6f;
         }
         else if (distanceToMiddle >= softBorder)
         {
-            borderSound.volume = 0.3f;
+            borderSound.volume = 0.15f;
         }
         else
         {
@@ -59,8 +59,14 @@ public class BorderSounds : MonoBehaviour
         }
     }
 
+    void UpdateHeight()
+    {
+        playerHeight = playerHead.transform.position.y;
+    }
+
     void MeasureDistance()
     {
+        UpdateHeight();
         distanceToMiddle = Vector3.Distance(playerHead.transform.position, new Vector3(fieldFloor.transform.position.x, playerHeight, fieldFloor.transform.position.z));
         Debug.DrawLine(playerHead.transform.position, new Vector3(fieldFloor.transform.position.x, playerHeight, fieldFloor.transform.position.z));
     }

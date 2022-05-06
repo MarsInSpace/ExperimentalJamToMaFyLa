@@ -25,6 +25,7 @@ public class SoundOverlays: MonoBehaviour
     public GameObject grabbedSound;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,19 +58,19 @@ public class SoundOverlays: MonoBehaviour
 
     public void UnderWaterEffect()
     {
-        //currentSounds = spawnClass.currentSounds;  // grab sound nicht currentsound
-
-        grabbedSound = pickUpSound.grabbedSound;
-
-
+        Debug.Log("Effect wird gecalled");
         foreach (GameObject soundDing in currentSounds)
         {
 
-            currentsound = GetComponent<Sound>();
+            //currentsound = GetComponent<Sound>();
+            grabbedSound = pickUpSound.grabbedSound;
+            grabbedSound = GetComponent<GameObject>();
 
-            if (currentsound.name == "Water")
+
+            if (grabbedSound.name == "Wasser")
 
             {
+                Debug.Log("Name Wasser wird erkannt");
                 lowpass = soundDing.GetComponent<AudioLowPassFilter>();
 
                 lowpass.cutoffFrequency = Mathf.Lerp(5007.7f, 1160, 1);
