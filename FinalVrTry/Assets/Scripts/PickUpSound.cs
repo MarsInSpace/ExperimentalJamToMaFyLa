@@ -28,7 +28,7 @@ public class PickUpSound : MonoBehaviour
             if (colliders.Length > 0)
             {
                 holdingTarget = colliders[0].transform.root.GetComponent<Rigidbody>();
-                grabbedSound = colliders[0].transform.root.GetComponent<GameObject>();
+                grabbedSound = colliders[0].gameObject;
             }
             holdingTarget.velocity = (leftContr.transform.position - holdingTarget.transform.position) / Time.fixedDeltaTime;
             holdingTarget.maxAngularVelocity = 15;
@@ -43,7 +43,7 @@ public class PickUpSound : MonoBehaviour
             if (colliders.Length > 0)
             {
                 holdingTarget = colliders[0].transform.root.GetComponent<Rigidbody>();
-                grabbedSound = colliders[0].transform.root.GetComponent<GameObject>();
+                grabbedSound = colliders[0].gameObject;
             }
             holdingTarget.velocity = (rightContr.transform.position - holdingTarget.transform.position) / Time.fixedDeltaTime;
             holdingTarget.maxAngularVelocity = 15;

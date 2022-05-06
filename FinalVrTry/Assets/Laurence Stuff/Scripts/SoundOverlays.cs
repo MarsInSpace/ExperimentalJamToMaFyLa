@@ -61,10 +61,13 @@ public class SoundOverlays: MonoBehaviour
         Debug.Log("Effect wird gecalled");
 
         grabbedSound = pickUpSound.grabbedSound;
-        grabbedSound = GetComponent<GameObject>();
+        //grabbedSound = GetComponent<GameObject>();
 
         if (grabbedSound.name == "Wasser")
+
         {
+            Debug.Log("If abfrage wird gemacht");
+
             foreach (GameObject soundDing in currentSounds)
             {
                     Debug.Log("Name Wasser wird erkannt");
