@@ -63,6 +63,8 @@ public class SoundOverlays: MonoBehaviour
 
             currentsound = GetComponent<Sound>();
             grabbedSound = pickUpSound.grabbedSound;
+            grabbedSound = GetComponent<GameObject>();
+            
 
             if (grabbedSound.name == "Wasser")
 
