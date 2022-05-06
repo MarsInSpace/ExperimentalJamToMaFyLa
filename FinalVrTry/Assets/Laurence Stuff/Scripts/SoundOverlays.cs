@@ -67,7 +67,7 @@ public class SoundOverlays: MonoBehaviour
 
             currentsound = GetComponent<Sound>();
 
-            if (currentsound.name == "Water")
+            if (grabbedSound.name == "Water")
 
             {
                 lowpass = soundDing.GetComponent<AudioLowPassFilter>();
