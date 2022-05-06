@@ -63,7 +63,7 @@ public class SoundOverlays: MonoBehaviour
         grabbedSound = pickUpSound.grabbedSound;
         //grabbedSound = GetComponent<GameObject>();
 
-        if (grabbedSound.name == "Wasser")
+        if (grabbedSound.name == "Wasser(Clone)")
 
         {
             Debug.Log("If abfrage wird gemacht");
