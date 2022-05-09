@@ -56,32 +56,35 @@ public class SoundOverlays: MonoBehaviour
         }*/
     }
 
-    public void UnderWaterEffect()
+    public void UnderWaterEffectL()
+    {
+        ApplyEffect(pickUpSound.grabbedL);
+    }
+    public void UnderWaterEffectR()
+    {
+        ApplyEffect(pickUpSound.grabbedR);
+    }
+
+    void ApplyEffect(GameObject grabbedSound)
     {
         //Debug.Log("Effect wird gecalled");
-
-        grabbedSound = pickUpSound.grabbedSound;
         //grabbedSound = GetComponent<GameObject>();
-        if (grabbedSound != null)
+        if (grabbedSound != null && grabbedSound.name == "Wasser(Clone)")
         {
-            if (grabbedSound.name == "Wasser(Clone)")
-
-            {
                 //Debug.Log("If abfrage wird gemacht");
 
-                foreach (GameObject soundDing in currentSounds)
-                {
-                    //Debug.Log("Name Wasser wird erkannt");
-                    lowpass = soundDing.GetComponent<AudioLowPassFilter>();
+            foreach (GameObject soundDing in currentSounds)
+            {
+                //Debug.Log("Name Wasser wird erkannt");
+                lowpass = soundDing.GetComponent<AudioLowPassFilter>();
 
-                    lowpass.cutoffFrequency = Mathf.Lerp(5007.7f, 1160, 1);
+                lowpass.cutoffFrequency = Mathf.Lerp(5007.7f, 1160, 1);
 
-                    reverb = soundDing.GetComponent<AudioReverbFilter>();
+                reverb = soundDing.GetComponent<AudioReverbFilter>();
 
-                    reverb.decayTime = Mathf.Lerp(1, 2, 1);
+                reverb.decayTime = Mathf.Lerp(1, 2, 1);
 
-                    WaterSound.Play();
-                }
+                WaterSound.Play();
             }
         }
     }

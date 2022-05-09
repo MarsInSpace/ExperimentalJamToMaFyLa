@@ -22,19 +22,26 @@ public class Explosion : MonoBehaviour
     public GameObject newSpawnedL;
     public GameObject newSpawnedR;
 
+    Quaternion rot = new Quaternion(0, 0, 0, 0);
+
+    private void Start()
+    {
+        
+    }
+
     public void procideExplosion()
     {
-        if (pickUpSound.useingRightHand && pickUpSound.useingLeftHand)
+        if (pickUpSound.useingRightHand && pickUpSound.useingLeftHand && pickUpSound.grabbedSound != null)
         {
-            Debug.Log("useing both hands");
+            //Debug.Log("useing both hands");
             exploded = true;
 
             if (newSpawnedL == null && newSpawnedR == null)
             {
-                newSpawnedL = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], this.transform.position, new Quaternion(0, 0, 0, 0), field.gameObject.transform.parent);
+                newSpawnedL = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], leftPose.localPosition, rot, field.gameObject.transform.parent);
                 spawn.currentSounds.Add(newSpawnedL);
 
-                newSpawnedR = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], this.transform.position, new Quaternion(0, 0, 0, 0), field.gameObject.transform.parent);
+                newSpawnedR = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], rightPose.localPosition, rot, field.gameObject.transform.parent);
                 spawn.currentSounds.Add(newSpawnedR);
             }
             spawn.currentSounds.Remove(pickUpSound.grabbedSound);
@@ -55,12 +62,12 @@ public class Explosion : MonoBehaviour
         contrDist = Vector3.Distance(pickUpSound.leftContr.transform.position, pickUpSound.rightContr.transform.position);
         if (contrDist >= maxDist)
         {
-            Debug.Log("Distanced");
+            //Debug.Log("Distanced");
             if(contrVelLeft.x >= maxVel || contrVelLeft.z >= maxVel || contrVelLeft.y >= maxVel)
             {
                 if (contrVelRight.x >= maxVel || contrVelRight.z >= maxVel || contrVelRight.y >= maxVel)
                 {
-                    Debug.Log("Velocetied");
+                    //Debug.Log("Velocetied");
                     procideExplosion();
                 }
             }           

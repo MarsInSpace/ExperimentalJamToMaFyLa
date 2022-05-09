@@ -19,23 +19,34 @@ public class PickUpSound : MonoBehaviour
 
     public GameObject grabbedSound;
 
+    public GameObject grabbedL;
+    public GameObject grabbedR;
 
-    Rigidbody holdingTargetR;
 
-    Rigidbody holdingTargetL;
+    [SerializeField] Rigidbody holdingTargetR;
+
+    [SerializeField] Rigidbody holdingTargetL;
 
     private void Start()
     {
         explosion = FindObjectOfType<Explosion>().gameObject.GetComponent<Explosion>();
     }
 
+    private void Update()
+    {
+        CompareSounds();
+    }
+
     public void GrabbedLeft()
     {
-        Collider[] colliders = Physics.OverlapSphere(leftContr.transform.position, distToPickUp, pickUpLayer);
-        if (colliders.Length > 0)
+        if (holdingTargetL == null)
         {
-            holdingTargetL = colliders[0].gameObject.GetComponent<Rigidbody>();
-            grabbedSound = colliders[0].gameObject;
+            Collider[] colliders = Physics.OverlapSphere(leftContr.transform.position, distToPickUp, pickUpLayer);
+            if (colliders.Length > 0)
+            {
+                holdingTargetL = colliders[0].gameObject.GetComponent<Rigidbody>();
+                grabbedL = colliders[0].gameObject;
+            }
         }
         holdingTargetL.velocity = (leftContr.transform.position - holdingTargetL.transform.position) / Time.fixedDeltaTime;
         holdingTargetL.maxAngularVelocity = 15;
@@ -43,29 +54,50 @@ public class PickUpSound : MonoBehaviour
     }
     public void GrabbedRight()
     {
-        Collider[] colliders = Physics.OverlapSphere(rightContr.transform.position, distToPickUp, pickUpLayer);
-        if (colliders.Length > 0)
+        if (holdingTargetR == null)
         {
-            holdingTargetR = colliders[0].gameObject.GetComponent<Rigidbody>();
-            grabbedSound = colliders[0].gameObject;
+            Collider[] colliders = Physics.OverlapSphere(rightContr.transform.position, distToPickUp, pickUpLayer);
+            if (colliders.Length > 0)
+            {
+                holdingTargetR = colliders[0].gameObject.GetComponent<Rigidbody>();
+                grabbedR = colliders[0].gameObject;
+            }
         }
         holdingTargetR.velocity = (rightContr.transform.position - holdingTargetR.transform.position) / Time.fixedDeltaTime;
         holdingTargetR.maxAngularVelocity = 15;
         useingRightHand = true;
     }
 
+    void CompareSounds()
+    {
+        if (grabbedL == null || grabbedR == null) return;
+
+        if(grabbedL == grabbedR)
+        {
+            grabbedSound = grabbedR;
+        }
+        else
+        {
+            grabbedSound = null;
+        }
+    }
+
     public void UnGrabbedLeft()
     {
         useingLeftHand = false;
-        grabbedSound = null;
+        grabbedL = null;
         explosion.newSpawnedL = null;
+        holdingTargetL = null;
+        grabbedSound = null;
     }
 
     public void UnGrabbedRight()
     {
         useingRightHand = false;
-        grabbedSound = null;
+        grabbedR = null;
         explosion.newSpawnedR = null;
+        holdingTargetR = null;
+        grabbedSound = null;
     }
 
 
