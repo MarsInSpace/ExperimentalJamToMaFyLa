@@ -19,6 +19,8 @@ public class Explosion : MonoBehaviour
     [SerializeField] SteamVR_Action_Pose leftPose;
     [SerializeField] SteamVR_Action_Pose rightPose;
 
+    public GameObject newSpawnedL;
+    public GameObject newSpawnedR;
 
     public void procideExplosion()
     {
@@ -26,15 +28,23 @@ public class Explosion : MonoBehaviour
         {
             Debug.Log("useing both hands");
             exploded = true;
-            spawn.currentSounds.Add(Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], this.transform.position, new Quaternion(0, 0, 0, 0), field.gameObject.transform.parent));
-            spawn.currentSounds.Add(Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], this.transform.position, new Quaternion(0, 0, 0, 0), field.gameObject.transform.parent));
+
+            if (newSpawnedL == null && newSpawnedR == null)
+            {
+                newSpawnedL = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], this.transform.position, new Quaternion(0, 0, 0, 0), field.gameObject.transform.parent);
+                spawn.currentSounds.Add(newSpawnedL);
+
+                newSpawnedR = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], this.transform.position, new Quaternion(0, 0, 0, 0), field.gameObject.transform.parent);
+                spawn.currentSounds.Add(newSpawnedR);
+            }
             spawn.currentSounds.Remove(pickUpSound.grabbedSound);
             Destroy(pickUpSound.grabbedSound);
             
         }
         else
         {
-            exploded = false;        }
+            exploded = false;                  
+        }
     }
 
     private void Update()
