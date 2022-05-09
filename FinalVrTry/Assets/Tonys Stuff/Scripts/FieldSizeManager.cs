@@ -28,7 +28,7 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
     GameObject[] walls;
     GameObject ceiling;
 
-    float armLength; // damit kinder auch das spiel spielen können
+    public float armLength; // damit kinder auch das spiel spielen können
 
     public bool startSetup = true;
     public bool inSetup = false;
