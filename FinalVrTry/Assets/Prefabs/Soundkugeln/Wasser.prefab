@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 6088415648549164691}
   - component: {fileID: 6479422345344328598}
   - component: {fileID: 5004409226395277083}
+  - component: {fileID: 6645929725381805257}
   m_Layer: 3
   m_Name: Wasser
   m_TagString: Sound
@@ -365,3 +366,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BorderSoundsScr: {fileID: 0}
+--- !u!135 &6645929725381805257
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3486835400199724359}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
