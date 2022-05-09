@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 2659055266084556139}
   - component: {fileID: 2450558339975485173}
   - component: {fileID: -7608854437954144958}
+  - component: {fileID: 4526495357480500525}
   m_Layer: 3
   m_Name: "S\xE4uger"
   m_TagString: Sound
@@ -359,3 +360,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BorderSoundsScr: {fileID: 0}
+--- !u!135 &4526495357480500525
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7969670688757972883}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

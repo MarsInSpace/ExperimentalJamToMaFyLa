@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 6220456377511022534}
   - component: {fileID: 3195894558954920272}
   - component: {fileID: -6929756255508370744}
+  - component: {fileID: -537680862864963544}
   m_Layer: 3
   m_Name: Manmade
   m_TagString: Sound
@@ -341,3 +342,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BorderSoundsScr: {fileID: 0}
+--- !u!135 &-537680862864963544
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460424155182469743}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

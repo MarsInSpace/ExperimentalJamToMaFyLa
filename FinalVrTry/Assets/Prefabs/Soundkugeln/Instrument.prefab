@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 7619793508099669768}
   - component: {fileID: 4441604450078201560}
   - component: {fileID: 4703237132357907127}
+  - component: {fileID: -6493632643567204421}
   m_Layer: 3
   m_Name: Instrument
   m_TagString: Sound
@@ -359,3 +360,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BorderSoundsScr: {fileID: 0}
+--- !u!135 &-6493632643567204421
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7623962690265913334}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

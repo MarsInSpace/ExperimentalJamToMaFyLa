@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 939475262075235523}
   - component: {fileID: 6286670875946572993}
   - component: {fileID: -7927872877638023975}
+  - component: {fileID: -8303757830120797216}
   m_Layer: 3
   m_Name: Wald
   m_TagString: Sound
@@ -341,3 +342,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BorderSoundsScr: {fileID: 0}
+--- !u!135 &-8303757830120797216
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5210702442628669378}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

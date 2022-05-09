@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 4142574386578325248}
   - component: {fileID: 8364041003418770635}
   - component: {fileID: 2651937008790644398}
+  - component: {fileID: 6175565925829273016}
   m_Layer: 3
   m_Name: Office
   m_TagString: Sound
@@ -353,3 +354,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BorderSoundsScr: {fileID: 0}
+--- !u!135 &6175565925829273016
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2727405568352445390}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
