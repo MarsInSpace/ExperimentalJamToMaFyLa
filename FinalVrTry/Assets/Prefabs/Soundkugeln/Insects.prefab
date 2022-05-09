@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: -8556303580952039762}
   - component: {fileID: 5893372290418261253}
   - component: {fileID: 3648986007464397041}
+  - component: {fileID: -4156491713744350631}
   m_Layer: 3
   m_Name: Insects
   m_TagString: Sound
@@ -341,3 +342,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BorderSoundsScr: {fileID: 0}
+--- !u!135 &-4156491713744350631
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2518278904825094593}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: -7218113200569588149}
   - component: {fileID: 5324006579663710639}
   - component: {fileID: -3677213543268657795}
+  - component: {fileID: 844489404986634716}
   m_Layer: 3
   m_Name: Wind
   m_TagString: Sound
@@ -389,3 +390,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BorderSoundsScr: {fileID: 0}
+--- !u!135 &844489404986634716
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3103891999777162545}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
