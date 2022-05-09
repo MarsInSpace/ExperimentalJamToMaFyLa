@@ -27,6 +27,7 @@ public class Explosion : MonoBehaviour
             Debug.Log("useing both hands");
             exploded = true;
             spawn.currentSounds.Add(Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], this.transform.position, new Quaternion(0, 0, 0, 0), field.gameObject.transform.parent));
+            spawn.currentSounds.Add(Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], this.transform.position, new Quaternion(0, 0, 0, 0), field.gameObject.transform.parent));
             spawn.currentSounds.Remove(pickUpSound.grabbedSound);
             Destroy(pickUpSound.grabbedSound);
             
