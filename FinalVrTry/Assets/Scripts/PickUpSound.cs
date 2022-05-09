@@ -5,6 +5,7 @@ using Valve.VR;
 
 public class PickUpSound : MonoBehaviour
 {
+    Explosion explosion;
     public bool useingLeftHand =false;
     public bool useingRightHand = false;
     public bool handClosed;
@@ -23,6 +24,10 @@ public class PickUpSound : MonoBehaviour
 
     Rigidbody holdingTargetL;
 
+    private void Start()
+    {
+        explosion = FindObjectOfType<Explosion>().gameObject.GetComponent<Explosion>();
+    }
 
     public void GrabbedLeft()
     {
@@ -53,12 +58,14 @@ public class PickUpSound : MonoBehaviour
     {
         useingLeftHand = false;
         grabbedSound = null;
+        explosion.newSpawnedL = null;
     }
 
     public void UnGrabbedRight()
     {
         useingRightHand = false;
         grabbedSound = null;
+        explosion.newSpawnedR = null;
     }
 
 
