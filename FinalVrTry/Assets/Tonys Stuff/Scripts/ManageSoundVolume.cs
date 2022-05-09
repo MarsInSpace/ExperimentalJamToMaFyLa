@@ -60,7 +60,7 @@ public class ManageSoundVolume : MonoBehaviour
 
             if(soundVolumeScr.inFocus)
             {
-                thisAudio.volume = 0.25f;
+                thisAudio.volume = 0f;
             }
         }
     }
