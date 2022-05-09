@@ -14,13 +14,13 @@ GameObject:
   - component: {fileID: 4245395362004173991}
   - component: {fileID: 2493162000725277574}
   - component: {fileID: 3736547999641842939}
-  - component: {fileID: -8095757130783899832}
   - component: {fileID: 3243602669414408469}
   - component: {fileID: -5383707100759977389}
   - component: {fileID: 939475262075235523}
   - component: {fileID: 6286670875946572993}
   - component: {fileID: -7927872877638023975}
   - component: {fileID: -8303757830120797216}
+  - component: {fileID: 6925616584451907148}
   m_Layer: 3
   m_Name: Wald
   m_TagString: Sound
@@ -233,24 +233,6 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     playOnAwake: 0
---- !u!114 &-8095757130783899832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5210702442628669378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e4b5b287ddf9454bb6026454bbffc7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mAudioSource: {fileID: 2493162000725277574}
-  mGain: 1
-  mDistanceRolloffOverrideAudioSourcesRange: 0
-  mDistanceRolloffMin: 10
-  mDistanceRolloffMax: 50
-  mDistanceRolloffModel: 0
 --- !u!164 &3243602669414408469
 AudioReverbFilter:
   m_ObjectHideFlags: 0
@@ -355,3 +337,26 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6925616584451907148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5210702442628669378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef5e1719799ca4f9b9f5db81449517ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bypassRoomEffects: 0
+  directivityAlpha: 0
+  directivitySharpness: 1
+  listenerDirectivityAlpha: 0
+  listenerDirectivitySharpness: 1
+  gainDb: 0
+  nearFieldEffectEnabled: 0
+  nearFieldEffectGain: 1
+  occlusionEnabled: 0
+  occlusionIntensity: 1
+  quality: 2
