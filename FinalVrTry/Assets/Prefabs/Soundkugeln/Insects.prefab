@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 6491207950335616808}
   - component: {fileID: 3379817942929816960}
   - component: {fileID: 7472022145215061185}
+  - component: {fileID: -6029769991335967501}
   m_Layer: 3
   m_Name: Insects
   m_TagString: Sound
@@ -360,3 +361,18 @@ MonoBehaviour:
   occlusionEnabled: 0
   occlusionIntensity: 1
   quality: 2
+--- !u!114 &-6029769991335967501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5351423283920031256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb120a2787e9a74fb4d3ce443e2b1f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  klirr: {fileID: 8300000, guid: 2ee774e85332c8d4a8785e47ae5b874c, type: 3}
+  velocity: 0
+  mindestVelocity: 15

@@ -13,8 +13,11 @@ public class Explosion : MonoBehaviour
     public float maxVel = 1;
     public bool exploded;
    
-    Vector3 contrVelLeft;
-    Vector3 contrVelRight;
+    float contrVelLeft;
+    float contrVelRight;
+
+    //Vector3 contrVelLeft;
+    //Vector3 contrVelRight;
 
     [SerializeField] SteamVR_Action_Pose leftPose;
     [SerializeField] SteamVR_Action_Pose rightPose;
@@ -23,11 +26,6 @@ public class Explosion : MonoBehaviour
     public GameObject newSpawnedR;
 
     Quaternion rot = new Quaternion(0, 0, 0, 0);
-
-    private void Start()
-    {
-        
-    }
 
     public void procideExplosion()
     {
@@ -56,21 +54,34 @@ public class Explosion : MonoBehaviour
 
     private void Update()
     {
-        contrVelLeft = leftPose.velocity;
-        contrVelRight = rightPose.velocity;
+        contrVelLeft = leftPose.velocity.magnitude;
+        contrVelRight = rightPose.velocity.magnitude;
+
+        //contrVelLeft = leftPose.velocity;
+        //contrVelRight = rightPose.velocity;
 
         contrDist = Vector3.Distance(pickUpSound.leftContr.transform.position, pickUpSound.rightContr.transform.position);
         if (contrDist >= maxDist)
         {
             //Debug.Log("Distanced");
-            if(contrVelLeft.x >= maxVel || contrVelLeft.z >= maxVel || contrVelLeft.y >= maxVel)
+
+            if (contrVelLeft >= maxVel && contrVelRight >= maxVel)
+            {
+                 //Debug.Log("Velocetied");
+                 procideExplosion();
+                
+            }
+            
+
+            //return if magnitude dont work
+            /*if(contrVelLeft.x >= maxVel || contrVelLeft.z >= maxVel || contrVelLeft.y >= maxVel)
             {
                 if (contrVelRight.x >= maxVel || contrVelRight.z >= maxVel || contrVelRight.y >= maxVel)
                 {
                     //Debug.Log("Velocetied");
                     procideExplosion();
                 }
-            }           
+            }*/
         }
     }
 }
