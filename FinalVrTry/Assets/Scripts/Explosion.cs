@@ -24,7 +24,7 @@ public class Explosion : MonoBehaviour
 
     public void procideExplosion()
     {
-        if (pickUpSound.useingRightHand && pickUpSound.useingLeftHand)
+        if (pickUpSound.useingRightHand && pickUpSound.useingLeftHand && pickUpSound.grabbedSound != null)
         {
             Debug.Log("useing both hands");
             exploded = true;

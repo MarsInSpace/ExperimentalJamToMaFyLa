@@ -23,9 +23,9 @@ public class PickUpSound : MonoBehaviour
     public GameObject grabbedR;
 
 
-    Rigidbody holdingTargetR;
+    [SerializeField] Rigidbody holdingTargetR;
 
-    Rigidbody holdingTargetL;
+    [SerializeField] Rigidbody holdingTargetL;
 
     private void Start()
     {
@@ -39,13 +39,14 @@ public class PickUpSound : MonoBehaviour
 
     public void GrabbedLeft()
     {
-        if (holdingTargetL != null) return;
-
-        Collider[] colliders = Physics.OverlapSphere(leftContr.transform.position, distToPickUp, pickUpLayer);
-        if (colliders.Length > 0)
+        if (holdingTargetL == null)
         {
-            holdingTargetL = colliders[0].gameObject.GetComponent<Rigidbody>();
-            grabbedL = colliders[0].gameObject;
+            Collider[] colliders = Physics.OverlapSphere(leftContr.transform.position, distToPickUp, pickUpLayer);
+            if (colliders.Length > 0)
+            {
+                holdingTargetL = colliders[0].gameObject.GetComponent<Rigidbody>();
+                grabbedL = colliders[0].gameObject;
+            }
         }
         holdingTargetL.velocity = (leftContr.transform.position - holdingTargetL.transform.position) / Time.fixedDeltaTime;
         holdingTargetL.maxAngularVelocity = 15;
@@ -53,13 +54,14 @@ public class PickUpSound : MonoBehaviour
     }
     public void GrabbedRight()
     {
-        if (holdingTargetL != null) return;
-
-        Collider[] colliders = Physics.OverlapSphere(rightContr.transform.position, distToPickUp, pickUpLayer);
-        if (colliders.Length > 0)
+        if (holdingTargetR == null)
         {
-            holdingTargetR = colliders[0].gameObject.GetComponent<Rigidbody>();
-            grabbedR = colliders[0].gameObject;
+            Collider[] colliders = Physics.OverlapSphere(rightContr.transform.position, distToPickUp, pickUpLayer);
+            if (colliders.Length > 0)
+            {
+                holdingTargetR = colliders[0].gameObject.GetComponent<Rigidbody>();
+                grabbedR = colliders[0].gameObject;
+            }
         }
         holdingTargetR.velocity = (rightContr.transform.position - holdingTargetR.transform.position) / Time.fixedDeltaTime;
         holdingTargetR.maxAngularVelocity = 15;
