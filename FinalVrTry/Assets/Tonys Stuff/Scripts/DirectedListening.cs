@@ -27,11 +27,7 @@ public class DirectedListening : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(leftEarListening)
-        {
-            SendCastToListen();
-        }
-        else if(rightEarListening)
+        if(leftEarListening || rightEarListening)
         {
             SendCastToListen();
         }
