@@ -52,11 +52,13 @@ public class PickUpSound : MonoBehaviour
     public void UnGrabbedLeft()
     {
         useingLeftHand = false;
+        grabbedSound = null;
     }
 
     public void UnGrabbedRight()
     {
         useingRightHand = false;
+        grabbedSound = null;
     }
 
 

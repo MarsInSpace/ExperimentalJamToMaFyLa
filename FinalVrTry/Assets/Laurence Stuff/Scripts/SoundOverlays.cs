@@ -62,14 +62,15 @@ public class SoundOverlays: MonoBehaviour
 
         grabbedSound = pickUpSound.grabbedSound;
         //grabbedSound = GetComponent<GameObject>();
-
-        if (grabbedSound.name == "Wasser(Clone)")
-
+        if (grabbedSound != null)
         {
-            Debug.Log("If abfrage wird gemacht");
+            if (grabbedSound.name == "Wasser(Clone)")
 
-            foreach (GameObject soundDing in currentSounds)
             {
+                Debug.Log("If abfrage wird gemacht");
+
+                foreach (GameObject soundDing in currentSounds)
+                {
                     Debug.Log("Name Wasser wird erkannt");
                     lowpass = soundDing.GetComponent<AudioLowPassFilter>();
 
@@ -80,6 +81,7 @@ public class SoundOverlays: MonoBehaviour
                     reverb.decayTime = Mathf.Lerp(1, 2, 1);
 
                     WaterSound.Play();
+                }
             }
         }
     }
