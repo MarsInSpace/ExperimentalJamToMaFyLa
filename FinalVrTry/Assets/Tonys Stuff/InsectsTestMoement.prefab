@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 3379817942929816960}
   - component: {fileID: 7472022145215061185}
   - component: {fileID: -6029769991335967501}
-  - component: {fileID: 7293046542172045714}
+  - component: {fileID: 6094881213079413605}
   m_Layer: 3
-  m_Name: Insects
+  m_Name: InsectsTestMoement
   m_TagString: Sound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,7 +129,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 2
+  MaxDistance: 1.25
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -377,7 +377,7 @@ MonoBehaviour:
   klirr: {fileID: 8300000, guid: 2ee774e85332c8d4a8785e47ae5b874c, type: 3}
   velocity: 0
   mindestVelocity: 20
---- !u!114 &7293046542172045714
+--- !u!114 &6094881213079413605
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
