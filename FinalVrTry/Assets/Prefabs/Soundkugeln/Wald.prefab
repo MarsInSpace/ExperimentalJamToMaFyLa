@@ -375,4 +375,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   klirr: {fileID: 8300000, guid: 2ee774e85332c8d4a8785e47ae5b874c, type: 3}
   velocity: 0
-  mindestVelocity: 15
+  mindestVelocity: 20
