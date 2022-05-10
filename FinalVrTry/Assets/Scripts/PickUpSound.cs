@@ -8,7 +8,6 @@ public class PickUpSound : MonoBehaviour
     Explosion explosion;
     public bool useingLeftHand =false;
     public bool useingRightHand = false;
-    public bool handClosed;
 
     public float distToPickUp = 0.5f;
    
@@ -17,14 +16,13 @@ public class PickUpSound : MonoBehaviour
     [SerializeField] public SteamVR_Behaviour_Pose leftContr;
     [SerializeField] public SteamVR_Behaviour_Pose rightContr;
 
+    [HideInInspector]
     public GameObject grabbedSound;
 
     public GameObject grabbedL;
     public GameObject grabbedR;
 
-
     [SerializeField] Rigidbody holdingTargetR;
-
     [SerializeField] Rigidbody holdingTargetL;
 
     private void Start()
