@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 3379828829409499530}
   - component: {fileID: 7239252997973806324}
   - component: {fileID: 1117536138603323256}
+  - component: {fileID: 2272129331499267049}
   m_Layer: 3
   m_Name: Stimmen
   m_TagString: Sound
@@ -363,4 +364,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   klirr: {fileID: 8300000, guid: 2ee774e85332c8d4a8785e47ae5b874c, type: 3}
   velocity: 0
+  waitlengh: 0
   mindestVelocity: 7
+--- !u!114 &2272129331499267049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8893877451119080155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44dd476431f695543ba9e11a28385912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxVelocity: 0.3

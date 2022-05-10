@@ -25,8 +25,6 @@ public class Explosion : MonoBehaviour
     public GameObject newSpawnedL;
     public GameObject newSpawnedR;
 
-    Quaternion rot = new Quaternion(0, 0, 0, 0);
-
     private void Start()
     {
         field = FindObjectOfType<FieldSizeManager>().gameObject.GetComponent<FieldSizeManager>();
@@ -41,10 +39,10 @@ public class Explosion : MonoBehaviour
 
             if (newSpawnedL == null && newSpawnedR == null)
             {
-                newSpawnedL = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], leftPose.localPosition, rot, field.gameObject.transform.parent);
+                newSpawnedL = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], leftPose.localPosition, Quaternion.identity, field.gameObject.transform.parent);
                 spawn.currentSounds.Add(newSpawnedL);
 
-                newSpawnedR = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], rightPose.localPosition, rot, field.gameObject.transform.parent);
+                newSpawnedR = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], rightPose.localPosition, Quaternion.identity, field.gameObject.transform.parent);
                 spawn.currentSounds.Add(newSpawnedR);
             }
             if (pickUpSound.grabbedSound != null)

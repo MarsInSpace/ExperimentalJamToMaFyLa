@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 5872470316026970303}
   - component: {fileID: 6336486916974574776}
   - component: {fileID: -1709077462062083898}
+  - component: {fileID: 7635173204323447552}
   m_Layer: 3
   m_Name: Rain
   m_TagString: Sound
@@ -387,4 +388,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   klirr: {fileID: 8300000, guid: 2ee774e85332c8d4a8785e47ae5b874c, type: 3}
   velocity: 0
+  waitlengh: 0
   mindestVelocity: 7
+--- !u!114 &7635173204323447552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3740421112456458233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44dd476431f695543ba9e11a28385912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxVelocity: 0.3
