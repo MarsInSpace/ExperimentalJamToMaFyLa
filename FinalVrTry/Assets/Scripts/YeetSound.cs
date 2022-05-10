@@ -9,7 +9,7 @@ public class YeetSound : MonoBehaviour
     private Spawn spawn;
     Rigidbody rb;
     public float velocity;
-    float waitlengh;
+    public float waitlengh;
     public float mindestVelocity = 15;
 
     bool doomed = false;
@@ -26,8 +26,9 @@ public class YeetSound : MonoBehaviour
         velocity = rb.velocity.magnitude;
         if (doomed)
         {
+            rb.velocity = new Vector3(0, 0, 0);
             waitlengh -= Time.deltaTime;
-            audiSource.clip = klirr;
+            
             if (waitlengh <= 0)
             {
                 spawn.currentSounds.Remove(this.gameObject);
@@ -42,7 +43,8 @@ public class YeetSound : MonoBehaviour
         {
             if (velocity >= mindestVelocity)
             {
-                Debug.Log("doomed");
+                audiSource.clip = klirr;
+                audiSource.Play();
                 doomed = true;
             }
         }
