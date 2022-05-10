@@ -6,9 +6,7 @@ public class GentlePutDown : MonoBehaviour
 {
     PickUpSound pickUp;
     Explosion explosion;
-    YeetSound yeet;
     public float maxVelocity;
-    Rigidbody rb;
 
     GameObject justGrabbedL;
     GameObject justGrabbedR;
@@ -17,8 +15,7 @@ public class GentlePutDown : MonoBehaviour
     {
         pickUp = FindObjectOfType<PickUpSound>().gameObject.GetComponent<PickUpSound>();
         explosion = FindObjectOfType<Explosion>().gameObject.GetComponent<Explosion>();
-        rb = gameObject.GetComponent<Rigidbody>();
-        yeet = gameObject.GetComponent<YeetSound>();
+
     }
 
     private void Update()
@@ -26,10 +23,6 @@ public class GentlePutDown : MonoBehaviour
         CheckVelLeft();
         CheckVelRight();
 
-        //if(yeet.velocity < maxVelocity)
-        //{
-        //    rb.velocity = Vector3.zero;
-        //}
     }
 
     void CheckVelLeft()
@@ -41,17 +34,16 @@ public class GentlePutDown : MonoBehaviour
                 justGrabbedL = pickUp.grabbedL;
             }
         }
-        else
+        else if (justGrabbedL != null)
         {
             if (explosion.contrVelLeft <= maxVelocity)
             {
                 if (pickUp.useingLeftHand == false)
                 {
-                    if (justGrabbedL != null)
-                    {
-                        justGrabbedL.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                        justGrabbedL = null;
-                    }
+
+                    justGrabbedL.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    justGrabbedL = null;
+                    
                 }
             }
         }
@@ -66,17 +58,14 @@ public class GentlePutDown : MonoBehaviour
                 justGrabbedR = pickUp.grabbedR;
             }
         }
-        else
+        else if (justGrabbedR != null)
         {
             if (explosion.contrVelRight <= maxVelocity)
             {
                 if (pickUp.useingRightHand == false)
                 {
-                    if (justGrabbedR != null)
-                    {
-                        justGrabbedR.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                        justGrabbedR = null;
-                    }
+                    justGrabbedR.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    justGrabbedR = null;
                 }
             }
         }
