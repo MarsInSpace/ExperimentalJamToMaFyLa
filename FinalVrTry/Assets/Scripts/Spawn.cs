@@ -18,7 +18,7 @@ public class Spawn : MonoBehaviour
 
     Quaternion rot = new Quaternion(0, 0, 0, 0);
 
-    private void Awake()
+    private void Start()
     {
         soundDistance = field.radius / 2;
         front.transform.position = field.middle + new Vector3(soundDistance, field.height, 0);
@@ -26,7 +26,15 @@ public class Spawn : MonoBehaviour
         left.transform.position = field.middle - new Vector3(0, -field.height, soundDistance);
         right.transform.position = field.middle + new Vector3(0, field.height, soundDistance);
         spawnpoints.Add(front); spawnpoints.Add(back); spawnpoints.Add(left); spawnpoints.Add(right);
+    }
 
+    private void Awake()
+    {
+        front = GameObject.Find("SpawnColliderFront");
+        back = GameObject.Find("SpawnColliderBack");
+        left = GameObject.Find("SpawnColliderLeft");
+        right = GameObject.Find("SpawnColliderRight");
+        
     }
 
     private void Update()

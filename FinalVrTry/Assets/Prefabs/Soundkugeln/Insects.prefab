@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 3379817942929816960}
   - component: {fileID: 7472022145215061185}
   - component: {fileID: -6029769991335967501}
-  - component: {fileID: 7293046542172045714}
   m_Layer: 3
   m_Name: Insects
   m_TagString: Sound
@@ -376,22 +375,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   klirr: {fileID: 8300000, guid: 2ee774e85332c8d4a8785e47ae5b874c, type: 3}
   velocity: 0
-  mindestVelocity: 20
---- !u!114 &7293046542172045714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5351423283920031256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc326183a88fad8448625f8ca8259a0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fieldSizeManagerScr: {fileID: 0}
-  idleMovementPoint: {x: 0, y: 0, z: 0}
-  determineVariablesNew: 0
-  generateNewDestination: 0
-  testCube: {fileID: 0}
-  reachedDestination: 1
+  mindestVelocity: 7

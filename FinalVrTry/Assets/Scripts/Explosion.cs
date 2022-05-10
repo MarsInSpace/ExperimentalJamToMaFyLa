@@ -5,19 +5,19 @@ using Valve.VR;
 
 public class Explosion : MonoBehaviour
 {
-    [SerializeField] FieldSizeManager field;
-    [SerializeField] PickUpSound pickUpSound;
-    [SerializeField] Spawn spawn;
+    FieldSizeManager field;
+    PickUpSound pickUpSound;
+    Spawn spawn;
+
     float contrDist;
     public float maxDist = 1;
     public float maxVel = 1;
-    public bool exploded;
+    private bool exploded;
+
+    private bool addedToList;
    
     float contrVelLeft;
     float contrVelRight;
-
-    //Vector3 contrVelLeft;
-    //Vector3 contrVelRight;
 
     [SerializeField] SteamVR_Action_Pose leftPose;
     [SerializeField] SteamVR_Action_Pose rightPose;
@@ -27,11 +27,16 @@ public class Explosion : MonoBehaviour
 
     Quaternion rot = new Quaternion(0, 0, 0, 0);
 
+    private void Start()
+    {
+        field = FindObjectOfType<FieldSizeManager>().gameObject.GetComponent<FieldSizeManager>();
+        pickUpSound = FindObjectOfType<PickUpSound>().gameObject.GetComponent<PickUpSound>();
+        spawn = FindObjectOfType<Spawn>().gameObject.GetComponent<Spawn>();
+    }
     public void procideExplosion()
     {
         if (pickUpSound.useingRightHand && pickUpSound.useingLeftHand && pickUpSound.grabbedSound != null)
         {
-            //Debug.Log("useing both hands");
             exploded = true;
 
             if (newSpawnedL == null && newSpawnedR == null)
@@ -42,8 +47,11 @@ public class Explosion : MonoBehaviour
                 newSpawnedR = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], rightPose.localPosition, rot, field.gameObject.transform.parent);
                 spawn.currentSounds.Add(newSpawnedR);
             }
-            spawn.currentSounds.Remove(pickUpSound.grabbedSound);
-            Destroy(pickUpSound.grabbedSound);
+            if (pickUpSound.grabbedSound != null)
+            {
+                spawn.currentSounds.Remove(pickUpSound.grabbedSound);
+                Destroy(pickUpSound.grabbedSound);
+            }
             
         }
         else
@@ -54,34 +62,22 @@ public class Explosion : MonoBehaviour
 
     private void Update()
     {
+        //get velocity
         contrVelLeft = leftPose.velocity.magnitude;
         contrVelRight = rightPose.velocity.magnitude;
 
-        //contrVelLeft = leftPose.velocity;
-        //contrVelRight = rightPose.velocity;
-
+        //get distance
         contrDist = Vector3.Distance(pickUpSound.leftContr.transform.position, pickUpSound.rightContr.transform.position);
+
+        //check distance
         if (contrDist >= maxDist)
         {
-            //Debug.Log("Distanced");
-
+            //check velocity
             if (contrVelLeft >= maxVel && contrVelRight >= maxVel)
             {
-                 //Debug.Log("Velocetied");
                  procideExplosion();
                 
             }
-            
-
-            //return if magnitude dont work
-            /*if(contrVelLeft.x >= maxVel || contrVelLeft.z >= maxVel || contrVelLeft.y >= maxVel)
-            {
-                if (contrVelRight.x >= maxVel || contrVelRight.z >= maxVel || contrVelRight.y >= maxVel)
-                {
-                    //Debug.Log("Velocetied");
-                    procideExplosion();
-                }
-            }*/
         }
     }
 }

@@ -7,9 +7,10 @@ public class YeetSound : MonoBehaviour
     AudioSource audiSource;
     [SerializeField] AudioClip klirr;
     private Spawn spawn;
+    PickUpSound pickUpSound;
     Rigidbody rb;
     public float velocity;
-    float waitlengh;
+    public float waitlengh;
     public float mindestVelocity = 15;
 
     bool doomed = false;
@@ -17,6 +18,7 @@ public class YeetSound : MonoBehaviour
     private void Start()
     {
         audiSource = gameObject.GetComponent<AudioSource>();
+        pickUpSound = FindObjectOfType<PickUpSound>().gameObject.GetComponent<PickUpSound>();
         spawn = FindObjectOfType<Spawn>().gameObject.GetComponent<Spawn>();
         rb = gameObject.GetComponent<Rigidbody>();
         waitlengh = klirr.length;
@@ -26,8 +28,9 @@ public class YeetSound : MonoBehaviour
         velocity = rb.velocity.magnitude;
         if (doomed)
         {
+            rb.velocity = new Vector3(0, 0, 0);
             waitlengh -= Time.deltaTime;
-            audiSource.clip = klirr;
+            
             if (waitlengh <= 0)
             {
                 spawn.currentSounds.Remove(this.gameObject);
@@ -38,12 +41,17 @@ public class YeetSound : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (pickUpSound.grabbedL == this.gameObject || pickUpSound.grabbedR == this.gameObject) return;
+        
         if (collision.gameObject.layer == 6)
         {
             if (velocity >= mindestVelocity)
             {
+                audiSource.clip = klirr;
+                audiSource.Play();
                 doomed = true;
             }
-        }
+         }
+        
     }
 }

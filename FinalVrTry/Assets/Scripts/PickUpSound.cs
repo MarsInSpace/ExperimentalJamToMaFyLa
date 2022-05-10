@@ -8,7 +8,6 @@ public class PickUpSound : MonoBehaviour
     Explosion explosion;
     public bool useingLeftHand =false;
     public bool useingRightHand = false;
-    public bool handClosed;
 
     public float distToPickUp = 0.5f;
    
@@ -17,14 +16,13 @@ public class PickUpSound : MonoBehaviour
     [SerializeField] public SteamVR_Behaviour_Pose leftContr;
     [SerializeField] public SteamVR_Behaviour_Pose rightContr;
 
+    [HideInInspector]
     public GameObject grabbedSound;
 
     public GameObject grabbedL;
     public GameObject grabbedR;
 
-
     [SerializeField] Rigidbody holdingTargetR;
-
     [SerializeField] Rigidbody holdingTargetL;
 
     private void Start()
@@ -48,9 +46,13 @@ public class PickUpSound : MonoBehaviour
                 grabbedL = colliders[0].gameObject;
             }
         }
-        holdingTargetL.velocity = (leftContr.transform.position - holdingTargetL.transform.position) / Time.fixedDeltaTime;
-        holdingTargetL.maxAngularVelocity = 15;
-        useingLeftHand = true;
+        else
+        {
+            holdingTargetL.velocity = (leftContr.transform.position - holdingTargetL.transform.position) / Time.fixedDeltaTime;
+            holdingTargetL.maxAngularVelocity = 15;
+        }
+            useingLeftHand = true;
+        
     }
     public void GrabbedRight()
     {
@@ -63,8 +65,11 @@ public class PickUpSound : MonoBehaviour
                 grabbedR = colliders[0].gameObject;
             }
         }
-        holdingTargetR.velocity = (rightContr.transform.position - holdingTargetR.transform.position) / Time.fixedDeltaTime;
-        holdingTargetR.maxAngularVelocity = 15;
+        else
+        {
+            holdingTargetR.velocity = (rightContr.transform.position - holdingTargetR.transform.position) / Time.fixedDeltaTime;
+            holdingTargetR.maxAngularVelocity = 15;
+        }
         useingRightHand = true;
     }
 
@@ -99,7 +104,4 @@ public class PickUpSound : MonoBehaviour
         holdingTargetR = null;
         grabbedSound = null;
     }
-
-
-
 }
