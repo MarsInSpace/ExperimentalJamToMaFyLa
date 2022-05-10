@@ -7,7 +7,7 @@ public class ManageSoundVolume : MonoBehaviour
     [SerializeField] AudioSource thisAudio;
     FieldSizeManager fieldSizeManagerScr;
 
-    public MenuButtonManager menubottonmanager;
+    MenuButtonManager menubottonmanager;
 
     Spawn spawnScr;
 
@@ -22,6 +22,7 @@ public class ManageSoundVolume : MonoBehaviour
     {
         thisAudio = GetComponent<AudioSource >();
         fieldSizeManagerScr = GameObject.FindGameObjectWithTag("FieldSizeManager").GetComponent<FieldSizeManager>();
+        menubottonmanager = GameObject.FindGameObjectWithTag("MenuButtonManager").GetComponent<MenuButtonManager>();
         BorderSoundsScr = GameObject.Find("GeneralBorderAudio").GetComponent<BorderSounds>();
         spawnScr = GameObject.Find("Soundmanager").GetComponent<Spawn>();
     }
@@ -29,7 +30,7 @@ public class ManageSoundVolume : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fieldSizeManagerScr.inSetup || BorderSoundsScr.borderSound.volume == 0.8f || menubottonmanager.InMenu == true)
+        if (fieldSizeManagerScr.inSetup || BorderSoundsScr.borderSound.volume == 0.8f )//|| menubottonmanager.InMenu == true)
         {
             thisAudio.Pause();
             wasPaused = true;

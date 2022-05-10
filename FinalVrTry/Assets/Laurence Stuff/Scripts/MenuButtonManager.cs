@@ -5,13 +5,17 @@ using UnityEngine;
 public class MenuButtonManager : MonoBehaviour
 {
     public FieldSizeManager fieldsizemanager;
-    public ManageSoundVolume managesoundvolume;
 
     public Canvas MenuOverlayStart;
 
     public bool InMenu = true;
 
     int dropdownvalue;
+
+    private void Start()
+    {
+   
+    }
 
     public void StartTheGame()
     {
