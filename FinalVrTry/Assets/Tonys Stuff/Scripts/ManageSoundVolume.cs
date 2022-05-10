@@ -53,8 +53,6 @@ public class ManageSoundVolume : MonoBehaviour
             thisAudio.volume = 0.5f;
         }
 
-        inFocus = false; // muss immer am Ende zurückgesetzt werden, damit die Sounds nicht in Focus bleiben wenn sie nicht mehr fokussiert sind
-
         foreach(var sound in spawnScr.currentSounds)
         {
             if (sound == thisAudio.gameObject) continue;
@@ -66,5 +64,7 @@ public class ManageSoundVolume : MonoBehaviour
                 thisAudio.volume = 0f;
             }
         }
+
+        inFocus = false; // muss immer am Ende zurückgesetzt werden, damit die Sounds nicht in Focus bleiben wenn sie nicht mehr fokussiert sind
     }
 }
