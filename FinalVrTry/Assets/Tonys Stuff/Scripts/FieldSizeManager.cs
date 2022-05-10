@@ -30,7 +30,7 @@ public class FieldSizeManager : MonoBehaviour // wir müssen einbauen, dass bei j
 
     public float armLength; // damit kinder auch das spiel spielen können
 
-    public bool startSetup = true;
+    public bool startSetup = false;
     public bool inSetup = false;
 
     public bool middleCalibrated = false;

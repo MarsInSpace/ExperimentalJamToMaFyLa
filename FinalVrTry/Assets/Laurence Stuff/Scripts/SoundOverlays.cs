@@ -67,12 +67,12 @@ public class SoundOverlays: MonoBehaviour
 
     public void UnderWaterEffectOFFL()
     {
-        if((pickUpSound.grabbedR = null) || (pickUpSound.grabbedR.name != "Wasser(Clone)"))
+        if(grabbedSound != null && ((pickUpSound.grabbedR = null) || (pickUpSound.grabbedR.name != "Wasser(Clone)")))
             ApplyEffectOFF(pickUpSound.grabbedL);
     }
     public void UnderWaterEffectOFFR()
     {
-        if ((pickUpSound.grabbedL = null) || (pickUpSound.grabbedL.name != "Wasser(Clone)"))
+        if (grabbedSound != null && ((pickUpSound.grabbedL = null) || (pickUpSound.grabbedL.name != "Wasser(Clone)")))
             ApplyEffectOFF(pickUpSound.grabbedR);
     }
 
