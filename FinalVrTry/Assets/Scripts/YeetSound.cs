@@ -42,6 +42,7 @@ public class YeetSound : MonoBehaviour
         {
             if (velocity >= mindestVelocity)
             {
+                Debug.Log("doomed");
                 doomed = true;
             }
         }
