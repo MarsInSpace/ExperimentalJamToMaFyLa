@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 4060564417280581838}
   - component: {fileID: 1660625642224159529}
   - component: {fileID: 2857753102611004726}
-  - component: {fileID: -5109313141114392286}
   m_Layer: 0
   m_Name: TriggerSphere
   m_TagString: Untagged
@@ -360,16 +359,3 @@ MonoBehaviour:
   velocity: 0
   waitlengh: 0
   mindestVelocity: 7
---- !u!114 &-5109313141114392286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8113788139309355599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44dd476431f695543ba9e11a28385912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxVelocity: 0.09

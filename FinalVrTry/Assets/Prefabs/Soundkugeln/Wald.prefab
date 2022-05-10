@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 2314916478410870669}
   - component: {fileID: 5548337902433835553}
   - component: {fileID: 6138304434448395563}
-  - component: {fileID: 1426970166355378542}
   m_Layer: 3
   m_Name: Wald
   m_TagString: Sound
@@ -378,16 +377,3 @@ MonoBehaviour:
   velocity: 0
   waitlengh: 0
   mindestVelocity: 7
---- !u!114 &1426970166355378542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7256211841801296815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44dd476431f695543ba9e11a28385912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxVelocity: 0.09

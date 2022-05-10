@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 9020338412086405177}
   - component: {fileID: 5791068602100402760}
   - component: {fileID: -7347805281180257712}
-  - component: {fileID: 802915427143542968}
   m_Layer: 3
   m_Name: Beat
   m_TagString: Sound
@@ -390,16 +389,3 @@ MonoBehaviour:
   velocity: 0
   waitlengh: 0
   mindestVelocity: 7
---- !u!114 &802915427143542968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4773494626064470290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44dd476431f695543ba9e11a28385912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxVelocity: 0.09
