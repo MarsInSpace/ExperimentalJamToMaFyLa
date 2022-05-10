@@ -104,7 +104,4 @@ public class PickUpSound : MonoBehaviour
         holdingTargetR = null;
         grabbedSound = null;
     }
-
-
-
 }
