@@ -16,7 +16,6 @@ public class Spawn : MonoBehaviour
     public GameObject left;
     public GameObject right;
 
-    Quaternion rot = new Quaternion(0, 0, 0, 0);
 
     private void Start()
     {
@@ -47,7 +46,7 @@ public class Spawn : MonoBehaviour
 
         if (currentSounds.Count == 0 && spawnpoints.Count != 0)
         {
-            currentSound = Instantiate(SoundSources[Random.Range(0, SoundSources.Count)], spawnpoints[Random.Range(0, spawnpoints.Count)].transform.position, rot, field.gameObject.transform.parent);
+            currentSound = Instantiate(SoundSources[Random.Range(0, SoundSources.Count)], spawnpoints[Random.Range(0, spawnpoints.Count)].transform.position, Quaternion.identity, field.gameObject.transform.parent);
             currentSounds.Add(currentSound); 
         }
     }

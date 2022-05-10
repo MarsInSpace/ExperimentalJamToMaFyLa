@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 1690601074924949723}
   - component: {fileID: 8509847133730813574}
   - component: {fileID: -5288871595074654432}
+  - component: {fileID: 226992600936214541}
   m_Layer: 3
   m_Name: Birbs
   m_TagString: Sound
@@ -375,4 +376,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   klirr: {fileID: 8300000, guid: 2ee774e85332c8d4a8785e47ae5b874c, type: 3}
   velocity: 0
+  waitlengh: 0
   mindestVelocity: 7
+--- !u!114 &226992600936214541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5484898583952634795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44dd476431f695543ba9e11a28385912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxVelocity: 0.3

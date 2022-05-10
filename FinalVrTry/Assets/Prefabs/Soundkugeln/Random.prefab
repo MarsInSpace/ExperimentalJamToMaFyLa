@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 5305415065661454144}
   - component: {fileID: 5605643559715012492}
   - component: {fileID: 6838273518653314258}
+  - component: {fileID: 168193362392400622}
   m_Layer: 3
   m_Name: Random
   m_TagString: Sound
@@ -375,4 +376,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   klirr: {fileID: 8300000, guid: 2ee774e85332c8d4a8785e47ae5b874c, type: 3}
   velocity: 0
+  waitlengh: 0
   mindestVelocity: 7
+--- !u!114 &168193362392400622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7429582850476108845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44dd476431f695543ba9e11a28385912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxVelocity: 0.3

@@ -7,6 +7,8 @@ public class ManageSoundVolume : MonoBehaviour
     [SerializeField] AudioSource thisAudio;
     FieldSizeManager fieldSizeManagerScr;
 
+    public MenuButtonManager menubottonmanager;
+
     Spawn spawnScr;
 
     BorderSounds BorderSoundsScr;
@@ -27,7 +29,7 @@ public class ManageSoundVolume : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fieldSizeManagerScr.inSetup || BorderSoundsScr.borderSound.volume == 0.8f)
+        if (fieldSizeManagerScr.inSetup || BorderSoundsScr.borderSound.volume == 0.8f || menubottonmanager.InMenu == true)
         {
             thisAudio.Pause();
             wasPaused = true;

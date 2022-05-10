@@ -28,7 +28,7 @@ public class YeetSound : MonoBehaviour
         velocity = rb.velocity.magnitude;
         if (doomed)
         {
-            rb.velocity = new Vector3(0, 0, 0);
+            rb.velocity = Vector3.zero;
             waitlengh -= Time.deltaTime;
             
             if (waitlengh <= 0)
