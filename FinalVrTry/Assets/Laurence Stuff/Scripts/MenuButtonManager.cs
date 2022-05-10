@@ -5,6 +5,7 @@ using UnityEngine;
 public class MenuButtonManager : MonoBehaviour
 {
     public FieldSizeManager fieldsizemanager;
+    public ManageSoundVolume managesoundvolume;
 
     public Canvas MenuOverlayStart;
 
@@ -15,8 +16,8 @@ public class MenuButtonManager : MonoBehaviour
     public void StartTheGame()
     {
         MenuOverlayStart.enabled = false;
-        fieldsizemanager.startSetup = true;
         InMenu = false;
+        fieldsizemanager.startSetup = true;
     }
 
     public void MenuToggle()
