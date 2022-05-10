@@ -16,8 +16,8 @@ public class Explosion : MonoBehaviour
 
     private bool addedToList;
    
-    float contrVelLeft;
-    float contrVelRight;
+    public float contrVelLeft;
+    public float contrVelRight;
 
     [SerializeField] SteamVR_Action_Pose leftPose;
     [SerializeField] SteamVR_Action_Pose rightPose;

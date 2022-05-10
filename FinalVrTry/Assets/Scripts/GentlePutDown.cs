@@ -4,21 +4,71 @@ using UnityEngine;
 
 public class GentlePutDown : MonoBehaviour
 {
-    YeetSound yeet;
+    PickUpSound pickUp;
+    Explosion explosion;
     public float maxVelocity;
-    Rigidbody rb;
+
+    GameObject justGrabbedL;
+    GameObject justGrabbedR;
 
     private void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
-        yeet = gameObject.GetComponent<YeetSound>();
+        pickUp = FindObjectOfType<PickUpSound>().gameObject.GetComponent<PickUpSound>();
+        explosion = FindObjectOfType<Explosion>().gameObject.GetComponent<Explosion>();
+
     }
 
     private void Update()
     {
-        if(yeet.velocity < maxVelocity)
+        CheckVelLeft();
+        CheckVelRight();
+
+    }
+
+    void CheckVelLeft()
+    {
+        if (justGrabbedL == null)
         {
-            rb.velocity = Vector3.zero;
+            if (pickUp.useingLeftHand)
+            {
+                justGrabbedL = pickUp.grabbedL;
+            }
+        }
+        else if (justGrabbedL != null)
+        {
+            if (explosion.contrVelLeft <= maxVelocity)
+            {
+                if (pickUp.useingLeftHand == false)
+                {
+
+                    justGrabbedL.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    justGrabbedL = null;
+                    
+                }
+            }
         }
     }
+
+    void CheckVelRight()
+    {
+        if (justGrabbedR == null)
+        {
+            if (pickUp.useingRightHand)
+            {
+                justGrabbedR = pickUp.grabbedR;
+            }
+        }
+        else if (justGrabbedR != null)
+        {
+            if (explosion.contrVelRight <= maxVelocity)
+            {
+                if (pickUp.useingRightHand == false)
+                {
+                    justGrabbedR.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    justGrabbedR = null;
+                }
+            }
+        }
+    }
+
 }

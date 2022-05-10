@@ -30,7 +30,10 @@ public class ManageSoundVolume : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fieldSizeManagerScr.inSetup || BorderSoundsScr.borderSound.volume == 0.8f )//|| menubottonmanager.InMenu == true)
+        if (thisAudio.isPlaying)
+            Debug.Log(thisAudio + "is playing");
+
+        if (fieldSizeManagerScr.inSetup || BorderSoundsScr.borderSound.volume == 0.8f || menubottonmanager.InMenu == true)
         {
             thisAudio.Pause();
             wasPaused = true;
@@ -39,6 +42,7 @@ public class ManageSoundVolume : MonoBehaviour
         {
             wasPaused = false;
             thisAudio.UnPause();
+            Debug.Log("unpause");
         }
         else if(BorderSoundsScr.borderSound.volume == 0.3f)
         {
