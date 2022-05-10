@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleMovement : MonoBehaviour
+public class InsectBehaviour : MonoBehaviour
 {
     public FieldSizeManager fieldSizeManagerScr;
 

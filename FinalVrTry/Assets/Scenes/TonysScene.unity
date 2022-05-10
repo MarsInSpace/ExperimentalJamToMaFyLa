@@ -2205,6 +2205,7 @@ GameObject:
   - component: {fileID: 1069783809}
   - component: {fileID: 1069783808}
   - component: {fileID: 1069783807}
+  - component: {fileID: 1069783812}
   m_Layer: 0
   m_Name: Soundmanager
   m_TagString: Untagged
@@ -2226,7 +2227,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useingLeftHand: 0
   useingRightHand: 0
-  handClosed: 0
   distToPickUp: 0.5
   pickUpLayer:
     serializedVersion: 2
@@ -2238,6 +2238,9 @@ MonoBehaviour:
   grabbedR: {fileID: 0}
   holdingTargetR: {fileID: 0}
   holdingTargetL: {fileID: 0}
+  insectSoundName: 
+  grabbedInsectL: {fileID: 0}
+  grabbedInsectR: {fileID: 0}
 --- !u!114 &1069783808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2250,12 +2253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c5e781d9fcf4f44863f9c4932b50b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  field: {fileID: 1020415128}
-  pickUpSound: {fileID: 1069783807}
-  spawn: {fileID: 1069783810}
   maxDist: 1
   maxVel: 1
-  exploded: 0
   leftPose:
     actionPath: /actions/default/in/Pose
     needsReinit: 0
@@ -2334,6 +2333,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1069783812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069783806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e162ce57862c7d74ea0a50a76202ed3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpScr: {fileID: 1069783807}
+  spawnScr: {fileID: 1069783810}
+  insectDeathSoundPrefab: {fileID: 8962982748200521384, guid: 91c05e01b99128446aedc2382f1dc35c,
+    type: 3}
 --- !u!21 &1090660129
 Material:
   serializedVersion: 8
@@ -2586,7 +2601,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216428145}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc326183a88fad8448625f8ca8259a0a, type: 3}
   m_Name: 
@@ -2595,7 +2610,6 @@ MonoBehaviour:
   idleMovementPoint: {x: 0, y: 0, z: 0}
   determineVariablesNew: 0
   generateNewDestination: 0
-  testCube: {fileID: 675239424}
   reachedDestination: 1
 --- !u!4 &1216428147
 Transform:

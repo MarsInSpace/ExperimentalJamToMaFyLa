@@ -25,6 +25,11 @@ public class PickUpSound : MonoBehaviour
     [SerializeField] Rigidbody holdingTargetR;
     [SerializeField] Rigidbody holdingTargetL;
 
+    [SerializeField] string insectSoundName;
+
+    public GameObject grabbedInsectL;
+    public GameObject grabbedInsectR;
+
     private void Start()
     {
         explosion = FindObjectOfType<Explosion>().gameObject.GetComponent<Explosion>();
@@ -39,11 +44,19 @@ public class PickUpSound : MonoBehaviour
     {
         if (holdingTargetL == null)
         {
-            Collider[] colliders = Physics.OverlapSphere(leftContr.transform.position, distToPickUp, pickUpLayer);
-            if (colliders.Length > 0)
+            Collider[] pickUpColliders = Physics.OverlapSphere(leftContr.transform.position, distToPickUp, pickUpLayer);
+            if (pickUpColliders.Length > 0)
             {
-                holdingTargetL = colliders[0].gameObject.GetComponent<Rigidbody>();
-                grabbedL = colliders[0].gameObject;
+                holdingTargetL = pickUpColliders[0].gameObject.GetComponent<Rigidbody>();
+                grabbedL = pickUpColliders[0].gameObject;
+            }
+            else
+            {
+                Collider[] insectColliders = Physics.OverlapSphere(leftContr.transform.position, distToPickUp, pickUpLayer);
+                if(insectColliders.Length > 0)
+                {
+                    grabbedInsectL = insectColliders[0].gameObject;
+                }
             }
         }
         else
@@ -58,11 +71,19 @@ public class PickUpSound : MonoBehaviour
     {
         if (holdingTargetR == null)
         {
-            Collider[] colliders = Physics.OverlapSphere(rightContr.transform.position, distToPickUp, pickUpLayer);
-            if (colliders.Length > 0)
+            Collider[] pickUpColliders = Physics.OverlapSphere(rightContr.transform.position, distToPickUp, pickUpLayer);
+            if (pickUpColliders.Length > 0)
             {
-                holdingTargetR = colliders[0].gameObject.GetComponent<Rigidbody>();
-                grabbedR = colliders[0].gameObject;
+                holdingTargetR = pickUpColliders[0].gameObject.GetComponent<Rigidbody>();
+                grabbedR = pickUpColliders[0].gameObject;
+            }
+            else
+            {
+                Collider[] insectColliders = Physics.OverlapSphere(leftContr.transform.position, distToPickUp, pickUpLayer);
+                if (insectColliders.Length > 0)
+                {
+                    grabbedInsectR = insectColliders[0].gameObject;
+                }
             }
         }
         else
