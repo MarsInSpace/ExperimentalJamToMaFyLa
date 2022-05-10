@@ -1380,6 +1380,7 @@ GameObject:
   - component: {fileID: 675239427}
   - component: {fileID: 675239426}
   - component: {fileID: 675239425}
+  - component: {fileID: 675239429}
   m_Layer: 0
   m_Name: TestCube
   m_TagString: Untagged
@@ -1465,6 +1466,22 @@ Transform:
   m_Father: {fileID: 1324886405}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &675239429
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675239424}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &706594258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2281,20 +2298,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   field: {fileID: 1020415128}
   SoundSources:
-  - {fileID: 7404650356444337543, guid: bbb7a2d7fcee4f443b14f8aee2a487ca, type: 3}
-  - {fileID: 2151964796433769995, guid: f2780ef011a106c4ea89448541b5ac69, type: 3}
-  - {fileID: 2518278904825094593, guid: 20117ca4bbf094448aa3acd360d40e66, type: 3}
-  - {fileID: 7623962690265913334, guid: a8c19965c2858be4ab64a34f64f57b18, type: 3}
-  - {fileID: 7460424155182469743, guid: 807595716738235468696ce11ca0cc77, type: 3}
-  - {fileID: 2130243225076996389, guid: 3e401ac858a79ef4087629d2c7406ab3, type: 3}
-  - {fileID: 2727405568352445390, guid: 3a4f7485a99f0a546b281fc81e386c4c, type: 3}
-  - {fileID: 5225809878632010070, guid: f2847d385dd60b841b876e8effad8fe8, type: 3}
-  - {fileID: 5736671324081638672, guid: cc9fabe42a6361847b7ee887e69c759d, type: 3}
-  - {fileID: 2247053488332321367, guid: 72490a2ea1530ad418b9b25d1d2fd422, type: 3}
-  - {fileID: 7969670688757972883, guid: 512b9cb16e6025b458d6759b5fdb237d, type: 3}
-  - {fileID: 5210702442628669378, guid: b6d8a00d27fe71842a6ca215c836e012, type: 3}
-  - {fileID: 3486835400199724359, guid: 6566d98d02c1ddc4dbce3537b9266db9, type: 3}
-  - {fileID: 3103891999777162545, guid: b2db48930f57d534991c70399abfb2cd, type: 3}
+  - {fileID: 4773494626064470290, guid: bbb7a2d7fcee4f443b14f8aee2a487ca, type: 3}
+  - {fileID: 5484898583952634795, guid: f2780ef011a106c4ea89448541b5ac69, type: 3}
+  - {fileID: 5351423283920031256, guid: 20117ca4bbf094448aa3acd360d40e66, type: 3}
+  - {fileID: 1554940014913736651, guid: a8c19965c2858be4ab64a34f64f57b18, type: 3}
+  - {fileID: 730090915101533839, guid: 807595716738235468696ce11ca0cc77, type: 3}
+  - {fileID: 7385866294776233107, guid: 3e401ac858a79ef4087629d2c7406ab3, type: 3}
+  - {fileID: 6120148685289686461, guid: 3a4f7485a99f0a546b281fc81e386c4c, type: 3}
+  - {fileID: 3740421112456458233, guid: f2847d385dd60b841b876e8effad8fe8, type: 3}
+  - {fileID: 7429582850476108845, guid: cc9fabe42a6361847b7ee887e69c759d, type: 3}
+  - {fileID: 8893877451119080155, guid: 72490a2ea1530ad418b9b25d1d2fd422, type: 3}
+  - {fileID: 7726262319823117452, guid: 512b9cb16e6025b458d6759b5fdb237d, type: 3}
+  - {fileID: 7256211841801296815, guid: b6d8a00d27fe71842a6ca215c836e012, type: 3}
+  - {fileID: 142211759039351922, guid: 6566d98d02c1ddc4dbce3537b9266db9, type: 3}
+  - {fileID: 2312882319319629195, guid: b2db48930f57d534991c70399abfb2cd, type: 3}
   currentSounds: []
   currentSound: {fileID: 0}
   spawnpoints: []
@@ -2579,6 +2596,7 @@ MonoBehaviour:
   determineVariablesNew: 0
   generateNewDestination: 0
   testCube: {fileID: 675239424}
+  reachedDestination: 1
 --- !u!4 &1216428147
 Transform:
   m_ObjectHideFlags: 0
@@ -2668,7 +2686,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285959843}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &1285959847
 Camera:
   m_ObjectHideFlags: 0
