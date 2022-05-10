@@ -49,7 +49,7 @@ public class GentlePutDown : MonoBehaviour
         }
         if(pickUp.useingLeftHand == true)
         {
-            cursedTimerL = 0.1f;
+            cursedTimerL = 0.01f;
         }
 
         if(cursedTimerL <= 0)
@@ -69,15 +69,15 @@ public class GentlePutDown : MonoBehaviour
         }
         else if (justGrabbedR != null)
         {
-            if (explosion.contrVelRight <= maxVelocity && pickUp.useingRightHand)
+            if (explosion.contrVelRight <= maxVelocity)
             {
-                cursedTimerR = 0.1f;
+                if (pickUp.useingRightHand == false)
+                {
+                    justGrabbedR.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    justGrabbedR = null;
+                }
             }
-            if (pickUp.useingRightHand == false && cursedTimerR > 0)
-            {
-                justGrabbedR.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                justGrabbedR = null;
-            }
+            
         }
     }
 
