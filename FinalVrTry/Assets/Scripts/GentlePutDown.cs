@@ -10,8 +10,8 @@ public class GentlePutDown : MonoBehaviour
     float cursedTimerL = 0.1f;
     float cursedTimerR = 0.1f;
 
-    GameObject justGrabbedL;
-    GameObject justGrabbedR;
+    public GameObject justGrabbedL;
+    public GameObject justGrabbedR;
 
     private void Start()
     {
