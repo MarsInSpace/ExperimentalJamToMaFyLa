@@ -61,4 +61,19 @@ public class MenuButtonManager : MonoBehaviour
             fieldsizemanager.radius = 3f;
         }
     }
+
+    public void RadiusOne()
+    {
+        fieldsizemanager.radius = 1.5f;
+    }
+
+    public void RadiusTwo()
+    {
+        fieldsizemanager.radius = 2f;
+    }
+
+    public void RadiusThree()
+    {
+        fieldsizemanager.radius = 2.5f;
+    }
 }
