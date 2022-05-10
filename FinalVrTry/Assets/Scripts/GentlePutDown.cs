@@ -7,6 +7,8 @@ public class GentlePutDown : MonoBehaviour
     PickUpSound pickUp;
     Explosion explosion;
     public float maxVelocity;
+    float cursedTimerL = 0.1f;
+    float cursedTimerR = 0.1f;
 
     GameObject justGrabbedL;
     GameObject justGrabbedR;
@@ -38,14 +40,21 @@ public class GentlePutDown : MonoBehaviour
         {
             if (explosion.contrVelLeft <= maxVelocity)
             {
-                if (pickUp.useingLeftHand == false)
+               if (pickUp.useingLeftHand == false && cursedTimerL > 0)
                 {
-
-                    justGrabbedL.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                    justGrabbedL = null;
-                    
+                    cursedTimerL -= Time.deltaTime;
+                    justGrabbedL.GetComponent<Rigidbody>().velocity = Vector3.zero;                    
                 }
             }
+        }
+        if(pickUp.useingLeftHand == true)
+        {
+            cursedTimerL = 0.1f;
+        }
+
+        if(cursedTimerL <= 0)
+        {
+            justGrabbedL = null;
         }
     }
 
@@ -60,13 +69,14 @@ public class GentlePutDown : MonoBehaviour
         }
         else if (justGrabbedR != null)
         {
-            if (explosion.contrVelRight <= maxVelocity)
+            if (explosion.contrVelRight <= maxVelocity && pickUp.useingRightHand)
             {
-                if (pickUp.useingRightHand == false)
-                {
-                    justGrabbedR.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                    justGrabbedR = null;
-                }
+                cursedTimerR = 0.1f;
+            }
+            if (pickUp.useingRightHand == false && cursedTimerR > 0)
+            {
+                justGrabbedR.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                justGrabbedR = null;
             }
         }
     }
