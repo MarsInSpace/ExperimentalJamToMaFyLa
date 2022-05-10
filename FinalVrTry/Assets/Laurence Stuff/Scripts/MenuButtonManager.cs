@@ -41,15 +41,24 @@ public class MenuButtonManager : MonoBehaviour
     public void DropDownValues()
     {
         if (dropdownvalue == 0)
+        {
             fieldsizemanager.radius = 1.5f;
+        }
 
         if (dropdownvalue == 1)
+        {
+            Debug.Log("value 1 abgefragt");
             fieldsizemanager.radius = 2f;
+        }
 
         if (dropdownvalue == 2)
+        {
             fieldsizemanager.radius = 2.5f;
+        }
 
         if (dropdownvalue == 3)
+        {
             fieldsizemanager.radius = 3f;
+        }
     }
 }
