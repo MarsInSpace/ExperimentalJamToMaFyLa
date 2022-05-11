@@ -31,14 +31,21 @@ public class SoundOverlays: MonoBehaviour
     {
         currentSounds = spawnClass.currentSounds;
         
-
     }
+
+
+
 
     // Update is called once per frame
     void Update()
     {
         UnderWaterEffectOFF();
+        IceStormEffectOFF();
     }
+
+
+
+
 
     public void UnderWaterEffectL()
     {
@@ -47,6 +54,16 @@ public class SoundOverlays: MonoBehaviour
     public void UnderWaterEffectR()
     {
         ApplyEffect(pickUpSound.grabbedR);
+    }
+
+    public void IceStromEffectL()
+    {
+        IceStorm(pickUpSound.grabbedL);
+    }
+
+    public void IceStromEffectR()
+    {
+        IceStorm(pickUpSound.grabbedR);
     }
 
     public void UnderWaterEffectOFF()
@@ -89,53 +106,41 @@ public class SoundOverlays: MonoBehaviour
 
                 reverb.decayTime = Mathf.Lerp(1, 2, 1);
 
-                WaterSound.Play();
             }
+            WaterSound.Play();
         }
     }
 
 
-    public void CaveEffect()
+
+    public void IceStorm(GameObject grabbedSound)
     {
 
-        foreach (GameObject soundDing in currentSounds)
+        if (grabbedSound != null && grabbedSound.name == "Doors(Clone)")
         {
-            reverb = soundDing.GetComponent<AudioReverbFilter>();
+            foreach (GameObject soundDing in currentSounds)
+            {
+                lowpass = soundDing.GetComponent<AudioLowPassFilter>();
+                lowpass.cutoffFrequency = Mathf.Lerp(5007.7f, 2000, 1);
 
-            reverb.decayTime = Mathf.Lerp(1, 7, 1);
-
+            }
+            IceStormSound.Play();
         }
     }
 
-
-    public void IceStorm()
+    public void IceStormEffectOFF()
     {
-        StartCoroutine(OpenDoorAndIce());
+        if ((pickUpSound.grabbedL == null || pickUpSound.grabbedL.name != "Doors(Clone)") && (pickUpSound.grabbedR == null || pickUpSound.grabbedR.name != "Doors(Clone)"))
+        {
+            foreach (GameObject soundDing in currentSounds)
+            {
+ 
+                lowpass = soundDing.GetComponent<AudioLowPassFilter>();
+                lowpass.cutoffFrequency = Mathf.Lerp(2000, 5007.7f, 1);
 
+            }
+            IceStormSound.Stop();
+        }
     }
-
-    IEnumerator OpenDoorAndIce()
-    {
-        foreach (GameObject soundDing in currentSounds)
-        {
-            volumeValue = soundDing.GetComponent<AudioSource>();
-            volumeValue.volume = 0.5f;
-
-        }
-
-        FridgeOpenSound.Play();
-        yield return new WaitForSeconds(0.5f);
-   
-        foreach (GameObject soundDing in currentSounds)
-        {
-            lowpass = soundDing.GetComponent<AudioLowPassFilter>();
-            lowpass.cutoffFrequency = Mathf.Lerp(5007.7f, 2000, 1);
-
-            volumeValue = soundDing.GetComponent<AudioSource>();
-            volumeValue.volume = 1;
-        }
-        IceStormSound.Play();
-
-    } 
 
 }
