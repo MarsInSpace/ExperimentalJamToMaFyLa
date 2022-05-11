@@ -37,23 +37,7 @@ public class SoundOverlays: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKey(KeyCode.C))
-        {
-            Debug.Log("C gedrueckt");
-            CaveEffect();
-        }
-
-        if (Input.GetKey(KeyCode.U))
-        {
-            Debug.Log("U gedrueckt");
-            UnderWaterEffect();
-        }
-
-        if (Input.GetKey(KeyCode.I))
-        {
-            Debug.Log("I gedrueckt");
-            IceStorm();
-        }*/
+        UnderWaterEffectOFF();
     }
 
     public void UnderWaterEffectL()
@@ -65,16 +49,26 @@ public class SoundOverlays: MonoBehaviour
         ApplyEffect(pickUpSound.grabbedR);
     }
 
-    public void UnderWaterEffectOFFL()
+    public void UnderWaterEffectOFF()
     {
-        if(grabbedSound != null && ((pickUpSound.grabbedR = null) || (pickUpSound.grabbedR.name != "Wasser(Clone)")))
-            ApplyEffectOFF(pickUpSound.grabbedL);
+        if ((pickUpSound.grabbedL == null || pickUpSound.grabbedL.name != "Wasser(Clone)") && (pickUpSound.grabbedR == null || pickUpSound.grabbedR.name != "Wasser(Clone)"))
+        {
+            foreach (GameObject soundDing in currentSounds)
+            {
+                //Debug.Log("Name Wasser wird erkannt");
+                lowpass = soundDing.GetComponent<AudioLowPassFilter>();
+
+                lowpass.cutoffFrequency = Mathf.Lerp(1160, 5007.7f, 1);
+
+                reverb = soundDing.GetComponent<AudioReverbFilter>();
+
+                reverb.decayTime = Mathf.Lerp(2, 1, 1);
+
+                WaterSound.Stop();
+            }
+        }
     }
-    public void UnderWaterEffectOFFR()
-    {
-        if (grabbedSound != null && ((pickUpSound.grabbedL = null) || (pickUpSound.grabbedL.name != "Wasser(Clone)")))
-            ApplyEffectOFF(pickUpSound.grabbedR);
-    }
+
 
     void ApplyEffect(GameObject grabbedSound)
     {
@@ -100,29 +94,6 @@ public class SoundOverlays: MonoBehaviour
         }
     }
 
-    void ApplyEffectOFF(GameObject grabbedSound)
-    {
-        //Debug.Log("Effect off");
-   
-        if (grabbedSound != null && grabbedSound.name == "Wasser(Clone)")
-        {
-            //Debug.Log("If abfrage wird gemacht");
-
-            foreach (GameObject soundDing in currentSounds)
-            {
-                //Debug.Log("Name Wasser wird erkannt");
-                lowpass = soundDing.GetComponent<AudioLowPassFilter>();
-
-                lowpass.cutoffFrequency = Mathf.Lerp(1160, 5007.7f, 1);
-
-                reverb = soundDing.GetComponent<AudioReverbFilter>();
-
-                reverb.decayTime = Mathf.Lerp(2, 1, 1);
-
-                WaterSound.Stop();
-            }
-        }
-    }
 
     public void CaveEffect()
     {
