@@ -22,8 +22,8 @@ public class PickUpSound : MonoBehaviour
     public GameObject grabbedL;
     public GameObject grabbedR;
 
-    [SerializeField] Rigidbody holdingTargetR;
-    [SerializeField] Rigidbody holdingTargetL;
+    [SerializeField] public Rigidbody holdingTargetR;
+    [SerializeField] public Rigidbody holdingTargetL;
 
     [SerializeField] string insectSoundName;
 
