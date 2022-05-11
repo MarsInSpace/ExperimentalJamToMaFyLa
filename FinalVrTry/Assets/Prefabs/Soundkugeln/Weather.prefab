@@ -217,13 +217,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound:
   - name: Thunder
-    clip: {fileID: 8300000, guid: a1af1e8dabc137c49acc9a2f655ea169, type: 3}
+    clip: {fileID: 8300000, guid: 4c156e84fbb108f4d8afd194e7094d5a, type: 3}
     volume: 1
     pitch: 1
     loop: 1
     playOnAwake: 0
   - name: Feld
-    clip: {fileID: 8300000, guid: 5c98437c5855b3647953dda9518bb45a, type: 3}
+    clip: {fileID: 8300000, guid: 8d09aa9ffb2905143b092684b889e614, type: 3}
     volume: 1
     pitch: 1
     loop: 1

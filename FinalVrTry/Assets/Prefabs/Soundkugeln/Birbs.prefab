@@ -217,13 +217,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound:
   - name: Owl
-    clip: {fileID: 8300000, guid: 7051ca48937c75f4f8161f6e1204b260, type: 3}
+    clip: {fileID: 8300000, guid: c5480f6c08112704693fd7df1ab0aff8, type: 3}
     volume: 1
     pitch: 1
     loop: 1
     playOnAwake: 0
   - name: Birb2
-    clip: {fileID: 8300000, guid: 26346a1b5e78cd44894001b6e29370a0, type: 3}
+    clip: {fileID: 8300000, guid: ab48dbcc3eb34394f987524fe8f23874, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+  - name: Birb1
+    clip: {fileID: 8300000, guid: 54d9dbfac8be0c94fbfc092722e98a8f, type: 3}
     volume: 1
     pitch: 1
     loop: 1

@@ -218,13 +218,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound:
   - name: Mosquito
-    clip: {fileID: 8300000, guid: ed5d4054d9bb03b419931a36ca6d6e8a, type: 3}
+    clip: {fileID: 8300000, guid: 0da6d1083b72d4e4aafd6cb3b2413750, type: 3}
     volume: 1
     pitch: 1
     loop: 1
     playOnAwake: 0
   - name: Cricket
-    clip: {fileID: 8300000, guid: 556bafd3502ac964cb394ac1efd804c7, type: 3}
+    clip: {fileID: 8300000, guid: 30edb6c3515d2c94f992f2ad88eaf862, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+  - name: alienbug
+    clip: {fileID: 8300000, guid: f25118cf531e37246af9cacb3e66ffa4, type: 3}
     volume: 1
     pitch: 1
     loop: 1

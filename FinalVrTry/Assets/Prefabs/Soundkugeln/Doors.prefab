@@ -217,7 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound:
   - name: Squeaky Door
-    clip: {fileID: 8300000, guid: ab1846d5dae81c04297468b3a8e95ad6, type: 3}
+    clip: {fileID: 8300000, guid: 5269e66de319b81439dcee03160d9070, type: 3}
     volume: 1
     pitch: 1
     loop: 1
