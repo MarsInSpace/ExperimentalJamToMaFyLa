@@ -65,7 +65,8 @@ public class PickUpSound : MonoBehaviour
             holdingTargetL.maxAngularVelocity = 15;
         }
             useingLeftHand = true;
-        
+
+        SteamVR_Actions.default_Haptic[SteamVR_Input_Sources.LeftHand].Execute(0, 1, 10, 1);
     }
     public void GrabbedRight()
     {
@@ -92,6 +93,8 @@ public class PickUpSound : MonoBehaviour
             holdingTargetR.maxAngularVelocity = 15;
         }
         useingRightHand = true;
+
+        SteamVR_Actions.default_Haptic[SteamVR_Input_Sources.RightHand].Execute(0, 1, 10, 1);
     }
 
     void CompareSounds()
