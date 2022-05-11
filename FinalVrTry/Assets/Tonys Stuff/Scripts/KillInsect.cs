@@ -26,10 +26,12 @@ public class KillInsect : MonoBehaviour
     {
         if(pickUpScr.grabbedInsectL)
         {
+            Debug.Log("Kill Left");
             KillThatInsect(pickUpScr.grabbedInsectL);
         }
         if(pickUpScr.grabbedInsectR)
         {
+            Debug.Log("kill right");
             KillThatInsect(pickUpScr.grabbedInsectR);
         }
     }

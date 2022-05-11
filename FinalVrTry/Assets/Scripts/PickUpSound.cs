@@ -13,6 +13,8 @@ public class PickUpSound : MonoBehaviour
    
     public LayerMask pickUpLayer;
 
+    public LayerMask insect;
+
     [SerializeField] public SteamVR_Behaviour_Pose leftContr;
     [SerializeField] public SteamVR_Behaviour_Pose rightContr;
 
@@ -49,10 +51,11 @@ public class PickUpSound : MonoBehaviour
             {
                 holdingTargetL = pickUpColliders[0].gameObject.GetComponent<Rigidbody>();
                 grabbedL = pickUpColliders[0].gameObject;
+                
             }
             else
             {
-                Collider[] insectColliders = Physics.OverlapSphere(leftContr.transform.position, distToPickUp, pickUpLayer);
+                Collider[] insectColliders = Physics.OverlapSphere(leftContr.transform.position, distToPickUp, insect);
                 if(insectColliders.Length > 0)
                 {
                     grabbedInsectL = insectColliders[0].gameObject;
@@ -63,10 +66,11 @@ public class PickUpSound : MonoBehaviour
         {
             holdingTargetL.velocity = (leftContr.transform.position - holdingTargetL.transform.position) / Time.fixedDeltaTime;
             holdingTargetL.maxAngularVelocity = 15;
+            SteamVR_Actions.default_Haptic[SteamVR_Input_Sources.LeftHand].Execute(0, 1, 10, 1);
         }
             useingLeftHand = true;
 
-        SteamVR_Actions.default_Haptic[SteamVR_Input_Sources.LeftHand].Execute(0, 1, 10, 1);
+        
     }
     public void GrabbedRight()
     {
@@ -80,7 +84,7 @@ public class PickUpSound : MonoBehaviour
             }
             else
             {
-                Collider[] insectColliders = Physics.OverlapSphere(leftContr.transform.position, distToPickUp, pickUpLayer);
+                Collider[] insectColliders = Physics.OverlapSphere(rightContr.transform.position, distToPickUp, insect);
                 if (insectColliders.Length > 0)
                 {
                     grabbedInsectR = insectColliders[0].gameObject;
@@ -91,10 +95,11 @@ public class PickUpSound : MonoBehaviour
         {
             holdingTargetR.velocity = (rightContr.transform.position - holdingTargetR.transform.position) / Time.fixedDeltaTime;
             holdingTargetR.maxAngularVelocity = 15;
+            SteamVR_Actions.default_Haptic[SteamVR_Input_Sources.RightHand].Execute(0, 1, 10, 1);
         }
         useingRightHand = true;
 
-        SteamVR_Actions.default_Haptic[SteamVR_Input_Sources.RightHand].Execute(0, 1, 10, 1);
+        
     }
 
     void CompareSounds()

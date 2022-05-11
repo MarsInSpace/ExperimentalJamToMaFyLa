@@ -7,6 +7,8 @@ public class DirectedListening : MonoBehaviour
     public float rightDistance;
     public float leftDistance;
 
+    public Spawn spawnScr;
+
     GameObject playerHead;
 
     public GameObject rightContrl;
@@ -16,6 +18,9 @@ public class DirectedListening : MonoBehaviour
     public bool leftEarListening = false;
 
     public float minDistanceToEar;
+
+    bool stillListening = false;
+    bool otherSoundsDisabled = false;
 
 
     // Start is called before the first frame update
@@ -31,6 +36,9 @@ public class DirectedListening : MonoBehaviour
         {
             SendCastToListen();
         }
+
+        ManagePausingOtherSounds();
+        ManageUnPausingOtherSounds();
     }
 
     public void CalculateDistanceToRightContrl()
@@ -41,7 +49,10 @@ public class DirectedListening : MonoBehaviour
             rightEarListening = true;
         }
         else
+        {
             rightEarListening = false;
+            stillListening = false;
+        }
     }
 
 
@@ -53,7 +64,10 @@ public class DirectedListening : MonoBehaviour
             leftEarListening = true;
         }
         else
+        {
             leftEarListening = false;
+            stillListening = false;
+        }
     }
 
     void SendCastToListen()
@@ -73,11 +87,66 @@ public class DirectedListening : MonoBehaviour
 
         RaycastHit hit;
 
-        if (Physics.SphereCast(playerHead.transform.position, .2f, directionDetermination * transform.right, out hit, Mathf.Infinity, ~LayerMask.GetMask("Default")) && hit.collider.gameObject.layer == 3)
+        if (Physics.SphereCast(playerHead.transform.position, .25f, directionDetermination * transform.right, out hit, Mathf.Infinity, ~LayerMask.GetMask("Default")) && (hit.collider.gameObject.layer == 3 || hit.collider.gameObject.layer == 7))
         {
             Debug.Log("spherecast to listen hit something" + hit.collider.gameObject.layer);
-            hit.collider.gameObject.GetComponent<ManageSoundVolume>().inFocus = true;
+
+            if (stillListening == false)
+            {
+                Debug.Log("Set sound in focus");
+                hit.collider.gameObject.GetComponent<ManageSoundVolume>().inFocus = true;
+            }
+
+            stillListening = true;
+        }
+        else
+        {
+            stillListening = false;
         }
 
+    }
+
+    void ManagePausingOtherSounds()
+    {
+        if (!stillListening) return;
+        
+        if (otherSoundsDisabled) return;
+
+        Debug.Log("Listening, disable other Sounds");
+        foreach(var sound in spawnScr.currentSounds)
+        {
+            ManageSoundVolume volumeScr;
+            volumeScr = sound.GetComponent<ManageSoundVolume>();
+
+            if(!volumeScr.inFocus)
+            {
+                volumeScr.otherSoundInFocus = true;
+            }
+            else
+            {
+                volumeScr.otherSoundInFocus = false;
+            }
+        }
+
+        otherSoundsDisabled = true;
+        
+    }
+
+    void ManageUnPausingOtherSounds()
+    {
+        if(!stillListening && otherSoundsDisabled)
+        {
+            Debug.Log("enable other sounds again");
+            foreach (var sound in spawnScr.currentSounds)
+            {
+                ManageSoundVolume volumeScr;
+                volumeScr = sound.GetComponent<ManageSoundVolume>();
+
+                volumeScr.otherSoundInFocus = false;
+                volumeScr.inFocus = false;
+            }
+
+            otherSoundsDisabled = false;
+        }
     }
 }

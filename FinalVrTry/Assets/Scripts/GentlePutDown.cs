@@ -25,7 +25,6 @@ public class GentlePutDown : MonoBehaviour
         {
             holdedTargetL = pickUp.holdingTargetL;
             cursedTimerL = cursedTimer;
-            Debug.Log("holding target");
         }
         else
         {
@@ -38,7 +37,6 @@ public class GentlePutDown : MonoBehaviour
             {
                 if (holdedTargetL.velocity.magnitude <= maxVelocity && cursedTimerL >= 0)
                 {
-                    Debug.Log("velocity nulled");
                     holdedTargetL.velocity = Vector3.zero;
                     holdedTargetL = null;
                 }

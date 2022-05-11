@@ -39,10 +39,10 @@ public class Explosion : MonoBehaviour
 
             if (newSpawnedL == null && newSpawnedR == null)
             {
-                newSpawnedL = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], leftPose.localPosition, Quaternion.identity, field.gameObject.transform.parent);
+                newSpawnedL = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], spawn.spawnpoints[Random.Range(0, spawn.spawnpoints.Count)].transform.position, Quaternion.identity, field.gameObject.transform.parent);
                 spawn.currentSounds.Add(newSpawnedL);
 
-                newSpawnedR = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], rightPose.localPosition, Quaternion.identity, field.gameObject.transform.parent);
+                newSpawnedR = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], spawn.spawnpoints[Random.Range(0, spawn.spawnpoints.Count)].transform.position, Quaternion.identity, field.gameObject.transform.parent);
                 spawn.currentSounds.Add(newSpawnedR);
             }
             if (pickUpSound.grabbedSound != null)

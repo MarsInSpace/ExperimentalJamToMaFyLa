@@ -16,6 +16,7 @@ public class ManageSoundVolume : MonoBehaviour
     bool wasPaused = false;
 
     public bool inFocus;
+    public bool otherSoundInFocus = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,7 @@ public class ManageSoundVolume : MonoBehaviour
     void Update()
     {
 
-        if (fieldSizeManagerScr.inSetup || BorderSoundsScr.borderSound.volume == 0.8f || menubottonmanager.InMenu == true)
+        if (fieldSizeManagerScr.inSetup || BorderSoundsScr.borderSound.volume == 0.8f || menubottonmanager.InMenu == true || otherSoundInFocus)
         {
             thisAudio.Pause();
             wasPaused = true;
@@ -55,7 +56,7 @@ public class ManageSoundVolume : MonoBehaviour
             thisAudio.volume = 0.5f;
         }
 
-        foreach(var sound in spawnScr.currentSounds)
+        /*foreach(var sound in spawnScr.currentSounds)
         {
             if (sound == thisAudio.gameObject) continue;
 
@@ -65,8 +66,8 @@ public class ManageSoundVolume : MonoBehaviour
             {
                 thisAudio.volume = 0f;
             }
-        }
+        }*/
 
-        inFocus = false; // muss immer am Ende zurückgesetzt werden, damit die Sounds nicht in Focus bleiben wenn sie nicht mehr fokussiert sind
+        //inFocus = false; // muss immer am Ende zurückgesetzt werden, damit die Sounds nicht in Focus bleiben wenn sie nicht mehr fokussiert sind
     }
 }
