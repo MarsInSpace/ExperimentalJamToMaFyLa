@@ -5,11 +5,11 @@ using UnityEngine;
 public class GentlePutDown : MonoBehaviour
 {
     PickUpSound pickUp;
-    Rigidbody holdedTargetL;
+    public Rigidbody holdedTargetL;
     Rigidbody holdedTargetR;
 
     public float cursedTimer = 0.01f;
-    float cursedTimerL;
+    public float cursedTimerL;
     float cursedTimerR;
     public float maxVelocity;
 
@@ -25,6 +25,7 @@ public class GentlePutDown : MonoBehaviour
         {
             holdedTargetL = pickUp.holdingTargetL;
             cursedTimerL = cursedTimer;
+            Debug.Log("holding target");
         }
         else
         {
@@ -37,6 +38,7 @@ public class GentlePutDown : MonoBehaviour
 
             if (holdedTargetL.velocity.magnitude <= maxVelocity && cursedTimerL >= 0)
             {
+                Debug.Log("velocity nulled");
                 holdedTargetL.velocity = Vector3.zero;
                 holdedTargetL = null;
             }
