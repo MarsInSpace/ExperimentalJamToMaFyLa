@@ -34,12 +34,17 @@ public class GentlePutDown : MonoBehaviour
 
         if (pickUp.useingLeftHand == false)
         {
-            if (holdedTargetL == null) return;
-
-            if (holdedTargetL.velocity.magnitude <= maxVelocity && cursedTimerL >= 0)
+            if (holdedTargetL != null)
             {
-                Debug.Log("velocity nulled");
-                holdedTargetL.velocity = Vector3.zero;
+                if (holdedTargetL.velocity.magnitude <= maxVelocity && cursedTimerL >= 0)
+                {
+                    Debug.Log("velocity nulled");
+                    holdedTargetL.velocity = Vector3.zero;
+                    holdedTargetL = null;
+                }
+            }
+            if (cursedTimerL <= 0)
+            {
                 holdedTargetL = null;
             }
         }
@@ -63,6 +68,10 @@ public class GentlePutDown : MonoBehaviour
             if (holdedTargetR.velocity.magnitude <= maxVelocity && cursedTimerR >= 0)
             {
                 holdedTargetR.velocity = Vector3.zero;
+                holdedTargetR = null;
+            }
+            if (cursedTimerR <= 0)
+            {
                 holdedTargetR = null;
             }
         }
