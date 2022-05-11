@@ -216,38 +216,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound:
-  - name: DogWhining
-    clip: {fileID: 8300000, guid: 8afd53a3f07b23b44954deececccb4d5, type: 3}
+  - name: Chimpanzee
+    clip: {fileID: 8300000, guid: f2eb9676ef8f3d342aa7e146f78ed720, type: 3}
     volume: 1
     pitch: 1
     loop: 1
     playOnAwake: 0
   - name: CatPurr
-    clip: {fileID: 8300000, guid: 4885989477c71224e9f030286707cf9e, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    playOnAwake: 0
-  - name: DogBarking
-    clip: {fileID: 8300000, guid: e675eb0c60972f84e99a387288ba3c97, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    playOnAwake: 0
-  - name: DogBarking
-    clip: {fileID: 8300000, guid: e675eb0c60972f84e99a387288ba3c97, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    playOnAwake: 0
-  - name: Chimpanze
-    clip: {fileID: 8300000, guid: 05f4e62b5b9214f4fbeb55708b2af923, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    playOnAwake: 0
-  - name: HorseShoes
-    clip: {fileID: 8300000, guid: 6ca6286aa7913b9439fc383ec7cc9c66, type: 3}
+    clip: {fileID: 8300000, guid: b968aa41e6369684da693837f4d5e725, type: 3}
     volume: 1
     pitch: 1
     loop: 1
