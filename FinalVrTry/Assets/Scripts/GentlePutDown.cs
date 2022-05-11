@@ -5,11 +5,11 @@ using UnityEngine;
 public class GentlePutDown : MonoBehaviour
 {
     PickUpSound pickUp;
-    Rigidbody holdedTargetL;
+    public Rigidbody holdedTargetL;
     Rigidbody holdedTargetR;
 
     public float cursedTimer = 0.01f;
-    float cursedTimerL;
+    public float cursedTimerL;
     float cursedTimerR;
     public float maxVelocity;
 
@@ -25,6 +25,7 @@ public class GentlePutDown : MonoBehaviour
         {
             holdedTargetL = pickUp.holdingTargetL;
             cursedTimerL = cursedTimer;
+            Debug.Log("holding target");
         }
         else
         {
@@ -33,11 +34,17 @@ public class GentlePutDown : MonoBehaviour
 
         if (pickUp.useingLeftHand == false)
         {
-            if (holdedTargetL == null) return;
-
-            if (holdedTargetL.velocity.magnitude <= maxVelocity && cursedTimerL >= 0)
+            if (holdedTargetL != null)
             {
-                holdedTargetL.velocity = Vector3.zero;
+                if (holdedTargetL.velocity.magnitude <= maxVelocity && cursedTimerL >= 0)
+                {
+                    Debug.Log("velocity nulled");
+                    holdedTargetL.velocity = Vector3.zero;
+                    holdedTargetL = null;
+                }
+            }
+            if (cursedTimerL <= 0)
+            {
                 holdedTargetL = null;
             }
         }
@@ -61,6 +68,10 @@ public class GentlePutDown : MonoBehaviour
             if (holdedTargetR.velocity.magnitude <= maxVelocity && cursedTimerR >= 0)
             {
                 holdedTargetR.velocity = Vector3.zero;
+                holdedTargetR = null;
+            }
+            if (cursedTimerR <= 0)
+            {
                 holdedTargetR = null;
             }
         }
