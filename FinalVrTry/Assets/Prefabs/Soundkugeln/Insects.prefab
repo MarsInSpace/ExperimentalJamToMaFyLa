@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 7472022145215061185}
   - component: {fileID: -6029769991335967501}
   - component: {fileID: 2357216506041496890}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Insects
   m_TagString: Sound
   m_Icon: {fileID: 0}
