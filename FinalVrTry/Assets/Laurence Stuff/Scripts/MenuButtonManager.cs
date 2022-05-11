@@ -8,9 +8,10 @@ public class MenuButtonManager : MonoBehaviour
 
     public Canvas MenuOverlayStart;
 
+    public Canvas MenuOverlayPause;
+
     public bool InMenu = true;
 
-    int dropdownvalue;
 
     private void Start()
     {
@@ -26,14 +27,14 @@ public class MenuButtonManager : MonoBehaviour
 
     public void MenuToggle()
     {
-        if (MenuOverlayStart.enabled == true)
+        if (MenuOverlayPause.enabled == true)
         {
-            MenuOverlayStart.enabled = false;
+            MenuOverlayPause.enabled = false;
             InMenu = false;
         }
         else
         {
-            MenuOverlayStart.enabled = true;
+            MenuOverlayPause.enabled = true;
             InMenu = true;
         }
     }
