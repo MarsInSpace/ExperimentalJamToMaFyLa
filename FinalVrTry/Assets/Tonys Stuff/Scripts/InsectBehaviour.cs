@@ -135,20 +135,27 @@ public class InsectBehaviour : MonoBehaviour
 
     void RegulateStopMovement()
     {
-        if((testCube.transform.position.x < maxWidth && testCube.transform.position.z < maxWidth && testCube.transform.position.y < maxHeight))
-        {
-            InPlayField = true;
-        }
-
-        if(InPlayField && (testCube.transform.position.x > maxWidth || testCube.transform.position.z > maxWidth || testCube.transform.position.y > maxHeight))
+        if (!InPlayField)
         {
             reachedDestination = true;
-            InPlayField = false;
         }
-
-        if(distanceToNextPoint <= minDistanceToDestination)
+        else
         {
-            reachedDestination = true;
+            if ((testCube.transform.position.x < maxWidth && testCube.transform.position.z < maxWidth && testCube.transform.position.y < maxHeight))
+            {
+                InPlayField = true;
+            }
+
+            if (InPlayField && (testCube.transform.position.x > maxWidth || testCube.transform.position.z > maxWidth || testCube.transform.position.y > maxHeight))
+            {
+                reachedDestination = true;
+                InPlayField = false;
+            }
+
+            if (distanceToNextPoint <= minDistanceToDestination)
+            {
+                reachedDestination = true;
+            }
         }
     }
 }
