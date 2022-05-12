@@ -36,13 +36,23 @@ public class Explosion : MonoBehaviour
         if (pickUpSound.useingRightHand && pickUpSound.useingLeftHand && pickUpSound.grabbedSound != null)
         {
             exploded = true;
+            float MinX = 0;
+            float MaxX = field.radius / 2;
+            float MinY = 0;
+            float MaxY = field.height;
+            float MinZ = 0;
+            float MaxZ = field.radius / 2;
+
+            float x = Random.Range(MinX, MaxX);
+            float y = Random.Range(MinY, MaxY);
+            float z = Random.Range(MinZ, MaxZ);
 
             if (newSpawnedL == null && newSpawnedR == null)
             {
-                newSpawnedL = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], spawn.spawnpoints[Random.Range(0, spawn.spawnpoints.Count)].transform.position, Quaternion.identity, field.gameObject.transform.parent);
+                newSpawnedL = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], new Vector3(x,y,z), Quaternion.identity, field.gameObject.transform.parent);
                 spawn.currentSounds.Add(newSpawnedL);
 
-                newSpawnedR = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], spawn.spawnpoints[Random.Range(0, spawn.spawnpoints.Count)].transform.position, Quaternion.identity, field.gameObject.transform.parent);
+                newSpawnedR = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)],new Vector3(x,y,z), Quaternion.identity, field.gameObject.transform.parent);
                 spawn.currentSounds.Add(newSpawnedR);
             }
             if (pickUpSound.grabbedSound != null)
