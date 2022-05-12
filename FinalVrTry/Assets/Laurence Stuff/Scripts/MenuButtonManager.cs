@@ -5,6 +5,7 @@ using UnityEngine;
 public class MenuButtonManager : MonoBehaviour
 {
     public FieldSizeManager fieldsizemanager;
+    public CameraBlack cameraBlack;
 
     public Canvas MenuOverlayStart;
 
@@ -17,6 +18,15 @@ public class MenuButtonManager : MonoBehaviour
     {
    
     }
+
+
+   /* private void Update()
+    {
+        if (InMenu == true)
+            cameraBlack.CameraCullingMenu();
+        else
+            cameraBlack.CameraCullingNothing();
+    }*/
 
     public void StartTheGame()
     {
