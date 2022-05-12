@@ -50,11 +50,11 @@ public class Spawn : MonoBehaviour
 
         if (currentSounds.Count == 0)
         {
-            float MinX = 0;
+            float MinX = -field.radius / 2;
             float MaxX = field.radius/2;
-            float MinY = 0;
+            float MinY = 0.25f;
             float MaxY = field.height;
-            float MinZ = 0;
+            float MinZ = -field.radius / 2;
             float MaxZ = field.radius/2;
 
             float x = Random.Range(MinX, MaxX);
