@@ -27,6 +27,8 @@ public class SoundOverlays: MonoBehaviour
     public GameObject grabbedSound;
 
     bool iceStormRunning = false;
+    bool waterSoundRunning = false;
+    bool choirSoundRunning = false;
 
     // Start is called before the first frame update
     void Start()
@@ -43,9 +45,9 @@ public class SoundOverlays: MonoBehaviour
     {
         currentSounds = spawnClass.currentSounds;
 
-        if (WaterSound.isPlaying) Debug.Log("Water playing");
+       /* if (WaterSound.isPlaying) Debug.Log("Water playing");
         if (IceStormSound.isPlaying) Debug.Log("ice playing");
-        if (ChoirSound.isPlaying) Debug.Log("choir playing");
+        if (ChoirSound.isPlaying) Debug.Log("choir playing");*/
         UnderWaterEffectOFF();
         IceStormEffectOFF();
         HallEffectOFF();
@@ -98,8 +100,10 @@ public class SoundOverlays: MonoBehaviour
 
     public void UnderWaterEffectOFF()
     {
-        if ((pickUpSound.grabbedL == null || pickUpSound.grabbedL.name != "Wasser(Clone)") && (pickUpSound.grabbedR == null || pickUpSound.grabbedR.name != "Wasser(Clone)"))
+        if ((pickUpSound.grabbedL == null || pickUpSound.grabbedL.tag != "Wasser") && (pickUpSound.grabbedR == null || pickUpSound.grabbedR.tag != "Wasser"))
         {
+            waterSoundRunning = false;
+
             foreach (GameObject soundDing in currentSounds)
             {
                 //Debug.Log("Name Wasser wird erkannt");
@@ -120,10 +124,11 @@ public class SoundOverlays: MonoBehaviour
     void ApplyUnderWaterEffect(GameObject grabbedSound)
     {
         //Debug.Log("Effect wird gecalled");
-        //grabbedSound = GetComponent<GameObject>();
-        if (grabbedSound != null && grabbedSound.name == "Wasser(Clone)")
+        
+        if (grabbedSound != null && grabbedSound.tag == "Wasser" && !waterSoundRunning)
         {
-                //Debug.Log("If abfrage wird gemacht");
+            //Debug.Log("If abfrage wird gemacht");
+            waterSoundRunning = true;
 
             foreach (GameObject soundDing in currentSounds)
             {
@@ -138,6 +143,7 @@ public class SoundOverlays: MonoBehaviour
 
             }
             WaterSound.Play();
+            
         }
     }
 
@@ -153,7 +159,7 @@ public class SoundOverlays: MonoBehaviour
     public void IceStorm(GameObject grabbedSound)
     {
 
-        if (grabbedSound != null && grabbedSound.name == "Kühlschrank(Clone)" && !iceStormRunning)
+        if (grabbedSound != null && grabbedSound.tag == "Kühlschrank" && !iceStormRunning)
         {
             iceStormRunning = true;
             StartCoroutine(WaitFiveSeconds());
@@ -162,7 +168,7 @@ public class SoundOverlays: MonoBehaviour
 
     public void IceStormEffectOFF()
     {
-        if ((pickUpSound.grabbedL == null || pickUpSound.grabbedL.name != "Kühlschrank(Clone)") && (pickUpSound.grabbedR == null || pickUpSound.grabbedR.name != "Kühlschrank(Clone)"))
+        if ((pickUpSound.grabbedL == null || pickUpSound.grabbedL.tag != "Kühlschrank") && (pickUpSound.grabbedR == null || pickUpSound.grabbedR.tag != "Kühlschrank"))
         {
             iceStormRunning = false;
             FridgeDoorCloseSound.Play();
@@ -175,23 +181,25 @@ public class SoundOverlays: MonoBehaviour
 
             }
             IceStormSound.Stop();
-            Debug.Log("stop ice");
+            //Debug.Log("stop ice");
         }
     }
     IEnumerator WaitFiveSeconds()
     {
-        if (!FridgeDoorOpenSound.isActiveAndEnabled) Debug.Log("fridge disabled");
+        //if (!FridgeDoorOpenSound.isActiveAndEnabled) Debug.Log("fridge disabled");
         FridgeDoorOpenSound.Play();
-        Debug.Log("play fridge");
+        //Debug.Log("play fridge");
+        yield return new WaitForSeconds(1);
+
         foreach (GameObject soundDing in currentSounds)
         {
             lowpass = soundDing.GetComponent<AudioLowPassFilter>();
             lowpass.cutoffFrequency = Mathf.Lerp(5007.7f, 2000, 1);
-            Debug.Log("change audio properties for " + soundDing);
+            //Debug.Log("change audio properties for " + soundDing);
         }
         IceStormSound.Play();
-        Debug.Log("start ice");
-        yield return new WaitForSeconds(1);
+        //Debug.Log("start ice");
+        
     }
 
 
@@ -204,8 +212,9 @@ public class SoundOverlays: MonoBehaviour
 
     public void ApplyHallEffect(GameObject grabbedSound)
     {
-        if (grabbedSound != null && grabbedSound.name == "Door(Clone)")
+        if (grabbedSound != null && grabbedSound.tag == "Doors" && !choirSoundRunning)
         {
+            choirSoundRunning = true;
             foreach (GameObject soundDing in currentSounds)
             {
 
@@ -220,8 +229,10 @@ public class SoundOverlays: MonoBehaviour
 
     public void HallEffectOFF()
     {
-        if ((pickUpSound.grabbedL == null || pickUpSound.grabbedL.name != "Doors(Clone)") && (pickUpSound.grabbedR == null || pickUpSound.grabbedR.name != "Doors(Clone)"))
+        if ((pickUpSound.grabbedL == null || pickUpSound.grabbedL.tag != "Doors") && (pickUpSound.grabbedR == null || pickUpSound.grabbedR.tag != "Doors"))
         {
+            choirSoundRunning = false;
+
             foreach (GameObject soundDing in currentSounds)
             { 
                 reverb = soundDing.GetComponent<AudioReverbFilter>();
