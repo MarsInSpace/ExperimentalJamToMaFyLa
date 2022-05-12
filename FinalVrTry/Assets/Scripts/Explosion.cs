@@ -74,7 +74,7 @@ public class Explosion : MonoBehaviour
                 {
                     newSpawnedR = pickUpSound.grabbedSound;
                     spawn.currentSounds.Remove(pickUpSound.grabbedSound);
-                    GameObject anotherNew = Instantiate(pickUpSound.grabbedSound, new Vector3(xL, yL, zL), Quaternion.identity, field.gameObject.transform.parent);
+                    GameObject anotherNew = Instantiate(pickUpSound.grabbedSound, new Vector3(xR, yR, zR), Quaternion.identity, field.gameObject.transform.parent);
                     spawn.currentSounds.Add(anotherNew);
                     Destroy(pickUpSound.grabbedSound);
                     
