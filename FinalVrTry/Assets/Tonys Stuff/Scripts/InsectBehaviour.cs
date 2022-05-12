@@ -34,7 +34,7 @@ public class InsectBehaviour : MonoBehaviour
 
     bool wasInSetup = false;
 
-    bool InPlayField = false;
+    bool InPlayField = true;
 
     // Start is called before the first frame update
     void Start()
@@ -135,17 +135,18 @@ public class InsectBehaviour : MonoBehaviour
 
     void RegulateStopMovement()
     {
+        if ((testCube.transform.position.x < maxWidth && testCube.transform.position.z < maxWidth && testCube.transform.position.y < maxHeight))
+        {
+            InPlayField = true;
+        }
+
+
         if (!InPlayField)
         {
             reachedDestination = true;
         }
         else
         {
-            if ((testCube.transform.position.x < maxWidth && testCube.transform.position.z < maxWidth && testCube.transform.position.y < maxHeight))
-            {
-                InPlayField = true;
-            }
-
             if (InPlayField && (testCube.transform.position.x > maxWidth || testCube.transform.position.z > maxWidth || testCube.transform.position.y > maxHeight))
             {
                 reachedDestination = true;
