@@ -41,9 +41,10 @@ public class SoundOverlays: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentSounds = spawnClass.currentSounds;
+
         if (!WaterSound.isActiveAndEnabled) Debug.Log("Water disabled");
         if (!IceStormSound.isActiveAndEnabled) Debug.Log("ice disabled");
-        if (!FridgeDoorOpenSound.isActiveAndEnabled) Debug.Log("fridge disabled");
         if (!ChoirSound.isActiveAndEnabled) Debug.Log("choir disabled");
         UnderWaterEffectOFF();
         IceStormEffectOFF();
@@ -155,14 +156,6 @@ public class SoundOverlays: MonoBehaviour
         if (grabbedSound != null && grabbedSound.name == "Kühlschrank(Clone)")
         {
             StartCoroutine("WaitFiveSeconds");
-            
-            foreach (GameObject soundDing in currentSounds)
-            {
-                lowpass = soundDing.GetComponent<AudioLowPassFilter>();
-                lowpass.cutoffFrequency = Mathf.Lerp(5007.7f, 2000, 1);
-
-            }
-            IceStormSound.Play();
         }
     }
 
@@ -185,8 +178,17 @@ public class SoundOverlays: MonoBehaviour
     }
     IEnumerator WaitFiveSeconds()
     {
+        if (!FridgeDoorOpenSound.isActiveAndEnabled) Debug.Log("fridge disabled");
         FridgeDoorOpenSound.Play();
         yield return new WaitForSeconds(1);
+
+        foreach (GameObject soundDing in currentSounds)
+        {
+            lowpass = soundDing.GetComponent<AudioLowPassFilter>();
+            lowpass.cutoffFrequency = Mathf.Lerp(5007.7f, 2000, 1);
+
+        }
+        IceStormSound.Play();
     }
 
 
