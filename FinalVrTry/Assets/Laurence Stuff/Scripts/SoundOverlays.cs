@@ -17,7 +17,6 @@ public class SoundOverlays: MonoBehaviour
 
     //public Sound currentsound;
     public AudioSource WaterSound;
-    public AudioSource FridgeOpenSound;
     public AudioSource IceStormSound;
     public AudioSource FridgeDoorOpenSound;
     public AudioSource FridgeDoorCloseSound;
