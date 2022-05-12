@@ -43,6 +43,7 @@ public class SoundOverlays: MonoBehaviour
     {
         UnderWaterEffectOFF();
         IceStormEffectOFF();
+        HallEffectOFF();
     }
 
 
