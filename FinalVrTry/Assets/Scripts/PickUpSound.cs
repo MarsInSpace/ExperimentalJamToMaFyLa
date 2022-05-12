@@ -9,6 +9,9 @@ public class PickUpSound : MonoBehaviour
     public bool useingLeftHand =false;
     public bool useingRightHand = false;
 
+    bool grabbedOnceL;
+    bool grabbedOnceR;
+
     public float distToPickUp = 0.5f;
    
     public LayerMask pickUpLayer;
@@ -44,21 +47,26 @@ public class PickUpSound : MonoBehaviour
 
     public void GrabbedLeft()
     {
+       
         if (holdingTargetL == null)
         {
-            Collider[] pickUpColliders = Physics.OverlapSphere(leftContr.transform.position, distToPickUp, pickUpLayer);
-            if (pickUpColliders.Length > 0)
+            if (grabbedOnceL == false)
             {
-                holdingTargetL = pickUpColliders[0].gameObject.GetComponent<Rigidbody>();
-                grabbedL = pickUpColliders[0].gameObject;
-                
-            }
-            else
-            {
-                Collider[] insectColliders = Physics.OverlapSphere(leftContr.transform.position, distToPickUp, insect);
-                if(insectColliders.Length > 0)
+                grabbedOnceL = true;
+                Collider[] pickUpColliders = Physics.OverlapSphere(leftContr.transform.position, distToPickUp, pickUpLayer);
+                if (pickUpColliders.Length > 0)
                 {
-                    grabbedInsectL = insectColliders[0].gameObject;
+                    holdingTargetL = pickUpColliders[0].gameObject.GetComponent<Rigidbody>();
+                    grabbedL = pickUpColliders[0].gameObject;
+
+                }
+                else
+                {
+                    Collider[] insectColliders = Physics.OverlapSphere(leftContr.transform.position, distToPickUp, insect);
+                    if (insectColliders.Length > 0)
+                    {
+                        grabbedInsectL = insectColliders[0].gameObject;
+                    }
                 }
             }
         }
@@ -68,26 +76,28 @@ public class PickUpSound : MonoBehaviour
             holdingTargetL.maxAngularVelocity = 15;
             SteamVR_Actions.default_Haptic[SteamVR_Input_Sources.LeftHand].Execute(0, 1, 10, 1);
         }
-            useingLeftHand = true;
-
-        
+            useingLeftHand = true;      
     }
     public void GrabbedRight()
     {
         if (holdingTargetR == null)
         {
-            Collider[] pickUpColliders = Physics.OverlapSphere(rightContr.transform.position, distToPickUp, pickUpLayer);
-            if (pickUpColliders.Length > 0)
+            if (grabbedOnceR == false)
             {
-                holdingTargetR = pickUpColliders[0].gameObject.GetComponent<Rigidbody>();
-                grabbedR = pickUpColliders[0].gameObject;
-            }
-            else
-            {
-                Collider[] insectColliders = Physics.OverlapSphere(rightContr.transform.position, distToPickUp, insect);
-                if (insectColliders.Length > 0)
+                grabbedOnceR = true;
+                Collider[] pickUpColliders = Physics.OverlapSphere(rightContr.transform.position, distToPickUp, pickUpLayer);
+                if (pickUpColliders.Length > 0)
                 {
-                    grabbedInsectR = insectColliders[0].gameObject;
+                    holdingTargetR = pickUpColliders[0].gameObject.GetComponent<Rigidbody>();
+                    grabbedR = pickUpColliders[0].gameObject;
+                }
+                else
+                {
+                    Collider[] insectColliders = Physics.OverlapSphere(rightContr.transform.position, distToPickUp, insect);
+                    if (insectColliders.Length > 0)
+                    {
+                        grabbedInsectR = insectColliders[0].gameObject;
+                    }
                 }
             }
         }
@@ -97,9 +107,7 @@ public class PickUpSound : MonoBehaviour
             holdingTargetR.maxAngularVelocity = 15;
             SteamVR_Actions.default_Haptic[SteamVR_Input_Sources.RightHand].Execute(0, 1, 10, 1);
         }
-        useingRightHand = true;
-
-        
+        useingRightHand = true;     
     }
 
     void CompareSounds()
@@ -123,6 +131,7 @@ public class PickUpSound : MonoBehaviour
         explosion.newSpawnedL = null;
         holdingTargetL = null;
         grabbedSound = null;
+        grabbedOnceL = false;
     }
 
     public void UnGrabbedRight()
@@ -132,5 +141,6 @@ public class PickUpSound : MonoBehaviour
         explosion.newSpawnedR = null;
         holdingTargetR = null;
         grabbedSound = null;
+        grabbedOnceR = false;
     }
 }
