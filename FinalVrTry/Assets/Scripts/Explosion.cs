@@ -25,34 +25,52 @@ public class Explosion : MonoBehaviour
     public GameObject newSpawnedL;
     public GameObject newSpawnedR;
 
+    float MinX;
+    float MaxX; 
+    float MinY;
+    float MaxY; 
+    float MinZ; 
+    float MaxZ;
+    float xL;
+    float yL;
+    float zL;
+    float xR;
+    float yR;
+    float zR;
+
     private void Start()
     {
         field = FindObjectOfType<FieldSizeManager>().gameObject.GetComponent<FieldSizeManager>();
         pickUpSound = FindObjectOfType<PickUpSound>().gameObject.GetComponent<PickUpSound>();
         spawn = FindObjectOfType<Spawn>().gameObject.GetComponent<Spawn>();
+        MinX = 0;
+        MaxX = field.radius;
+        MinY = 0.25f;
+        MaxY = field.height;
+        MinZ = 0;
+        MaxZ = field.radius;
     }
     public void procideExplosion()
     {
+
         if (pickUpSound.useingRightHand && pickUpSound.useingLeftHand && pickUpSound.grabbedSound != null)
         {
             exploded = true;
-            float MinX = 0;
-            float MaxX = field.radius / 2;
-            float MinY = 0;
-            float MaxY = field.height;
-            float MinZ = 0;
-            float MaxZ = field.radius / 2;
-
-            float x = Random.Range(MinX, MaxX);
-            float y = Random.Range(MinY, MaxY);
-            float z = Random.Range(MinZ, MaxZ);
+            
 
             if (newSpawnedL == null && newSpawnedR == null)
             {
-                newSpawnedL = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], new Vector3(x,y,z), Quaternion.identity, field.gameObject.transform.parent);
+                xL = Random.Range(MinX, MaxX);
+                yL = Random.Range(MinY, MaxY);
+                zL = Random.Range(MinZ, MaxZ);
+
+                xR = Random.Range(MinX, MaxX);
+                yR = Random.Range(MinY, MaxY);
+                zR = Random.Range(MinZ, MaxZ);
+                newSpawnedL = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], new Vector3(xL,yL,zL), Quaternion.identity, field.gameObject.transform.parent);
                 spawn.currentSounds.Add(newSpawnedL);
 
-                newSpawnedR = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)],new Vector3(x,y,z), Quaternion.identity, field.gameObject.transform.parent);
+                newSpawnedR = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)],new Vector3(xR,yR,zR), Quaternion.identity, field.gameObject.transform.parent);
                 spawn.currentSounds.Add(newSpawnedR);
             }
             if (pickUpSound.grabbedSound != null)
@@ -76,6 +94,7 @@ public class Explosion : MonoBehaviour
 
         //get distance
         contrDist = Vector3.Distance(pickUpSound.leftContr.transform.position, pickUpSound.rightContr.transform.position);
+        
 
         //check distance
         if (contrDist >= maxDist)
@@ -86,6 +105,16 @@ public class Explosion : MonoBehaviour
                  procideExplosion();
                 
             }
+        }
+
+        if (field.inSetup)
+        {
+            MinX = 0;
+            MaxX = field.radius/2;
+            MinY = 0.25f;
+            MaxY = field.height + 0.5f;
+            MinZ = 0;
+            MaxZ = field.radius/2;
         }
     }
 }
