@@ -15,12 +15,12 @@ public class CheckSpawnpoint : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         inUse = true;
-        spawn.spawnpoints.Remove(gameObject);
+       // spawn.spawnpoints.Remove(gameObject);
     }
 
     private void OnTriggerExit(Collider other)
     {
         inUse = false;
-        spawn.spawnpoints.Add(gameObject);
+        //spawn.spawnpoints.Add(gameObject);
     }
 }
