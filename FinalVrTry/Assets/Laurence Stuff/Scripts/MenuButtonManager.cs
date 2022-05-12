@@ -39,6 +39,12 @@ public class MenuButtonManager : MonoBehaviour
         }
     }
 
+    public void ContinueGame()
+    {
+        MenuOverlayPause.enabled = false;
+        InMenu = false;
+    }
+
 
     public void RadiusOne()
     {
