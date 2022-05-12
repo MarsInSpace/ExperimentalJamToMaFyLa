@@ -16,10 +16,13 @@ public class Spawn : MonoBehaviour
     public GameObject left;
     public GameObject right;
 
+    
+
+
 
     private void Start()
     {
-        soundDistance = field.radius / 2;
+        soundDistance = field.height + field.armLength - field.radius/2;
         front.transform.position = field.middle + new Vector3(soundDistance, field.height, 0);
         back.transform.position = field.middle - new Vector3(soundDistance, -field.height, 0);
         left.transform.position = field.middle - new Vector3(0, -field.height, soundDistance);
@@ -44,10 +47,22 @@ public class Spawn : MonoBehaviour
                 currentSounds.RemoveAt(i);
         }
 
-        if (currentSounds.Count == 0 && spawnpoints.Count != 0)
+
+        if (currentSounds.Count == 0)
         {
-            currentSound = Instantiate(SoundSources[Random.Range(0, SoundSources.Count)], spawnpoints[Random.Range(0, spawnpoints.Count)].transform.position, Quaternion.identity, field.gameObject.transform.parent);
+            float MinX = 0;
+            float MaxX = field.radius/2;
+            float MinY = 0;
+            float MaxY = field.height;
+            float MinZ = 0;
+            float MaxZ = field.radius/2;
+
+            float x = Random.Range(MinX, MaxX);
+            float y = Random.Range(MinY, MaxY);
+            float z = Random.Range(MinZ, MaxZ);
+            currentSound = Instantiate(SoundSources[Random.Range(0, SoundSources.Count)], new Vector3(x,y,z), Quaternion.identity, field.gameObject.transform.parent);
             currentSounds.Add(currentSound); 
         }
     }
+
 }

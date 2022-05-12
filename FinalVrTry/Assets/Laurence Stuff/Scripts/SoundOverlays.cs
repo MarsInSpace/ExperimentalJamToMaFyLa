@@ -19,6 +19,8 @@ public class SoundOverlays: MonoBehaviour
     public AudioSource WaterSound;
     public AudioSource FridgeOpenSound;
     public AudioSource IceStormSound;
+    public AudioSource FridgeDoorOpenSound;
+    public AudioSource FridgeDoorCloseSound;
 
     public GameObject Playfield;
 
@@ -118,6 +120,8 @@ public class SoundOverlays: MonoBehaviour
 
         if (grabbedSound != null && grabbedSound.name == "Doors(Clone)")
         {
+            StartCoroutine("WaitFiveSeconds");
+            
             foreach (GameObject soundDing in currentSounds)
             {
                 lowpass = soundDing.GetComponent<AudioLowPassFilter>();
@@ -132,6 +136,9 @@ public class SoundOverlays: MonoBehaviour
     {
         if ((pickUpSound.grabbedL == null || pickUpSound.grabbedL.name != "Doors(Clone)") && (pickUpSound.grabbedR == null || pickUpSound.grabbedR.name != "Doors(Clone)"))
         {
+
+            FridgeDoorCloseSound.Play();
+            
             foreach (GameObject soundDing in currentSounds)
             {
  
@@ -142,5 +149,9 @@ public class SoundOverlays: MonoBehaviour
             IceStormSound.Stop();
         }
     }
-
+    IEnumerator WaitFiveSeconds()
+    {
+        FridgeDoorOpenSound.Play();
+        yield return new WaitForSeconds(1);
+    }
 }
