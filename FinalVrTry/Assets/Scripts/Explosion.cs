@@ -64,20 +64,20 @@ public class Explosion : MonoBehaviour
                 yL = Random.Range(MinY, MaxY);
                 zL = Random.Range(MinZ, MaxZ);
 
-                xR = Random.Range(MinX, MaxX);
-                yR = Random.Range(MinY, MaxY);
-                zR = Random.Range(MinZ, MaxZ);
+                //xR = Random.Range(MinX, MaxX);
+                //yR = Random.Range(MinY, MaxY);
+                //zR = Random.Range(MinZ, MaxZ);
                 newSpawnedL = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], new Vector3(xL,yL,zL), Quaternion.identity, field.gameObject.transform.parent);
                 spawn.currentSounds.Add(newSpawnedL);
 
-                newSpawnedR = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)],new Vector3(xR,yR,zR), Quaternion.identity, field.gameObject.transform.parent);
-                spawn.currentSounds.Add(newSpawnedR);
+                //newSpawnedR = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)],new Vector3(xR,yR,zR), Quaternion.identity, field.gameObject.transform.parent);
+                //spawn.currentSounds.Add(newSpawnedR);
             }
-            if (pickUpSound.grabbedSound != null)
-            {
-                spawn.currentSounds.Remove(pickUpSound.grabbedSound);
-                Destroy(pickUpSound.grabbedSound);
-            }
+            //if (pickUpSound.grabbedSound != null)
+            //{
+            //    spawn.currentSounds.Remove(pickUpSound.grabbedSound);
+            //    Destroy(pickUpSound.grabbedSound);
+            //}
             
         }
         else
