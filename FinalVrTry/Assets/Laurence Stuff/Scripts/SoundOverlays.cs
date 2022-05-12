@@ -19,6 +19,7 @@ public class SoundOverlays: MonoBehaviour
     public AudioSource WaterSound;
     public AudioSource FridgeOpenSound;
     public AudioSource IceStormSound;
+    public AudioSource FridgeDoorClose;
 
     public GameObject Playfield;
 
@@ -132,6 +133,9 @@ public class SoundOverlays: MonoBehaviour
     {
         if ((pickUpSound.grabbedL == null || pickUpSound.grabbedL.name != "Doors(Clone)") && (pickUpSound.grabbedR == null || pickUpSound.grabbedR.name != "Doors(Clone)"))
         {
+
+            FridgeDoorClose.Play();
+            
             foreach (GameObject soundDing in currentSounds)
             {
  
@@ -142,5 +146,10 @@ public class SoundOverlays: MonoBehaviour
             IceStormSound.Stop();
         }
     }
-
+    IEnumerator WaitFiveSeconds()
+    {
+        print("Start waiting");
+        yield return new WaitForSeconds(5);
+        print("5 seconds has passed");
+    }
 }
