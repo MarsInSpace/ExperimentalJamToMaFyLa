@@ -426,11 +426,31 @@ PrefabInstance:
     - target: {fileID: 2348914, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1419008332}
+      objectReference: {fileID: 632968264}
     - target: {fileID: 3380982, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1348744359}
+      objectReference: {fileID: 1336759774}
+    - target: {fileID: 20000014031267948, guid: 4d293c8e162f3874b982baadd71153d2,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000014031267948, guid: 4d293c8e162f3874b982baadd71153d2,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000014031267948, guid: 4d293c8e162f3874b982baadd71153d2,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000014031267948, guid: 4d293c8e162f3874b982baadd71153d2,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114000010110554832, guid: 4d293c8e162f3874b982baadd71153d2,
         type: 3}
       propertyPath: onTransformUpdated.m_PersistentCalls.m_Calls.Array.size
@@ -552,12 +572,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onPressDown:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1174898854}
-        m_TargetAssemblyTypeName: FieldSizeManager, Assembly-CSharp
-        m_MethodName: TriggerPressed
+      - m_Target: {fileID: 808913368}
+        m_TargetAssemblyTypeName: SoundOverlays, Assembly-CSharp
+        m_MethodName: HallEffectR
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -569,7 +586,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 808913368}
         m_TargetAssemblyTypeName: SoundOverlays, Assembly-CSharp
-        m_MethodName: HallEffectR
+        m_MethodName: IceStromEffectR
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -591,9 +608,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 808913368}
-        m_TargetAssemblyTypeName: SoundOverlays, Assembly-CSharp
-        m_MethodName: IceStromEffectR
+  onPressDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1174898854}
+        m_TargetAssemblyTypeName: FieldSizeManager, Assembly-CSharp
+        m_MethodName: TriggerPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -681,33 +701,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onPressDown:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1174898854}
-        m_TargetAssemblyTypeName: FieldSizeManager, Assembly-CSharp
-        m_MethodName: TriggerPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 808913368}
-        m_TargetAssemblyTypeName: SoundOverlays, Assembly-CSharp
-        m_MethodName: IceStromEffectL
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 808913368}
         m_TargetAssemblyTypeName: SoundOverlays, Assembly-CSharp
         m_MethodName: HallEffectL
@@ -723,6 +716,21 @@ MonoBehaviour:
       - m_Target: {fileID: 808913368}
         m_TargetAssemblyTypeName: SoundOverlays, Assembly-CSharp
         m_MethodName: UnderWaterEffectL
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPressDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1174898854}
+        m_TargetAssemblyTypeName: FieldSizeManager, Assembly-CSharp
+        m_MethodName: TriggerPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2301,6 +2309,43 @@ MonoBehaviour:
   onPressUp:
     m_PersistentCalls:
       m_Calls: []
+--- !u!21 &632968264
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &668757791
 GameObject:
   m_ObjectHideFlags: 0
@@ -3775,7 +3820,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!43 &1348744359
+--- !u!43 &1336759774
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4098,43 +4143,6 @@ Transform:
   m_Father: {fileID: 607441316}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1419008332
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1446849930
 GameObject:
   m_ObjectHideFlags: 0
