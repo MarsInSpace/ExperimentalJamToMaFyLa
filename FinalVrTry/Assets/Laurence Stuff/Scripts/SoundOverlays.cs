@@ -41,6 +41,10 @@ public class SoundOverlays: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!WaterSound.isActiveAndEnabled) Debug.Log("Water disabled");
+        if (!IceStormSound.isActiveAndEnabled) Debug.Log("ice disabled");
+        if (!FridgeDoorOpenSound.isActiveAndEnabled) Debug.Log("fridge disabled");
+        if (!ChoirSound.isActiveAndEnabled) Debug.Log("choir disabled");
         UnderWaterEffectOFF();
         IceStormEffectOFF();
         HallEffectOFF();

@@ -43,11 +43,11 @@ public class Explosion : MonoBehaviour
         field = FindObjectOfType<FieldSizeManager>().gameObject.GetComponent<FieldSizeManager>();
         pickUpSound = FindObjectOfType<PickUpSound>().gameObject.GetComponent<PickUpSound>();
         spawn = FindObjectOfType<Spawn>().gameObject.GetComponent<Spawn>();
-        MinX = 0;
-        MaxX = field.radius;
+        MinX = -field.radius/2;
+        MaxX = field.radius/2;
         MinY = 0.25f;
         MaxY = field.height;
-        MinZ = 0;
+        MinZ = -field.radius/2;
         MaxZ = field.radius;
     }
     public void procideExplosion()
@@ -69,16 +69,22 @@ public class Explosion : MonoBehaviour
                 zR = Random.Range(MinZ, MaxZ);
                 newSpawnedL = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)], new Vector3(xL,yL,zL), Quaternion.identity, field.gameObject.transform.parent);
                 spawn.currentSounds.Add(newSpawnedL);
+               
+                if (pickUpSound.grabbedSound != null)
+                {
+                    newSpawnedR = pickUpSound.grabbedSound;
+                    //spawn.currentSounds.Remove(pickUpSound.grabbedSound);
+                    //Destroy(pickUpSound.grabbedSound);
+                    
+                }
+                if (newSpawnedR != null)
+                    newSpawnedR.transform.position = new Vector3(xR, yR, zR);
+
 
                 //newSpawnedR = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)],new Vector3(xR,yR,zR), Quaternion.identity, field.gameObject.transform.parent);
                 //spawn.currentSounds.Add(newSpawnedR);
 
-                if (pickUpSound.grabbedSound != null)
-                {
-                    //spawn.currentSounds.Remove(pickUpSound.grabbedSound);
-                    //Destroy(pickUpSound.grabbedSound);
-                    pickUpSound.grabbedSound.transform.position = new Vector3(xR, yR, zR);
-                }
+
             }
             //if (pickUpSound.grabbedSound != null)
             //{
@@ -116,11 +122,11 @@ public class Explosion : MonoBehaviour
 
         if (field.inSetup)
         {
-            MinX = 0;
+            MinX = -field.radius/2;
             MaxX = field.radius/2;
             MinY = 0.25f;
             MaxY = field.height + 0.5f;
-            MinZ = 0;
+            MinZ = -field.radius/2;
             MaxZ = field.radius/2;
         }
     }
