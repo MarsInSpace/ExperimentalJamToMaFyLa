@@ -55,19 +55,5 @@ public class ManageSoundVolume : MonoBehaviour
         {
             thisAudio.volume = 0.5f;
         }
-
-        /*foreach(var sound in spawnScr.currentSounds)
-        {
-            if (sound == thisAudio.gameObject) continue;
-
-            ManageSoundVolume soundVolumeScr = sound.GetComponent<ManageSoundVolume>();
-
-            if(soundVolumeScr.inFocus)
-            {
-                thisAudio.volume = 0f;
-            }
-        }*/
-
-        //inFocus = false; // muss immer am Ende zurückgesetzt werden, damit die Sounds nicht in Focus bleiben wenn sie nicht mehr fokussiert sind
     }
 }
