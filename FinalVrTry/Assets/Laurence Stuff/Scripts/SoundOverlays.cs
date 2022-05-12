@@ -26,7 +26,7 @@ public class SoundOverlays: MonoBehaviour
 
     public GameObject grabbedSound;
 
-
+    bool iceStormRunning = false;
 
     // Start is called before the first frame update
     void Start()
@@ -43,9 +43,9 @@ public class SoundOverlays: MonoBehaviour
     {
         currentSounds = spawnClass.currentSounds;
 
-        if (!WaterSound.isActiveAndEnabled) Debug.Log("Water disabled");
-        if (!IceStormSound.isActiveAndEnabled) Debug.Log("ice disabled");
-        if (!ChoirSound.isActiveAndEnabled) Debug.Log("choir disabled");
+        if (WaterSound.isPlaying) Debug.Log("Water playing");
+        if (IceStormSound.isPlaying) Debug.Log("ice playing");
+        if (ChoirSound.isPlaying) Debug.Log("choir playing");
         UnderWaterEffectOFF();
         IceStormEffectOFF();
         HallEffectOFF();
@@ -153,9 +153,10 @@ public class SoundOverlays: MonoBehaviour
     public void IceStorm(GameObject grabbedSound)
     {
 
-        if (grabbedSound != null && grabbedSound.name == "Kühlschrank(Clone)")
+        if (grabbedSound != null && grabbedSound.name == "Kühlschrank(Clone)" && !iceStormRunning)
         {
-            StartCoroutine("WaitFiveSeconds");
+            iceStormRunning = true;
+            StartCoroutine(WaitFiveSeconds());
         }
     }
 
@@ -163,7 +164,7 @@ public class SoundOverlays: MonoBehaviour
     {
         if ((pickUpSound.grabbedL == null || pickUpSound.grabbedL.name != "Kühlschrank(Clone)") && (pickUpSound.grabbedR == null || pickUpSound.grabbedR.name != "Kühlschrank(Clone)"))
         {
-
+            iceStormRunning = false;
             FridgeDoorCloseSound.Play();
             
             foreach (GameObject soundDing in currentSounds)
@@ -174,21 +175,23 @@ public class SoundOverlays: MonoBehaviour
 
             }
             IceStormSound.Stop();
+            Debug.Log("stop ice");
         }
     }
     IEnumerator WaitFiveSeconds()
     {
         if (!FridgeDoorOpenSound.isActiveAndEnabled) Debug.Log("fridge disabled");
         FridgeDoorOpenSound.Play();
-        yield return new WaitForSeconds(1);
-
+        Debug.Log("play fridge");
         foreach (GameObject soundDing in currentSounds)
         {
             lowpass = soundDing.GetComponent<AudioLowPassFilter>();
             lowpass.cutoffFrequency = Mathf.Lerp(5007.7f, 2000, 1);
-
+            Debug.Log("change audio properties for " + soundDing);
         }
         IceStormSound.Play();
+        Debug.Log("start ice");
+        yield return new WaitForSeconds(1);
     }
 
 
