@@ -20,13 +20,13 @@ public class MenuButtonManager : MonoBehaviour
     }
 
 
-   /* private void Update()
+   private void Update()
     {
         if (InMenu == true)
             cameraBlack.CameraCullingMenu();
         else
             cameraBlack.CameraCullingNothing();
-    }*/
+    }
 
     public void StartTheGame()
     {

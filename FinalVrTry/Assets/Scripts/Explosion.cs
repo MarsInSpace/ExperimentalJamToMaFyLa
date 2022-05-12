@@ -45,7 +45,7 @@ public class Explosion : MonoBehaviour
         spawn = FindObjectOfType<Spawn>().gameObject.GetComponent<Spawn>();
         MinX = -field.radius/2;
         MaxX = field.radius/2;
-        MinY = 0.25f;
+        MinY = 1;
         MaxY = field.height;
         MinZ = -field.radius/2;
         MaxZ = field.radius;
@@ -123,7 +123,7 @@ public class Explosion : MonoBehaviour
         {
             MinX = -field.radius/2;
             MaxX = field.radius/2;
-            MinY = 0.25f;
+            MinY = 1;
             MaxY = field.height + 0.5f;
             MinZ = -field.radius/2;
             MaxZ = field.radius/2;
