@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 7387499273934851345}
   - component: {fileID: 6923482428236001558}
   - component: {fileID: 6895781559550238056}
+  - component: {fileID: -3048229053399215027}
   m_Layer: 3
   m_Name: Office
   m_TagString: Sound
@@ -312,6 +313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisAudio: {fileID: 0}
   inFocus: 0
+  otherSoundInFocus: 0
 --- !u!114 &1242490473251330406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,3 +379,15 @@ MonoBehaviour:
   velocity: 0
   waitlengh: 0
   mindestVelocity: 7
+--- !u!114 &-3048229053399215027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293361789734822487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43c10fbdef881f4b8ebec6efac90c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
