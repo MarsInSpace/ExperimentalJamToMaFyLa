@@ -45,7 +45,7 @@ public class Explosion : MonoBehaviour
         spawn = FindObjectOfType<Spawn>().gameObject.GetComponent<Spawn>();
         MinX = -field.radius/2;
         MaxX = field.radius/2;
-        MinY = 0.25f;
+        MinY = 1;
         MaxY = field.height;
         MinZ = -field.radius/2;
         MaxZ = field.radius;
@@ -74,16 +74,11 @@ public class Explosion : MonoBehaviour
                 {
                     newSpawnedR = pickUpSound.grabbedSound;
                     spawn.currentSounds.Remove(pickUpSound.grabbedSound);
+                    GameObject anotherNew = Instantiate(pickUpSound.grabbedSound, new Vector3(xR, yR, zR), Quaternion.identity, field.gameObject.transform.parent);
+                    spawn.currentSounds.Add(anotherNew);
                     Destroy(pickUpSound.grabbedSound);
                     
                 }
-                if (newSpawnedR != null)
-                {
-                    GameObject anotherNew = Instantiate(newSpawnedR, new Vector3(xR, yR, zR), Quaternion.identity);
-                    spawn.currentSounds.Add(anotherNew);
-                    newSpawnedR = null;
-                }
-
 
                 //newSpawnedR = Instantiate(spawn.SoundSources[Random.Range(0, spawn.SoundSources.Count)],new Vector3(xR,yR,zR), Quaternion.identity, field.gameObject.transform.parent);
                 //spawn.currentSounds.Add(newSpawnedR);
@@ -128,7 +123,7 @@ public class Explosion : MonoBehaviour
         {
             MinX = -field.radius/2;
             MaxX = field.radius/2;
-            MinY = 0.25f;
+            MinY = 1;
             MaxY = field.height + 0.5f;
             MinZ = -field.radius/2;
             MaxZ = field.radius/2;

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 6902625805836050309}
   m_Layer: 3
   m_Name: Doors
-  m_TagString: Sound
+  m_TagString: Doors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -300,6 +300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisAudio: {fileID: 0}
   inFocus: 0
+  otherSoundInFocus: 0
 --- !u!114 &4034445850851373594
 MonoBehaviour:
   m_ObjectHideFlags: 0

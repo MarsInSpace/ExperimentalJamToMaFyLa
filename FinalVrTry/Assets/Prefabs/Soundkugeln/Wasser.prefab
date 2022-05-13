@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 1254658549979490036}
   m_Layer: 3
   m_Name: Wasser
-  m_TagString: Sound
+  m_TagString: Wasser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -312,6 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisAudio: {fileID: 0}
   inFocus: 0
+  otherSoundInFocus: 0
 --- !u!114 &8424472560267134510
 MonoBehaviour:
   m_ObjectHideFlags: 0

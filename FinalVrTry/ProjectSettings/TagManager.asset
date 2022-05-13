@@ -12,6 +12,9 @@ TagManager:
   - Sound
   - FieldSizeManager
   - MenuButtonManager
+  - Doors
+  - "K\xFChlschrank"
+  - Wasser
   layers:
   - Default
   - TransparentFX
