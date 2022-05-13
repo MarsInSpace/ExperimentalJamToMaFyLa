@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 2314916478410870669}
   - component: {fileID: 5548337902433835553}
   - component: {fileID: 6138304434448395563}
+  - component: {fileID: -8540807288462513021}
   m_Layer: 3
   m_Name: Manmade
   m_TagString: Sound
@@ -318,6 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisAudio: {fileID: 0}
   inFocus: 0
+  otherSoundInFocus: 0
 --- !u!114 &4402714921801236660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,3 +385,15 @@ MonoBehaviour:
   velocity: 0
   waitlengh: 0
   mindestVelocity: 7
+--- !u!114 &-8540807288462513021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7256211841801296815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43c10fbdef881f4b8ebec6efac90c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
