@@ -100,13 +100,14 @@ public class SoundOverlays: MonoBehaviour
 
     public void UnderWaterEffectOFF()
     {
-        if ((pickUpSound.grabbedL == null || pickUpSound.grabbedL.tag != "Wasser") && (pickUpSound.grabbedR == null || pickUpSound.grabbedR.tag != "Wasser"))
+        if (waterSoundRunning && ((pickUpSound.grabbedL == null || pickUpSound.grabbedL.tag != "Wasser") && (pickUpSound.grabbedR == null || pickUpSound.grabbedR.tag != "Wasser")))
         {
             waterSoundRunning = false;
 
+            Debug.Log("Name Wasser wird erkannt");
+
             foreach (GameObject soundDing in currentSounds)
             {
-                //Debug.Log("Name Wasser wird erkannt");
                 lowpass = soundDing.GetComponent<AudioLowPassFilter>();
 
                 lowpass.cutoffFrequency = Mathf.Lerp(1160, 5007.7f, 1);
@@ -127,7 +128,7 @@ public class SoundOverlays: MonoBehaviour
         
         if (grabbedSound != null && grabbedSound.tag == "Wasser" && !waterSoundRunning)
         {
-            //Debug.Log("If abfrage wird gemacht");
+            Debug.Log("If abfrage wird gemacht");
             waterSoundRunning = true;
 
             foreach (GameObject soundDing in currentSounds)
@@ -168,7 +169,7 @@ public class SoundOverlays: MonoBehaviour
 
     public void IceStormEffectOFF()
     {
-        if ((pickUpSound.grabbedL == null || pickUpSound.grabbedL.tag != "Kühlschrank") && (pickUpSound.grabbedR == null || pickUpSound.grabbedR.tag != "Kühlschrank"))
+        if (iceStormRunning &&((pickUpSound.grabbedL == null || pickUpSound.grabbedL.tag != "Kühlschrank") && (pickUpSound.grabbedR == null || pickUpSound.grabbedR.tag != "Kühlschrank")))
         {
             iceStormRunning = false;
             FridgeDoorCloseSound.Play();
