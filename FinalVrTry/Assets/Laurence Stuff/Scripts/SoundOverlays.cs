@@ -162,7 +162,7 @@ public class SoundOverlays: MonoBehaviour
 
     public void IceStormEffectOFF()
     {
-        if ((pickUpSound.grabbedL == null || pickUpSound.grabbedL.name != "Kühlschrank(Clone)") && (pickUpSound.grabbedR == null || pickUpSound.grabbedR.name != "Kühlschrank(Clone)"))
+        if (iceStormRunning &&((pickUpSound.grabbedL == null || pickUpSound.grabbedL.name != "Kühlschrank(Clone)") && (pickUpSound.grabbedR == null || pickUpSound.grabbedR.name != "Kühlschrank(Clone)")))
         {
             iceStormRunning = false;
             FridgeDoorCloseSound.Play();
