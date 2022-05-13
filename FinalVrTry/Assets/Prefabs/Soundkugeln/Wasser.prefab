@@ -378,7 +378,7 @@ MonoBehaviour:
   klirr: {fileID: 8300000, guid: 2ee774e85332c8d4a8785e47ae5b874c, type: 3}
   velocity: 0
   waitlengh: 0
-  mindestVelocity: 7
+  mindestVelocity: 5.2
 --- !u!114 &-4405636872182722333
 MonoBehaviour:
   m_ObjectHideFlags: 0

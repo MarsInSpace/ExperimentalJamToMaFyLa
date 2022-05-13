@@ -9,6 +9,8 @@ public class Spawn : MonoBehaviour
     public List<GameObject> currentSounds = new List<GameObject>();
     public GameObject currentSound;
 
+    public bool mayhem = false;
+
     private void Update()
     {
         for (var i = currentSounds.Count - 1; i > -1; i--)
@@ -30,9 +32,27 @@ public class Spawn : MonoBehaviour
             float x = Random.Range(MinX, MaxX);
             float y = Random.Range(MinY, MaxY);
             float z = Random.Range(MinZ, MaxZ);
-            currentSound = Instantiate(SoundSources[Random.Range(0, SoundSources.Count)], new Vector3(x,y,z), Quaternion.identity, field.gameObject.transform.parent);
-            currentSounds.Add(currentSound); 
+
+            if (!mayhem)
+            {
+                currentSound = Instantiate(SoundSources[Random.Range(0, SoundSources.Count)], new Vector3(x, y, z), Quaternion.identity, field.gameObject.transform.parent);
+                currentSounds.Add(currentSound);
+            }
+
+            if(mayhem)
+            {
+                Debug.Log("instantiate " + SoundSources[2]);
+                currentSound = Instantiate(SoundSources[2], new Vector3(x, y, z), Quaternion.identity, field.gameObject.transform.parent);
+                currentSounds.Add(currentSound);
+                currentSound = Instantiate(SoundSources[2], new Vector3(x, y, z), Quaternion.identity, field.gameObject.transform.parent);
+                currentSounds.Add(currentSound);
+            }
         }
+    }
+
+    public void ToggleMayhem()
+    {
+        mayhem = true;
     }
 
 }

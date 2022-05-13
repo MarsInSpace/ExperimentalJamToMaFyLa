@@ -10,6 +10,8 @@ public class RandomAudio : MonoBehaviour
     int index;
     AudioSource source;
 
+    Spawn spawn;
+
     private void Awake()
     {
         source = this.GetComponent<AudioSource>();
@@ -27,14 +29,24 @@ public class RandomAudio : MonoBehaviour
 
     private void Start()
     {
+        spawn = GameObject.Find("Soundmanager").GetComponent<Spawn>();
         ChooseRandomSound();
         Play();
     }
 
+
     private void ChooseRandomSound()
     {
-        index = Random.Range(0, sound.Length);
-        currentSound = sound[index];
+        if (spawn.mayhem && this.gameObject.layer == 7)
+        {
+            index = 0;
+            currentSound = sound[index];
+        }
+        else
+        {
+            index = Random.Range(0, sound.Length);
+            currentSound = sound[index];
+        }
     }
 
     public void Play()
